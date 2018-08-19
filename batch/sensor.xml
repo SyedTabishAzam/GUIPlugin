@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="sensor">
+  <Database_Name>batch</Database_Name>
+  <Timestamp>1481830602</Timestamp>
+  <Profile_ID>17</Profile_ID>
+</Profile_Category>

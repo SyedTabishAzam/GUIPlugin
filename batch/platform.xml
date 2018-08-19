@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="platform">
+  <Database_Name>batch</Database_Name>
+  <Timestamp>1481830601</Timestamp>
+  <Profile_ID>14</Profile_ID>
+  <Profile_Instance Name="tank">platform/tank.platform</Profile_Instance>
+  <Profile_Instance Name="wing">platform/wing.platform</Profile_Instance>
+</Profile_Category>

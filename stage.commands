@@ -1,0 +1,97 @@
+#
+# Command file for running STAGE in batch mode
+# --------------------------------------------
+#
+# Lines starting with a '#' are comments. You may use any number of
+# spaces, tabs and blank lines to separate items in this file.
+#
+# This file specifies the list of tests to be executed one after the
+# other.  There are 2 ways of defining a test; either by running a
+# scenario or by restoring a snapshot.  Therefore the syntax is
+# either:
+#
+#RUN                     My Test
+#Scenario                : my_scenario
+#
+# for a test consisting in running the scenario named "my_scenario",
+# or:
+#
+#RESTORE                 My Test
+#SnapFile                : my_snapshot.snb
+#
+# for a test consisting in restoring the file named "my_snapshot". 
+#
+# Note that the line beginning with RUN or RESTORE must always be the
+# the first one for each test.
+#
+# The following command lines can also be used to further define a
+# test:
+#
+#Delay                   : 15
+#
+# to specify the delay (in seconds) before starting the execution
+# of the test,
+#
+#Seed                    : 1010
+#
+# to specify the seed used by the random number generator in the
+# simulation process,
+#
+#Stop_Cond               : Stop_At_Time 00:00:10
+#
+# to specify the simulation time (in hour:minute:second) at which
+# the execution of the test will be stopped,
+#
+#Stop_Cond               : Stop_When_Ent_Killed Submarine1
+#
+# to specify the name of the entity whose death will trigger the
+# end of the test execution. The name cannot contain unicode characters.
+#
+#Snapshot				 : 10.0  30.0  40.0
+#
+# to specify the simulation times (in seconds) at which at snapshot
+# will be taken.  The numbers of times indicates the number of 
+# snapshot that will be taken.
+#
+# Note that on a command line, comments can be added at the end of
+# the line after the commanded value.
+#
+# In addition, the test can also modify some characteristics of
+# specific entities in the scenario.  By default, the following
+# commands are available:
+#
+#set_ptf0_req_speed		: 50.0
+#
+# to modify the requested speed (in m/s) of the first platform,
+#
+#set_ptf1_req_alt		: 1000.0
+#
+# to modify the requested altitude (in meters) of the second platform.
+#
+
+RUN                     Test1
+Scenario                : cr_scenario
+Delay                   : 15            (seconds)
+Seed                    : 1010
+Stop_Cond               : Stop_At_Time 00:00:10
+
+RUN                     Test2
+Scenario                : cr_scn_impact 
+Delay                   : 5
+Seed                    : 3232
+Stop_Cond               : Stop_At_Time 00:0:15
+
+RUN                     Test3
+Scenario                : cr_scenario 
+Delay                   : 5
+Seed                    : 3232
+Stop_Cond               : Stop_At_Time 00:00:10
+set_ptf1_req_alt		: 1000.0
+set_ptf0_req_speed		: 50.0
+
+RUN                     Test4
+Scenario                : cr_scenario
+Delay                   : 5            (seconds)
+Seed                    : 1010
+Stop_Cond               : Stop_At_Time 00:00:10
+

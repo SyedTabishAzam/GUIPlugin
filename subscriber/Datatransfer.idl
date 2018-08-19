@@ -1,0 +1,12 @@
+module Datatransfer {
+#pragma DCPS_DATA_TYPE "Datatransfer::Variables"
+#pragma DCPS_DATA_KEY "Datatransfer::Variables var_id"
+
+  struct Variables {
+    long var_id;
+    string entity;
+  	long count;
+    string vars;
+    string type;
+  };
+};

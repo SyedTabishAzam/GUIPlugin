@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile_Category Name="scenario">
+  <Database_Name>batch</Database_Name>
+  <Timestamp>1084674972</Timestamp>
+  <Profile_ID>11</Profile_ID>
+  <Profile_Instance Name="cr_scenario">scenario/cr_scenario.scenario</Profile_Instance>
+  <Profile_Instance Name="cr_scn_impact">scenario/cr_scn_impact.scenario</Profile_Instance>
+</Profile_Category>

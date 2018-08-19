@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Database SYSTEM "Database.dtd">
+<Database Name="batch" Stage_Version="16.0.0">
+  <Timestamp>1481830601</Timestamp>
+  <Profile>batch/art_part.xml</Profile>
+  <Profile>batch/atmos.xml</Profile>
+  <Profile>batch/countermeasure.xml</Profile>
+  <Profile>batch/designator.xml</Profile>
+  <Profile>batch/detailed_building_prof.xml</Profile>
+  <Profile>batch/formation.xml</Profile>
+  <Profile>batch/iff.xml</Profile>
+  <Profile>batch/me_mission.xml</Profile>
+  <Profile>batch/me_submission.xml</Profile>
+  <Profile>batch/ocean.xml</Profile>
+  <Profile>batch/platform.xml</Profile>
+  <Profile>batch/radio.xml</Profile>
+  <Profile>batch/sensor.xml</Profile>
+  <Profile>batch/special_zone.xml</Profile>
+  <Profile>batch/supply.xml</Profile>
+  <Profile>batch/weapon.xml</Profile>
+</Database>

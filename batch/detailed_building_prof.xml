@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="detailed_building_prof">
+  <Database_Name>batch</Database_Name>
+  <Timestamp>1481830601</Timestamp>
+  <Profile_ID>8</Profile_ID>
+</Profile_Category>

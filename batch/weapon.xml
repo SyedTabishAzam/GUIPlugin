@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="weapon">
+  <Database_Name>batch</Database_Name>
+  <Timestamp>1481830602</Timestamp>
+  <Profile_ID>20</Profile_ID>
+  <Profile_Instance Name="cruise_msl">weapon/cruise_msl.weapon</Profile_Instance>
+  <Profile_Instance Name="track_msl">weapon/track_msl.weapon</Profile_Instance>
+</Profile_Category>
