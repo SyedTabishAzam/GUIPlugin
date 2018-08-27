@@ -90,6 +90,12 @@ public:
    /// @brief The path to the scenario or snapshot file.
    std::wstring ScenarioFilePath;
 
+   /// @brief The path to the initial publisher
+   std::wstring InitPublisherPath;
+
+   /// @brief The path to command subscriber
+   std::wstring CommandSubscriberPath;
+
    /// @brief A flag indicating if the run implies restoring a snapshot.
    sqxBool IsSnapshotRestore;
 

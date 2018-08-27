@@ -128,7 +128,7 @@ private:
    afx_msg void OnBrowseScenarioClicked();
    afx_msg void OnStopTimeCheckStateChanged();
    afx_msg void OnStopEntityCheckStateChanged();
-   afx_msg void OnMinPlatformCountsCheckStateChanged();
+   
    afx_msg void OnRunSelectedButtonClicked();
    afx_msg void OnRunAllButtonClicked();
    afx_msg void OnCancelRunButtonClicked();
@@ -145,17 +145,14 @@ private:
    CEdit NameEdit;
    CEdit DatabaseEdit;
    CEdit ScenarioEdit;
-   CEdit IterationsEdit;
-   CEdit SnapshotTimesEdit;
+   CEdit PublisherPathEdit;
+   CEdit SubscriberPathEdit;
    CEdit DelayEdit;
    CEdit SeedEdit;
    CButton StopTimeCheck;
    CEdit StopTimeEdit;
    CButton StopEntityCheck;
    CEdit StopEntityEdit;
-   CButton MinPlatformCountsCheck;
-   CEdit MinRedPlatformCountEdit;
-   CEdit MinBluePlatformCountEdit;
    CListBox RunsListBox;
    CEdit OutputEdit;
    CButton CancelRunButton;
@@ -165,4 +162,6 @@ private:
 public:
 	afx_msg void OnBnClickedActivateMission();
 	afx_msg void OnEnChangeStopEntityEdit();
+	afx_msg void OnBnClickedPublisherBrowse();
+	afx_msg void OnBnClickedSubscriberBrowse();
 };

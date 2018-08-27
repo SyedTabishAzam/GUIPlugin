@@ -1,0 +1,8 @@
+<Associated>
+    <QRF>
+        <Variable>
+            <Field Type="VariableName">GoToZone</Field>
+            <Field Type="VariableType">type_string</Field>
+        </Variable>
+    </QRF>
+</Associated>

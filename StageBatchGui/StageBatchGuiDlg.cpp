@@ -58,17 +58,17 @@ static const int s_RunEditControlIDs[] =
    IDC_DATABASE_BROWSE_BUTTON,
    IDC_SCENARIO_EDIT,
    IDC_SCENARIO_BROWSE_BUTTON,
-   IDC_ITERATIONS_EDIT,
-   IDC_SNAPSHOT_TIMES_EDIT,
    IDC_DELAY_EDIT,
    IDC_SEED_EDIT,
    IDC_STOP_TIME_CHECK,
    IDC_STOP_TIME_EDIT,
    IDC_STOP_ENTITY_CHECK,
    IDC_STOP_ENTITY_EDIT,
-   IDC_MIN_PLATFORM_COUNTS_CHECK,
-   IDC_MIN_RED_PLATFORM_COUNT_EDIT,
-   IDC_MIN_BLUE_PLATFORM_COUNT_EDIT
+   IDC_PUBLISHERPATH_EDIT,
+   IDC_PUBLISHER_BROWSE,
+   IDC_SUBSCRIBERPATH_EDIT,
+   IDC_SUBSCRIBER_BROWSE
+
 };
 
 static const int s_RunEditControlCount =
@@ -147,7 +147,6 @@ void CStageBatchGuiDlg::DoDataExchange(CDataExchange* pDX)
    DDX_Control(pDX, IDC_NAME_EDIT, NameEdit);
    DDX_Control(pDX, IDC_DATABASE_EDIT, DatabaseEdit);
    DDX_Control(pDX, IDC_SCENARIO_EDIT, ScenarioEdit);
-   DDX_Control(pDX, IDC_ITERATIONS_EDIT, IterationsEdit);
    DDX_Control(pDX, IDC_DELAY_EDIT, DelayEdit);
    DDX_Control(pDX, IDC_SEED_EDIT, SeedEdit);
    DDX_Control(pDX, IDC_STOP_TIME_CHECK, StopTimeCheck);
@@ -157,13 +156,8 @@ void CStageBatchGuiDlg::DoDataExchange(CDataExchange* pDX)
    DDX_Control(pDX, IDC_RUN_LIST, RunsListBox);
    DDX_Control(pDX, IDC_OUTPUT_EDIT, OutputEdit);
    DDX_Control(pDX, IDC_CANCEL_RUN_BUTTON, CancelRunButton);
-   DDX_Control(pDX, IDC_ACTIVATE_MISSION, ActivateMissionButton);
-   DDX_Control(pDX, IDC_DEAC_MISSION, DeactivateButton);
-   DDX_Control(pDX, IDC_ENTITY_MISSION, MissionEntityEdit);
-   DDX_Control(pDX, IDC_SNAPSHOT_TIMES_EDIT, SnapshotTimesEdit);
-   DDX_Control(pDX, IDC_MIN_PLATFORM_COUNTS_CHECK, MinPlatformCountsCheck);
-   DDX_Control(pDX, IDC_MIN_RED_PLATFORM_COUNT_EDIT, MinRedPlatformCountEdit);
-   DDX_Control(pDX, IDC_MIN_BLUE_PLATFORM_COUNT_EDIT, MinBluePlatformCountEdit);
+   DDX_Control(pDX, IDC_PUBLISHERPATH_EDIT, PublisherPathEdit);
+   DDX_Control(pDX, IDC_SUBSCRIBERPATH_EDIT, SubscriberPathEdit);
 }
 
 BEGIN_MESSAGE_MAP(CStageBatchGuiDlg, CDialog)
@@ -184,8 +178,8 @@ BEGIN_MESSAGE_MAP(CStageBatchGuiDlg, CDialog)
    ON_BN_CLICKED(IDC_RUN_ALL_BUTTON, &CStageBatchGuiDlg::OnRunAllButtonClicked)
    ON_MESSAGE(WM_APPEND_OUTPUT_LINE, OnAppendOutputLine)
    ON_BN_CLICKED(IDC_CANCEL_RUN_BUTTON, &CStageBatchGuiDlg::OnCancelRunButtonClicked)
-   ON_BN_CLICKED(IDC_MIN_PLATFORM_COUNTS_CHECK, &CStageBatchGuiDlg::OnMinPlatformCountsCheckStateChanged)
-   ON_BN_CLICKED(IDC_ACTIVATE_MISSION, &CStageBatchGuiDlg::OnBnClickedActivateMission)
+   ON_BN_CLICKED(IDC_PUBLISHER_BROWSE, &CStageBatchGuiDlg::OnBnClickedPublisherBrowse)
+   ON_BN_CLICKED(IDC_SUBSCRIBER_BROWSE, &CStageBatchGuiDlg::OnBnClickedSubscriberBrowse)
 END_MESSAGE_MAP()
 
 
@@ -213,12 +207,13 @@ BOOL CStageBatchGuiDlg::OnInitDialog()
       ToolTip.AddTool(&ScenarioEdit,
          L"The path to the scenario or snapshot file to be used. "
          L"This can be only a filename for scenarios under the 'scenario' folder of their databases.");
-      ToolTip.AddTool(&IterationsEdit,
-         L"The number of times to execute this simulation run.");
-      ToolTip.AddTool(&SnapshotTimesEdit,
-         L"The times, in seconds and separated by spaces, "
-         L"at which simulation snapshots should be taken.");
-      ToolTip.AddTool(&DelayEdit,
+	  ToolTip.AddTool(&PublisherPathEdit,
+		  L"The path to the publisher path to be used. "
+		  L"This is the exe file used to publish initial scenerio data.");
+	  ToolTip.AddTool(&SubscriberPathEdit,
+		  L"The path to the subscriber to be used. "
+		  L"This is the listener used to get commands from another commander (publisher).");
+       ToolTip.AddTool(&DelayEdit,
          L"The time, in seconds, to wait before every iteration of this simulation run.");
       ToolTip.AddTool(&SeedEdit,
          L"The random number generator seed used for every iteration. "
@@ -229,10 +224,8 @@ BOOL CStageBatchGuiDlg::OnInitDialog()
          L"the actual execution time can be less than this value.");
       ToolTip.AddTool(&StopEntityEdit,
          L"The name of the entity whose death causes the simulation run to stop.");
-      ToolTip.AddTool(&MinRedPlatformCountEdit,
-         L"The minimum number of red platforms below which the simulation should stop.");
-      ToolTip.AddTool(&MinBluePlatformCountEdit,
-         L"The minimum number of blue platforms below which the simulation should stop.");
+
+
       ToolTip.Activate(TRUE);
 	}
 
@@ -322,18 +315,18 @@ void CStageBatchGuiDlg::vUpdateControlsFromRun(const SimulationRun& a_rRun)
    NameEdit.SetWindowTextW(a_rRun.Name.c_str());
    DatabaseEdit.SetWindowTextW(a_rRun.DatabaseFilePath.c_str());
    ScenarioEdit.SetWindowTextW(a_rRun.ScenarioFilePath.c_str());
-   IterationsEdit.SetWindowTextW(TO_WSTR(a_rRun.IterationCount));
-
+   PublisherPathEdit.SetWindowTextW(a_rRun.InitPublisherPath.c_str());
+   SubscriberPathEdit.SetWindowTextW(a_rRun.CommandSubscriberPath.c_str());
+   
    // Convert the snapshot times to a string
-   std::wstring _SnapshotTimesString;
+  /* std::wstring _SnapshotTimesString;
    for (size_t i = 0; i < a_rRun.SnapshotTimesInSeconds.size(); ++i)
    {
       if (i > 0) _SnapshotTimesString += L" ";
 
       sqxDouble _SnapshotTimeInSeconds = a_rRun.SnapshotTimesInSeconds[i];
       _SnapshotTimesString += TO_WSTR(_SnapshotTimeInSeconds);
-   }
-   SnapshotTimesEdit.SetWindowTextW(_SnapshotTimesString.c_str());
+   }*/
 
    // Startup
    DelayEdit.SetWindowTextW(TO_WSTR(a_rRun.DelayInSeconds));
@@ -347,23 +340,15 @@ void CStageBatchGuiDlg::vUpdateControlsFromRun(const SimulationRun& a_rRun)
    sig_time_to_str(stopTime, _TimeBuffer);
    StopTimeEdit.SetWindowTextW(g_pOSSystem->AnsiToUnicode(_TimeBuffer).c_str());
  
-   StopTimeEdit.EnableWindow((a_rRun.stopConditions & StopConditions_ElapsedTime)
-      ? TRUE : FALSE);
-
+   StopTimeEdit.EnableWindow(TRUE);
+   StopTimeCheck.SetCheck(TRUE);
    StopEntityCheck.SetCheck((a_rRun.stopConditions & StopConditions_DeadEntity)
       ? BST_CHECKED : BST_UNCHECKED);
    StopEntityEdit.SetWindowTextW(a_rRun.StopEntityName.c_str());
    StopEntityEdit.EnableWindow((a_rRun.stopConditions & StopConditions_DeadEntity)
       ? TRUE : FALSE);
    
-   MinPlatformCountsCheck.SetCheck((a_rRun.stopConditions & StopConditions_MinPlatforms)
-      ? BST_CHECKED : BST_UNCHECKED);
-   MinRedPlatformCountEdit.SetWindowTextW(TO_WSTR(a_rRun.MinRedPlatformCount));
-   MinRedPlatformCountEdit.EnableWindow((a_rRun.stopConditions & StopConditions_MinPlatforms)
-      ? TRUE : FALSE);
-   MinBluePlatformCountEdit.SetWindowTextW(TO_WSTR(a_rRun.MinBluePlatformCount));
-   MinBluePlatformCountEdit.EnableWindow((a_rRun.stopConditions & StopConditions_MinPlatforms)
-      ? TRUE : FALSE);
+  
 }
 
 void CStageBatchGuiDlg::vUpdateRunFromControls(SimulationRun& a_rRun)
@@ -374,33 +359,9 @@ void CStageBatchGuiDlg::vUpdateRunFromControls(SimulationRun& a_rRun)
    GetEditTextW(NameEdit, a_rRun.Name);
    GetEditTextW(DatabaseEdit, a_rRun.DatabaseFilePath);
    GetEditTextW(ScenarioEdit, a_rRun.ScenarioFilePath);
-   
-   // Consider it a snapshot restore if it has the snapshot file extension
-   std::wstring::size_type _DotIndex = a_rRun.ScenarioFilePath.find_last_of('.');
-   a_rRun.IsSnapshotRestore = _DotIndex != std::wstring::npos
-      && a_rRun.ScenarioFilePath.substr(_DotIndex + 1) == L"snb";
+   GetEditTextW(PublisherPathEdit, a_rRun.InitPublisherPath);
+   GetEditTextW(SubscriberPathEdit, a_rRun.CommandSubscriberPath);
 
-   IterationsEdit.GetWindowTextW(_TempString);
-   a_rRun.IterationCount = lexical_cast<sqxUInt>(_TempString.GetString(), 0);
-
-   // Parse the snapshot times.
-   SnapshotTimesEdit.GetWindowTextW(_TempString);
-   std::wstringstream _SnapshotTimesStringStream;
-   _SnapshotTimesStringStream << _TempString.GetString();
-   a_rRun.SnapshotTimesInSeconds.clear();
-   while (!_SnapshotTimesStringStream.eof())
-   {
-      sqxDouble _SnapshotTimeInSeconds;
-      _SnapshotTimesStringStream >> _SnapshotTimeInSeconds;
-      if (_SnapshotTimesStringStream.fail()
-         || _SnapshotTimesStringStream.bad())
-      {
-         // Parsing error, stop
-         break;
-      }
-
-      a_rRun.SnapshotTimesInSeconds.push_back(_SnapshotTimeInSeconds);
-   }
 
    // Startup
    DelayEdit.GetWindowTextW(_TempString);
@@ -429,13 +390,7 @@ void CStageBatchGuiDlg::vUpdateRunFromControls(SimulationRun& a_rRun)
    StopEntityEdit.GetWindowTextW(_TempString);
    a_rRun.StopEntityName = _TempString.GetString();
    
-   if (MinPlatformCountsCheck.GetCheck() == BST_CHECKED)
-      _StopConditions |= StopConditions_MinPlatforms;
-   
-   MinBluePlatformCountEdit.GetWindowTextW(_TempString);
-   a_rRun.MinBluePlatformCount = lexical_cast<sqxUInt>(_TempString.GetString(), 0);
-   MinRedPlatformCountEdit.GetWindowTextW(_TempString);
-   a_rRun.MinRedPlatformCount = lexical_cast<sqxUInt>(_TempString.GetString(), 0);
+  
 
    a_rRun.stopConditions = static_cast<StopConditions>(_StopConditions);
 }
@@ -643,38 +598,12 @@ void CStageBatchGuiDlg::OnStopEntityCheckStateChanged()
       StopEntityCheck.GetCheck() == BST_CHECKED ? TRUE : FALSE);
 }
 
-void CStageBatchGuiDlg::OnMinPlatformCountsCheckStateChanged()
-{
-   BOOL _Enabled = MinPlatformCountsCheck.GetCheck() == BST_CHECKED ? TRUE : FALSE;
-   MinRedPlatformCountEdit.EnableWindow(_Enabled);
-   MinBluePlatformCountEdit.EnableWindow(_Enabled);
-}
+
 
 void CStageBatchGuiDlg::OnRunSelectedButtonClicked()
 {
 	vExecuteRuns(SQX_FALSE);
-	
-	
-	MissionEntityEdit.EnableWindow(TRUE);
-
-	/* Open batch file */
-	char file_name[256];
-	sprintf(file_name, "S:\\presagis\\stage\\GUIPlugin\\%s", SIM_MISSION_FILE);
-	
-	FILE* _pFile = fopen(SIM_MISSION_FILE, "w");
-	if (_pFile == NULL)
-	{
-		
-
-	}
-	else
-	{
-		fprintf(_pFile, "FALSE %s\n", " ");
-	}
-
-
-	fclose(_pFile);
-
+	DeleteEntityData();
 }
 
 void CStageBatchGuiDlg::OnRunAllButtonClicked()
@@ -727,54 +656,13 @@ LRESULT CStageBatchGuiDlg::OnAppendOutputLine(WPARAM wParam, LPARAM)
 }
 
 
-void CStageBatchGuiDlg::OnBnClickedActivateMission()
+void CStageBatchGuiDlg::OnBnClickedPublisherBrowse()
 {
-	// TODO: Add your control notification handler code here
-	
-	
-	std::wstring entityName;
-	GetEditTextW(MissionEntityEdit, entityName);
-	
-	
-	char ent[25] ;
-
-	int i = 0;
-	for (;;)
-	{
-		ent[i] = (wchar_t)entityName[i];
-		if (entityName[i] == '\0') break;
-		++i;
-	}
-
-	/* Open batch file */
-	char file_name[256];
-
-
-	sprintf(file_name, "%s%cGUIPlugin%c%s",
-		"S:\\presagis\\stage",
-		'\\', '\\', SIM_MISSION_FILE);
-	FILE* _pFile = fopen(SIM_MISSION_FILE, "w");
-	if (_pFile == NULL) 
-	{
-		DeactivateButton.EnableWindow(FALSE);
-		ActivateMissionButton.EnableWindow(TRUE);
-		
-	}
-	else
-	{
-		DeactivateButton.EnableWindow(TRUE);
-		ActivateMissionButton.EnableWindow(FALSE);
-		fprintf(_pFile, "TRUE %s \n", ent);
-	}
-	
-
-	fclose(_pFile);
-
-}
-
-void store_entity_name(char* buf_ptr)
-{
-	
+	vBrowsePath(PublisherPathEdit, L"Publisher file\0*.exe\0");
 }
 
 
+void CStageBatchGuiDlg::OnBnClickedSubscriberBrowse()
+{
+	vBrowsePath(SubscriberPathEdit, L"Subscriber file\0*.exe\0");
+}

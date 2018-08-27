@@ -9,7 +9,7 @@
 #include <string>
 #include <time.h>
 #include <ace/Log_Msg.h>
-
+#include <tuple>
 #include <dds/DdsDcpsInfrastructureC.h>
 #include <dds/DdsDcpsPublicationC.h>
 
@@ -20,10 +20,18 @@
 #include "dds/DCPS/StaticIncludes.h"
 
 #include "DatatransferTypeSupportImpl.h"
+#include "tinyxml2.h"
+#include "tinyxml2.cpp"
+using namespace tinyxml2;
+using namespace std;
 
+#ifndef XMLCheckResult
+#define XMLCheckResult(a_eResult) if (a_eResult != XML_SUCCESS) { printf("Error: %i\n", a_eResult); }
+#endif
+
+vector<tuple<string, string, string,int >> ParseVariableFile();
 const int NUM_SECONDS = 3;
 
-using namespace std;
 
 
 
@@ -144,45 +152,56 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 
 
-    Datatransfer::Variables variable;
-    variable.var_id = 0;
+	
+	vector<tuple<string, string, string, int >> circular = ParseVariableFile();
 
-   // Datatransfer::stringSeq varnameseq;
-   // Datatransfer::stringSeq vartypeseq;
+	vector<tuple<string, string, string, int >>::iterator i;
 
-	//varnameseq[0] = "MyOwn";
-	//varnameseq[1] = "Try";
+	int varId = 0;
+	for (i = circular.begin(); i != circular.end(); i++)
+	{
+		Datatransfer::Variables variable;
+		
 
-	//vartypeseq[0] = "type_bool";
-	//vartypeseq[1] = "type_int";
-    variable.entity = "Friend1";
-	variable.count = 2;
-	variable.vars = "MyOwn,Try";
-	variable.type = "type_bool,type_int";
+		string entityName = get<0>(*i);
+		string variableName = get<1>(*i);
+		string variableType = get<2>(*i);
+		int count = get<3>(*i);
+
+		variable.var_id = varId;
+		variable.entity = entityName.c_str();
+		variable.count = count;
+		variable.vars = variableName.c_str();
+		variable.type = variableType.c_str();
+		
+	
+
+	
 
 
-    DDS::ReturnCode_t error = message_writer->write(variable, DDS::HANDLE_NIL);
-	++variable.count;
-	++variable.var_id;
+		DDS::ReturnCode_t error = message_writer->write(variable, DDS::HANDLE_NIL);
+		++variable.count;
+		++variable.var_id;
 
-    if (error != DDS::RETCODE_OK) {
-        ACE_ERROR((LM_ERROR,
-            ACE_TEXT("ERROR: %N:%l: main() -")
-            ACE_TEXT(" write returned %d!\n"), error));
-    }
+		if (error != DDS::RETCODE_OK) {
+			ACE_ERROR((LM_ERROR,
+				ACE_TEXT("ERROR: %N:%l: main() -")
+				ACE_TEXT(" write returned %d!\n"), error));
+		}
 
 
-            // Wait for samples to be acknowledged
-    DDS::Duration_t timeout = { 30, 0 };
-    if (message_writer->wait_for_acknowledgments(timeout) != DDS::RETCODE_OK) {
-        ACE_ERROR_RETURN((LM_ERROR,
-            ACE_TEXT("ERROR: %N:%l: main() -")
-            ACE_TEXT(" wait_for_acknowledgments failed!\n")),
-            -1);
+				// Wait for samples to be acknowledged
+		DDS::Duration_t timeout = { 30, 0 };
+		if (message_writer->wait_for_acknowledgments(timeout) != DDS::RETCODE_OK) {
+			ACE_ERROR_RETURN((LM_ERROR,
+				ACE_TEXT("ERROR: %N:%l: main() -")
+				ACE_TEXT(" wait_for_acknowledgments failed!\n")),
+				-1);
            
-    }
+		}
+		varId++;
 
-
+	}
     // Clean-up!
 	
     participant->delete_contained_entities();
@@ -198,4 +217,84 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
   return 0;
 }
 
+vector<tuple<string, string, string,int >> ParseVariableFile()
+{
+	XMLDocument xmlDoc;
+	string filepath = "OutputFile.xml";
+	XMLError eResult = xmlDoc.LoadFile(filepath.c_str());
+	XMLCheckResult(eResult);
 
+	vector<tuple<string, string, string, int >> circular;
+	//Root element is the Associated tag
+	XMLNode * pRoot = xmlDoc.FirstChild();
+	if (pRoot == nullptr) cout << XML_ERROR_FILE_READ_ERROR << endl;
+
+
+	//Iterate over every found entity
+	XMLNode * entities = pRoot->FirstChild();
+	while (entities != nullptr)
+	{
+
+		string entityname;
+		entityname = entities->ToElement()->Name();
+
+		//For each entity find all its variables and iterate
+		XMLElement * varNode = entities->FirstChildElement("Variable");
+
+
+		//If no variable found then continue
+		if (varNode == nullptr)
+		{
+			entities = entities->NextSibling();
+			continue;
+		}
+
+		int varCount = 0;
+		string variableNameString = "";
+		string variableTypeString = "";
+		while (varNode != nullptr)
+		{
+			// Extract variable name
+			XMLElement * variableName = varNode->FirstChildElement("Field");
+
+
+			//Extract variable type
+			XMLElement * variableType = variableName->NextSiblingElement("Field");
+
+			if (varCount == 0)
+			{
+				const char * textHolder = nullptr;
+				textHolder = variableName->GetText();
+				variableNameString = textHolder;
+
+
+
+				textHolder = variableType->GetText();
+				variableTypeString = textHolder;
+
+
+
+			}
+			else
+			{
+				const char * textHolder = nullptr;
+				textHolder = variableName->GetText();
+				string temporary = textHolder;
+				variableNameString += "," + temporary;
+
+				textHolder = variableType->GetText();
+				string temporary2 = textHolder;
+				variableTypeString += "," + temporary2;
+			}
+
+			//Iterate and go to next variable
+			varCount++;
+			varNode = varNode->NextSiblingElement("Variable");
+		}
+		//Record data in vector
+		circular.push_back(make_tuple(entityname, variableNameString, variableTypeString, varCount));
+		entities = entities->NextSibling();
+	}
+
+	return circular;
+}

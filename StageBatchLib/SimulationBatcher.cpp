@@ -136,7 +136,7 @@ sqxBool SimulationBatcher::Execute(const SimulationRun& a_rRun, sqxUInt a_ID)
          stage_get_ansi_path(STAGE_DIR),
          SIG_PATH_SEP, SIG_PATH_SEP, SIM_CMD_FILE);
 
-      if (!WriteCommandsFile(a_rRun, a_ID, i, file_name) || CancelExecutionFlag)
+	  if (!WriteCommandsFile(a_rRun, a_ID, i, file_name, a_rRun.InitPublisherPath.c_str(), a_rRun.CommandSubscriberPath.c_str()) || CancelExecutionFlag)
          return SQX_FALSE;
 
       // Load the scenario
@@ -224,7 +224,7 @@ SimulationBatcher::SimulationBatcher()
 // P R I V A T E   M E T H O D S
 //=============================================================================
 sqxBool SimulationBatcher::WriteCommandsFile(const SimulationRun& a_rRun,
-   sqxUInt a_RunID, sqxUInt a_IterationID, const sqxChar* a_pFilePath)
+	sqxUInt a_RunID, sqxUInt a_IterationID, const sqxChar* a_pFilePath, const wchar_t* pubpart, const wchar_t* subpart)
 {
    FILE* _pFile = fopen(a_pFilePath, "w");
    if (_pFile == NULL)
@@ -237,7 +237,9 @@ sqxBool SimulationBatcher::WriteCommandsFile(const SimulationRun& a_rRun,
    fprintf(_pFile, "SEED %d\n", (int)a_rRun.Seed);
    fprintf(_pFile, "RUN %d\n", (int)a_RunID);
    fprintf(_pFile, "ITERATION %d\n", (int)a_IterationID);
-   
+   fwprintf(_pFile, L"PUBLISHER %ls\n", pubpart);
+   fwprintf(_pFile, L"SUBSCRIBER %ls\n", subpart);
+
    // Add the stop conditions that are enabled.
    if (a_rRun.stopConditions & StopConditions_ElapsedTime)
    {

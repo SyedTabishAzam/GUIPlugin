@@ -97,8 +97,10 @@ void StringToWchar(std::string str, wchar_t*& wchr);
 int UpdateVariableValue(simValue*&, string);
 void SaveDataForPublish();
 void UpdateDataForPublish();
-BOOL PublishData(DWORD & exitCode);
+int CheckSimStatus(string);
+BOOL StartProcess(DWORD & exitCode,string);
 void CreateXML();
+
 //void ReadXML();
 /***************************************************************/
 /* E X T E R N A L   D A T A                                   */
@@ -125,6 +127,8 @@ static char *tab_config_args[] =
 	STOP_CONDITION_MIN_RED_PLATFORM_COUNT,
 	/* 10 Stop when blue entity count drops below */
 	STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT,
+	"PUBLISHER",	//11
+	"SUBSCRIBER"	//12
 };
 
 static Sim_Global_Data *gdp; /* Pointer to the SIM global data */
@@ -139,12 +143,16 @@ static int min_blue_platform_count = 0;
 static int stopped = TRUE;
 static int run_number = 0;
 static int iteration_number = 0;
-static int checkonthis = 0;
-
+static int DELAY = 0;
+static string pubpart = "";
+static string subpart = "";
 static wchar_t mission_entity_name[GSIM_SCN_PTF_SCN_PTF_NAME_LENGTH + 1] = { L'\0' };
-bool init = false;
+bool INIT = FALSE;
+bool EXEC_CALL = FALSE;
+bool TOGGLE = TRUE;
 int initialEntities = 0;
 const bool DEBUG = false;
+
 /***************************************************************/
 /***************************************************************/
 /* L O C A L   F U N C T I O N S   C O D E   S E C T I O N     */
@@ -226,7 +234,8 @@ void WriteXML(vector<string> entityList, vector<map<string, string>> varListList
 
 		counter++;
 	}
-	XMLError eResult = xmlDoc.SaveFile("OutputFile.xml");
+	
+	XMLError eResult = xmlDoc.SaveFile("S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\EXECUTABLES\\OutputFile.xml");
 	XMLCheckResult(eResult);
 
 }
@@ -767,6 +776,19 @@ static void parse_config_file(void)
 		}
 		break;
 
+		/* STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT */
+		case 11:
+		{
+			pubpart = string(buf_ptr);
+		}
+		break;
+
+		/* STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT */
+		case 12:
+		{
+			subpart = string(buf_ptr);
+		}
+		break;
 
 		case -1: /* Error, command could not be validated */
 			sig_print("Command keyword \"%s\" not recognized !\n", buf_ptr2);
@@ -895,7 +917,7 @@ int um_batch_init(void *gd)
 
 	sig_print("Stage Batch Sim Plugin Initialized\n");
 	// SaveDataForPublish();
-	init = true;
+	
 	//CreateXML();
 	//ReadXML();
 	return(0);
@@ -910,10 +932,14 @@ int um_batch_init(void *gd)
 /*-------------------------------------------------------------*/
 void um_batch_ctrl(int ctrl_type)
 {
+	
+	
 	switch (ctrl_type)
 	{
 	case CTRL_START:
 	{
+		INIT = TRUE;
+		EXEC_CALL = FALSE;
 		char out_file_name[SIG_PATH_MAX];
 		time_t rawtime;
 		struct tm timeinfo;
@@ -959,10 +985,12 @@ void um_batch_ctrl(int ctrl_type)
 
 	case CTRL_RESET:
 	{
+		
 		if (seed != 0)
 		{
 			sig_srand48(seed);/* Set random generator seed if selected in command file */
 		}
+		
 	}
 	break;
 
@@ -1012,7 +1040,7 @@ int CheckActivatedMission(int debug)
 	int ret_val = 0;
 	fstream missionFile(SIM_MISSION_FILE, ios::in);
 	string line;
-	
+	int simCommand = 0;
 	if (missionFile.is_open())
 	{
 		
@@ -1035,6 +1063,13 @@ int CheckActivatedMission(int debug)
 			
 				Commands newCommands;
 				newCommands.entityName = v.at(1);
+
+				
+				
+				simCommand = CheckSimStatus(newCommands.entityName);
+				
+				
+
 				newCommands.variableName = v.at(2);
 				newCommands.value = v.at(3);
 				CommandQueue.push_back(newCommands);
@@ -1054,7 +1089,7 @@ int CheckActivatedMission(int debug)
 		
 	}
 
-	return ret_val;
+	return ret_val + simCommand;
 	
 }
 /*-------------------------------------------------------------*/
@@ -1067,250 +1102,277 @@ int CheckActivatedMission(int debug)
 /*-------------------------------------------------------------*/
 void um_batch_exec()
 {
-	
-	if (checkonthis % 500 == 0)
+	if (EXEC_CALL==TRUE)
 	{
-		checkonthis = 1;
-		if (CheckActivatedMission(1) == 1)
-		{			
-			sig_print("New mission commands found \n");
+
+
+		if (DELAY % 500 == 0)
+		{
+			DELAY = 1;
+			if (CheckActivatedMission(1) == 1)
+			{			
+				sig_print("New mission commands found \n");
+				TOGGLE = TRUE;
+			}
+			else
+			{
+				if (TOGGLE)
+					sig_print("Nothing to execute \n");
+				TOGGLE = FALSE;
+			}
+
 		}
 		else
 		{
-			sig_print("Nothing to execute \n");
+			DELAY = DELAY + 1;
 		}
 
-	}
-	else
-	{
-		checkonthis = checkonthis + 1;
-	}
+		int i;
+		Entity_Data* entity;
+		int stop_entity_is_alive = 0;
+		int alive_red_platform_count = 0;
+		int alive_blue_platform_count = 0;
+		int should_stop = 0;
 
-	int i;
-	Entity_Data* entity;
-	int stop_entity_is_alive = 0;
-	int alive_red_platform_count = 0;
-	int alive_blue_platform_count = 0;
-	int should_stop = 0;
-
-	/* Check if the stop simulation time is reached */
-	if (!stopped
-		&& stop_time > 0.0
-		&& prd->system_data.sim_time >= stop_time)
-	{
-		sig_print("Stop condition reached: Sim time %f reached.\n",
-			(float)stop_time);
-		should_stop = 1;
-	}
-
-	if (gdp == NULL)
-		sig_print("Warning - Global Simulation data is empty \n");
-	/* Check if the entity whose death causes the run to stop is alive */
-
-	std::vector<std::string> entityList;
-	std::vector<wstring> missionList;
-	
-	for (i = 0; i < gdp->priv->config.max_nr_entities; i++)
-	{
-		
-		entity = &gdp->priv->ent[i];
-		if (entity_is_allocated(entity)
-			&& !entity_is_wreck(entity)
-			&& entity_is_ptf(entity)
-			&& entity->scn_ptf != NULL)
+		/* Check if the stop simulation time is reached */
+		if (!stopped
+			&& stop_time > 0.0
+			&& prd->system_data.sim_time >= stop_time)
 		{
+			sig_print("Stop condition reached: Sim time %f reached.\n",
+				(float)stop_time);
+			should_stop = 1;
+		}
 
-			//WriteData to publish
-			if (init)
+		if (gdp == NULL)
+			sig_print("Warning - Global Simulation data is empty \n");
+		/* Check if the entity whose death causes the run to stop is alive */
+
+		std::vector<std::string> entityList;
+		std::vector<wstring> missionList;
+	
+		for (i = 0; i < gdp->priv->config.max_nr_entities; i++)
+		{
+		
+			
+			entity = &gdp->priv->ent[i];
+			if (entity_is_allocated(entity)
+				&& !entity_is_wreck(entity)
+				&& entity_is_ptf(entity)
+				&& entity->scn_ptf != NULL)
 			{
-				
-				Task_Ent_Data* op = entity->task;
-				if (op != NULL)
+
+				//WriteData to publish
+				if (INIT==TRUE)
 				{
-					if (op->mission != NULL)
+				
+					Task_Ent_Data* op = entity->task;
+					if (op != NULL)
 					{
-						
-						wchar_t* temp1 = (entity->state->name);
-						wchar_t temp2[40];
-						wcsncpy(temp2, (op->mission_name), 40);
-						if (temp2 != NULL && temp1!=NULL)
+						if (op->mission != NULL)
 						{
+						
+							wchar_t* temp1 = (entity->state->name);
+							wchar_t temp2[40];
+							wcsncpy(temp2, (op->mission_name), 40);
+							if (temp2 != NULL && temp1!=NULL)
+							{
 
 
-							wchar_t* extension = L".me_mission";
-							wchar_t* withExtension = wcscat(temp2, extension);
+								wchar_t* extension = L".me_mission";
+								wchar_t* withExtension = wcscat(temp2, extension);
 							
 
-							string tempEntity = WcharToString(temp1);
+								string tempEntity = WcharToString(temp1);
 
-							entityList.push_back(tempEntity);
-							missionList.push_back(withExtension);
+								entityList.push_back(tempEntity);
+								missionList.push_back(withExtension);
+							}
 						}
 					}
+
+					initialEntities++;
 				}
 
-				initialEntities++;
-			}
-
-			/*if (wcscmp(entity->scn_ptf->scn_ptf_name, stop_entity_name) == 0)
-			{
-			stop_entity_is_alive = 1;
-			entity->scn_ptf->mission_active = GSIM_SCN_PTF_MISSION_ACTIVE_YES;
-
-
-			}*/
-
-			for (auto i = CommandQueue.begin(); i != CommandQueue.end(); ++i)
-			{
-				wchar_t * entityName;
-
-				StringToWchar((*i).entityName, entityName);
-				
-				//wcsncpy(missionName, (*i).c_str(), 40);
-
-				/*If entity name equals mission entitiy name*/
-				if (wcscmp(entity->scn_ptf->scn_ptf_name, entityName) == 0)
+				/*if (wcscmp(entity->scn_ptf->scn_ptf_name, stop_entity_name) == 0)
 				{
+				stop_entity_is_alive = 1;
+				entity->scn_ptf->mission_active = GSIM_SCN_PTF_MISSION_ACTIVE_YES;
+
+
+				}*/
+
+				for (auto i = CommandQueue.begin(); i != CommandQueue.end(); ++i)
+				{
+					wchar_t * entityName;
+
 					
-					string variableNameString = (*i).variableName;
+
+					StringToWchar((*i).entityName, entityName);
+				
+					//wcsncpy(missionName, (*i).c_str(), 40);
+
+					/*If entity name equals mission entitiy name*/
+					if (wcscmp(entity->scn_ptf->scn_ptf_name, entityName) == 0)
+					{
+					
+						string variableNameString = (*i).variableName;
 						
 
-					Task_Ent_Data* op = entity->task;
+						Task_Ent_Data* op = entity->task;
 
-					if (op == NULL)
-					{
-
-						sig_print("No Mission found");
-					}
-					else
-					{
-						wchar_t* temp = op->mission_name;
-						sig_print("Mission ");
-						sig_wprint(temp);
-						sig_print(" Found \n");
-
-						/*DeComment this block to make mission active again*/
-						// int missionStart = sim_task_start_mission(entity);
-						// if (missionStart == 0)
-						// {
-						//	 sig_print("Success \n");
-						// }
-
-						/*This Block converts char to wchar pointer */
-						//std::string strVar = "MyOwnVariable";
-						wchar_t* variableName;
-						StringToWchar(variableNameString, variableName);
-
-
-						simValue* local = sim_task_get_local_variable(entity, variableName);
-						
-						if (local == NULL)
+						if (op == NULL)
 						{
-							sig_print("Failed - Variable not found \n");
 
+							sig_print("No Mission found");
 						}
 						else
 						{
-							
-							string varValue = (*i).value;
-							
-							if (UpdateVariableValue(local, varValue) == 0)
+							wchar_t* temp = op->mission_name;
+							sig_print("Mission ");
+							sig_wprint(temp);
+							sig_print(" Found \n");
+
+							/*DeComment this block to make mission active again*/
+							// int missionStart = sim_task_start_mission(entity);
+							// if (missionStart == 0)
+							// {
+							//	 sig_print("Success \n");
+							// }
+
+							/*This Block converts char to wchar pointer */
+							//std::string strVar = "MyOwnVariable";
+							wchar_t* variableName;
+							StringToWchar(variableNameString, variableName);
+
+
+							simValue* local = sim_task_get_local_variable(entity, variableName);
+						
+							if (local == NULL)
 							{
-								sig_print("Value of Variable changed \n");		
+								sig_print("Failed - Variable not found \n");
+
 							}
 							else
 							{
-								sig_print("Error changing value for variable: %s\n", variableNameString);
-							}
 							
+								string varValue = (*i).value;
+							
+								if (UpdateVariableValue(local, varValue) == 0)
+								{
+									sig_print("Value of Variable changed \n");		
+								}
+								else
+								{
+									sig_print("Error changing value for variable: %s\n", variableNameString);
+								}
+							
+							}
+
 						}
 
-					}
-
-						//entity->active_time = prd->system_data.sim_time;
+							//entity->active_time = prd->system_data.sim_time;
 						
-				}
+					}
 
 
 				
 
-			}
+				}
 
 			
 
 			
 
 
-			if (entity->scn_ptf->mission_active == GSIM_SCN_PTF_MISSION_ACTIVE_NO)
-			{
-				//	sig_print("Mission activated\n");
-				//	entity->scn_ptf->mission_active = GSIM_SCN_PTF_MISSION_ACTIVE_YES;
-			}
+				if (entity->scn_ptf->mission_active == GSIM_SCN_PTF_MISSION_ACTIVE_NO)
+				{
+					//	sig_print("Mission activated\n");
+					//	entity->scn_ptf->mission_active = GSIM_SCN_PTF_MISSION_ACTIVE_YES;
+				}
 
-			switch (entity->scn_ptf->color)
-			{
-			case GSIM_SCN_PTF_COLOR_PTF_ID_BLUE:
-				alive_blue_platform_count++;
-				break;
+				switch (entity->scn_ptf->color)
+				{
+				case GSIM_SCN_PTF_COLOR_PTF_ID_BLUE:
+					alive_blue_platform_count++;
+					break;
 
-			case GSIM_SCN_PTF_COLOR_PTF_ID_RED:
-				alive_red_platform_count++;
-				break;
+				case GSIM_SCN_PTF_COLOR_PTF_ID_RED:
+					alive_red_platform_count++;
+					break;
+				}
 			}
 		}
-	}
 
-	CommandQueue.clear();
+		CommandQueue.clear();
 
-	if (init == true )
-	{
-		HandleData(entityList, missionList);
-		DWORD ecode;
-		BOOL succ = PublishData(ecode);
-		if (ecode == 0)
+		if (INIT)
 		{
-			sig_print("Data transmission successful \n");
+			HandleData(entityList, missionList);
+		}
+		INIT = FALSE;
+
+		/*if (alive_red_platform_count < min_red_platform_count
+			|| alive_blue_platform_count < min_blue_platform_count)
+		{
+			sig_print("Stop condition reached: %d/%d red and %d/%d blue platforms remain.\n",
+				alive_red_platform_count, min_red_platform_count,
+				alive_blue_platform_count, min_blue_platform_count);
+			should_stop = 1;
+		}
+
+		if (stop_entity_name[0] != L'\0' && !stop_entity_is_alive)
+		{
+			sig_wprint(L"Stop condition reached: Entity '%ls' is dead.\n",
+				&stop_entity_name[0]);
+			should_stop = 1;
+		}*/
+
+		if (should_stop)
+		{
+			stopped = TRUE;
+			INIT = TRUE;
+			EXEC_CALL = FALSE;
+			sim_rtc_stop(0);
 		}
 		else
 		{
-			if (ecode == 259)
-			{
-				sig_print("Subscriber not found. \n");
-			}
-			sig_print("Publisher failed! Ending RTC to avoid standalone play \n");
-			should_stop = 1;
+			um_batch_grab_data();
 		}
 	}
-	init = false;
-
-	/*if (alive_red_platform_count < min_red_platform_count
-		|| alive_blue_platform_count < min_blue_platform_count)
-	{
-		sig_print("Stop condition reached: %d/%d red and %d/%d blue platforms remain.\n",
-			alive_red_platform_count, min_red_platform_count,
-			alive_blue_platform_count, min_blue_platform_count);
-		should_stop = 1;
-	}
-
-	if (stop_entity_name[0] != L'\0' && !stop_entity_is_alive)
-	{
-		sig_wprint(L"Stop condition reached: Entity '%ls' is dead.\n",
-			&stop_entity_name[0]);
-		should_stop = 1;
-	}*/
-
-	if (should_stop)
-	{
-		stopped = TRUE;
-		init = true;
-		sim_rtc_stop(0);
-	}
-	else
-	{
-		um_batch_grab_data();
-	}
 }
-void KillProcess()
+
+int CheckSimStatus(string simCommand)
+{
+	int ret_val = 0;
+	if (simCommand == "RTC_STOP" || simCommand == "RTC_RESTART" )
+	{
+		um_batch_ctrl(CTRL_STOP);
+		sim_rtc_stop(0);
+		sig_print("SIMULATION STOPPED BY USER \n");
+		ret_val = 1;
+	}
+
+	if (simCommand == "RTC_RESET")
+	{
+		sig_print("Resetting Simulation. Click 'Play' when ready \n");
+		sim_rtc_stop(0);
+		ret_val = 1;
+	}
+
+	
+
+	if (simCommand == "RTC_PLAY")
+	{
+		sim_rtc_start(0);
+		INIT = FALSE;
+		EXEC_CALL = TRUE;
+		ret_val = 1;
+	}
+	return ret_val;
+	
+}
+void KillProcess(string proc)
 {
 	HANDLE hProcessSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPALL, 0);
 
@@ -1327,7 +1389,11 @@ Label:Return = Process32First(hProcessSnapShot, &ProcessEntry);
 
 	do
 	{
-		int value = _tcsicmp(ProcessEntry.szExeFile, _T("publisher.exe"));
+		int value = -1;
+		if (proc == "PUBLISHER")
+			value = _tcsicmp(ProcessEntry.szExeFile, _T("InitialPublisher.exe"));
+		if (proc == "SUBSCRIBER")
+			value = _tcsicmp(ProcessEntry.szExeFile, _T("CommandSubscriber.exe"));
 		//replace the taskmgr.exe to the process u want to remove.
 		if (value == 0)
 		{
@@ -1340,12 +1406,29 @@ Label:Return = Process32First(hProcessSnapShot, &ProcessEntry);
 
 	CloseHandle(hProcessSnapShot);
 }
-BOOL PublishData(DWORD & exitCode)
+BOOL StartProcess(DWORD & exitCode,string proc )
 {
 	
-	KillProcess();
+	KillProcess(proc);
 	
-	CString cmdLine = "\"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\subscriber\\publisher.exe\" -DCPSConfigFile \"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\subscriber\\rtps.ini\"";
+
+	//CString cmdLine = "\"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\subscriber\\publisher.exe\" -DCPSConfigFile \"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\subscriber\\rtps.ini\"";
+	string maker = "";
+	CString currentDir;
+
+	if (proc == "PUBLISHER")
+	{
+
+		maker = "\"" + pubpart + "\"" + " -DCPSConfigFile rtps.ini";
+		currentDir = pubpart.substr(0, pubpart.find_last_of("\\")).c_str();
+	}
+	if (proc == "SUBSCRIBER")
+	{
+		maker = "\"" + subpart + "\"" + " -DCPSConfigFile rtps.ini";
+		currentDir = subpart.substr(0, subpart.find_last_of("\\")).c_str();
+	}
+
+	CString cmdLine = maker.c_str();
 	PROCESS_INFORMATION processInformation = { 0 };
 	STARTUPINFO startupInfo = { 0 };
 	startupInfo.cb = sizeof(startupInfo);
@@ -1353,28 +1436,32 @@ BOOL PublishData(DWORD & exitCode)
 
 
 	// Create the process
-
+	
 	BOOL result = CreateProcess(NULL, cmdLine.GetBuffer(nStrBuffer),
 		NULL, NULL, FALSE,
 		NORMAL_PRIORITY_CLASS | CREATE_NO_WINDOW,
-		NULL, NULL, &startupInfo, &processInformation);
+		NULL, currentDir, &startupInfo, &processInformation);
 	cmdLine.ReleaseBuffer();
 
 
 	if (!result)
 	{
-		// CreateProcess() failed
-		// Get the error from the system
-
-
-		// We failed.
 		return FALSE;
 	}
 	else
 	{
-		sig_print("Publisher started, Waiting for subscriber acknowledgemnt (timeout in 30 seconds) \n");
+		if (proc == "PUBLISHER")
+		{
+			sig_print("Publisher started, Waiting for subscriber acknowledgemnt (timeout in 30 seconds) \n");
+			WaitForSingleObject(processInformation.hProcess, 30000);
+		}
+		if (proc == "SUBSCRIBER")
+		{
+			sig_print("Starting subscriber now");
+			WaitForSingleObject(processInformation.hProcess, 0);
+		}
+		
 		// Successfully created the process.  Wait for it to finish.
-		WaitForSingleObject(processInformation.hProcess, 30000);
 
 		// Get the exit code.
 		result = GetExitCodeProcess(processInformation.hProcess, &exitCode);
@@ -1387,9 +1474,9 @@ BOOL PublishData(DWORD & exitCode)
 		if (!result)
 		{
 			// Could not get exit code.
-			sig_print("status code %d \n", exitCode);
-			if (exitCode == 259)
-				KillProcess();
+			sig_print("Status code %d \n", exitCode);
+			if (proc=="PUBLISHER" && exitCode == 259)
+				KillProcess(proc);
 			return FALSE;
 		}
 
@@ -1402,12 +1489,13 @@ BOOL PublishData(DWORD & exitCode)
 int UpdateVariableValue(simValue*& local, string varValue)
 {
 	sim_Value_Types varType = local->GetType();
+
 	int errorCode = 1;
 
-
+	
 	if (varType == SIM_BOOL)
 	{
-
+		
 		transform(varValue.begin(), varValue.end(), varValue.begin(), ::tolower);
 
 		if (varValue == "true")
@@ -1426,6 +1514,7 @@ int UpdateVariableValue(simValue*& local, string varValue)
 	if (varType == SIM_INT)
 	{
 		int updateValueVar = ConvertString<int>(varValue, errorCode);
+		
 		if (errorCode == 0)
 		{
 			local->operator=(updateValueVar);
@@ -1436,6 +1525,7 @@ int UpdateVariableValue(simValue*& local, string varValue)
 	if (varType == SIM_DOUBLE)
 	{
 		double updateValueVar = ConvertString<double>(varValue, errorCode);
+		
 		if (errorCode == 0)
 		{
 			local->operator=(updateValueVar);
@@ -1446,6 +1536,7 @@ int UpdateVariableValue(simValue*& local, string varValue)
 	if (varType == SIM_FLOAT)
 	{
 		float updateValueVar = ConvertString<float>(varValue, errorCode);
+		
 		if (errorCode == 0)
 		{
 
@@ -1454,11 +1545,14 @@ int UpdateVariableValue(simValue*& local, string varValue)
 
 	}
 
-	if (varType == SIM_STRING)
+	if (varType == SIM_WSTRING || varType==SIM_STRING)
 	{
+	
 		local->operator=(varValue);
+		errorCode = 0;
+		
 	}
-
+	
 	return errorCode;
 	
 
@@ -1517,6 +1611,7 @@ void um_batch_grab_data(void)
 
 void um_tmpl_daemon()
 {
+	CheckActivatedMission(0);
 }
 
 
@@ -1527,5 +1622,37 @@ void um_tmpl_daemon()
 /*-----------------------------------------------------------------------*/
 void um_tmpl_background()
 {
+	if (INIT)
+	{
+		
+		DWORD ecode;
+		BOOL succ = StartProcess(ecode, "PUBLISHER");
+		if (ecode == 0)
+		{
+			sig_print("Data transmission successful \n");
+			DWORD pcode = -1;
+			BOOL succ = StartProcess(pcode, "SUBSCRIBER");
+			if (pcode == 0 || pcode == 259)
+			{
+				sig_print("Subscriber started successfully \n");
+				EXEC_CALL = TRUE;
+			}
+			else
+			{
+				sig_print("Warning! Subscriber not started - please start subscriber manually \n");
+			}
+		}
+		else
+		{
+			if (ecode == 259)
+			{
+				sig_print("Subscriber not found. \n");
+			}
+			sig_print("Publisher failed! Ending RTC to avoid standalone play \n");
 
+			stopped = TRUE;
+			INIT = TRUE;
+			sim_rtc_stop(0);
+		}
+	}
 }

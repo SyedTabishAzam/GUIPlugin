@@ -1,0 +1,9 @@
+(Friend,[(MyOwnVariable,type_bool),(Try2Variable,type_bool),(TryVariable,type_double)]
+(Friend,[(MyOwnVariable,type_bool),(Try2Variable,type_bool),(TryVariable,type_double)]
+(Friend,[(MyOwnVariable,type_bool),(Try2Variable,type_bool),(TryVariable,type_double)]
+(Friend,[(MyOwnVariable,type_bool),(Try2Variable,type_bool),(TryVariable,type_double)]
+(Friend,[(MyOwnVariable,type_bool),(Try2Variable,type_bool),(TryVariable,type_double)]
+Friend>(MyOwnVariable,type_bool) (Try2Variable,type_bool) (TryVariable,type_double)
+Friend>(MyOwnVariable,type_bool) (Try2Variable,type_bool) (TryVariable,type_double)
+Friend>(MyOwnVariable,type_bool) (Try2Variable,type_bool) (TryVariable,type_double)
+Friend>(MyOwnVariable,type_bool) (Try2Variable,type_bool) (TryVariable,type_double)

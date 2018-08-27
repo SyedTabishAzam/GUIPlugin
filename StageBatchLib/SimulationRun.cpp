@@ -31,9 +31,9 @@
 // C O N S T R U C T O R S   A N D   D E S T R U C T O R S
 //=============================================================================
 SimulationRun::SimulationRun()
-   : Name(L"Unnamed"), IsSnapshotRestore(SQX_FALSE), IterationCount(1),
-   DelayInSeconds(0), Seed(0),
-   stopConditions(StopConditions_None), StopTimeInSeconds(0),
-   MinRedPlatformCount(0), MinBluePlatformCount(0)
+	: Name(L"Unnamed"), IsSnapshotRestore(SQX_FALSE), IterationCount(1),
+	DelayInSeconds(0), Seed(0),
+	stopConditions(StopConditions_None), StopTimeInSeconds(0),
+	MinRedPlatformCount(0), MinBluePlatformCount(0), InitPublisherPath(), CommandSubscriberPath()
 {
 }

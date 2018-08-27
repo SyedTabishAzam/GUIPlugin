@@ -125,7 +125,7 @@ private:
 
    /// @brief Writes the simulation command file for the given run.
    static sqxBool WriteCommandsFile(const SimulationRun& a_rRun,
-      sqxUInt a_RunID, sqxUInt a_IterationID, const sqxChar* a_pFilePath);
+	   sqxUInt a_RunID, sqxUInt a_IterationID, const sqxChar* a_pFilePath, const wchar_t*, const wchar_t*);
 
    //==========================================================================
    // P R I V A T E   F I E L D S

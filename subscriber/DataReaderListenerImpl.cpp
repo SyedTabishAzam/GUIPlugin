@@ -11,13 +11,16 @@
 #include "DataReaderListenerImpl.h"
 #include "DatatransferTypeSupportC.h"
 #include "DatatransferTypeSupportImpl.h"
-
+#include <fstream>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <time.h>
 using namespace std;
-void ReadCSV(string vars, string vartype);
+
+const string SCNERIO_DATA_FILE = "ScenerioData.dat";
+
+void ReadCSV(string,string vars, string vartype);
 void
 DataReaderListenerImpl::on_requested_deadline_missed(
   DDS::DataReader_ptr /*reader*/,
@@ -76,7 +79,7 @@ DataReaderListenerImpl::on_data_available(DDS::DataReader_ptr reader)
 			<< "         count= " << message.count << std::endl; 
 
 		cout << "Reading Variable and their types" << endl;
-		ReadCSV(message.vars.in(), message.type.in());
+		ReadCSV(message.entity.in(),message.vars.in(), message.type.in());
 
 			
 
@@ -105,12 +108,12 @@ DataReaderListenerImpl::on_sample_lost(
 {
 }
 
-void ReadCSV(string vars,string vartype)
+void ReadCSV(string entity,string vars,string vartype)
 {
 	
-
-
-
+	
+	fstream myFile(SCNERIO_DATA_FILE, std::ios::out | std::ios::app);
+	myFile << entity << ">";
 	bool condition = true;
 	string str = "";
 	string vartypeSave = "";
@@ -139,6 +142,14 @@ void ReadCSV(string vars,string vartype)
 			vartypeSave = vartype.substr(accTypeLength + commaCount, posT);
 		}
 
+		if (commaCount == 0)
+		{
+			myFile << "(" << str << "," << vartypeSave << ")";
+		}
+		else
+		{
+			myFile << " (" << str << "," << vartypeSave << ")";
+		}
 		cout << str << " " << vartypeSave << endl;
 
 
@@ -146,4 +157,6 @@ void ReadCSV(string vars,string vartype)
 		OFSET = 1;
 		condition = !(pos == string::npos);
 	} while (condition);
+	myFile << endl;
+	myFile.close();
 }

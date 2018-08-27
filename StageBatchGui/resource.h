@@ -14,10 +14,12 @@
 #define IDC_ITERATIONS_EDIT             1010
 #define IDC_ITERATIONS_EDIT2            1011
 #define IDC_SNAPSHOT_TIMES_EDIT         1011
+#define IDC_PUBLISHER_BROWSE            1011
 #define IDC_DELAY_EDIT                  1012
 #define IDC_SEED_EDIT                   1013
 #define IDC_STOP_TIME_CHECK             1014
 #define IDC_MIN_RED_PLATFORM_COUNT_EDIT 1015
+#define IDC_SUBSCRIBER_BROWSE           1015
 #define IDC_MIN_BLUE_PLATFORM_COUNT_EDIT 1016
 #define IDC_STOP_TIME_EDIT              1017
 #define IDC_STOP_ENTITY_CHECK           1018
@@ -34,18 +36,8 @@
 #define IDC_ACTIVATE_MISSION            1028
 #define IDC_DEAC_MISSION                1029
 #define IDC_ENTITY_MISSION              1030
-#define IDC_BUTTON1                     1031
-#define IDC_BUTTON2                     1032
-#define IDC_EDIT1                       1033
-#define IDC_EDIT2                       1034
-#define IDC_BUTTON3                     1035
-#define IDC_BUTTON4                     1036
-#define IDC_EDIT3                       1037
-#define IDC_EDIT4                       1038
-#define IDC_BUTTON5                     1039
-#define IDC_EDIT5                       1040
-#define IDC_BUTTON6                     1041
-#define IDC_EDIT6                       1042
+#define IDC_PUBLISHERPATH_EDIT          1043
+#define IDC_SUBSCRIBERPATH_EDIT         1044
 
 // Next default values for new objects
 // 
@@ -53,7 +45,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1043
+#define _APS_NEXT_CONTROL_VALUE         1046
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
