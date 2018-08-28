@@ -118,35 +118,23 @@ static char *tab_config_args[] =
 	"set_ptf1_req_alt",   /* 1 */
 	"get_ptf0_nr_msl",    /* 2 */
 	"get_ptf1_nr_msl",    /* 3 */
-	"SEED",               /* 4 Set random generator seed */
-	"RUN",                /* 5 Set run number */
-	"ITERATION",          /* 6 Set execution number */
-	STOP_CONDITION_TIME_ELAPSED, /* 7 Stop at time condition */
-	STOP_CONDITION_ENTITY_DEAD,   /* 8 Stop when specific entity dies */
-	/* 9 Stop when red entity count drops below */
-	STOP_CONDITION_MIN_RED_PLATFORM_COUNT,
-	/* 10 Stop when blue entity count drops below */
-	STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT,
-	"PUBLISHER",	//11
-	"SUBSCRIBER"	//12
+	"RUN",                /* 4 Set run number */
+	STOP_CONDITION_TIME_ELAPSED, /* 5 Stop at time condition */
+	"PUBLISHER",	//6
+	"SUBSCRIBER"	//7
 };
 
 static Sim_Global_Data *gdp; /* Pointer to the SIM global data */
 static Private_Data *prd;    /* Pointer to the SIM private data */
 static FILE *out_file = NULL;
-static long seed = 0;
+
 static int   *rbidx_ptr;
 static double stop_time = -1;
-static wchar_t stop_entity_name[GSIM_SCN_PTF_SCN_PTF_NAME_LENGTH + 1] = { L'\0' };
-static int min_red_platform_count = 0;
-static int min_blue_platform_count = 0;
 static int stopped = TRUE;
 static int run_number = 0;
-static int iteration_number = 0;
 static int DELAY = 0;
 static string pubpart = "";
 static string subpart = "";
-static wchar_t mission_entity_name[GSIM_SCN_PTF_SCN_PTF_NAME_LENGTH + 1] = { L'\0' };
 bool INIT = FALSE;
 bool EXEC_CALL = FALSE;
 bool TOGGLE = TRUE;
@@ -235,7 +223,12 @@ void WriteXML(vector<string> entityList, vector<map<string, string>> varListList
 		counter++;
 	}
 	
-	XMLError eResult = xmlDoc.SaveFile("S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\EXECUTABLES\\OutputFile.xml");
+	char outfile[256];
+	sprintf(outfile, "%s%cGUIPlugin%cEXECUTABLES%c%s",
+		stage_get_ansi_path(STAGE_DIR),
+		SIG_PATH_SEP, SIG_PATH_SEP, SIG_PATH_SEP, OUTPUT_XML_FILE);
+	sig_print("%s \n",outfile);
+	XMLError eResult = xmlDoc.SaveFile(outfile);
 	XMLCheckResult(eResult);
 
 }
@@ -243,8 +236,24 @@ void WriteXML(vector<string> entityList, vector<map<string, string>> varListList
 map<string, string> ReadXML(wchar_t* singleFileName = L"")
 {
 	//
-	wchar_t folderPath[100] = { L"S:/Presagis/Suite16/STAGE/data/sm_db/default/me_mission/" };
 	
+	char folderPathStr[256];
+	sprintf(folderPathStr, "%s%cdefault%cme_mission%c",
+		stage_get_ansi_path(STAGE_DATA_DE_DIR), SIG_PATH_SEP, SIG_PATH_SEP, SIG_PATH_SEP);
+
+	//Convert char* to wchar*
+	size_t origsize = strlen(folderPathStr) + 1;
+	const size_t newsize = 100;
+	size_t convertedChars = 0;
+	wchar_t folderPath[newsize];
+	mbstowcs_s(&convertedChars, folderPath, origsize, folderPathStr, _TRUNCATE);
+	
+	
+
+	// 
+	//wchar_t folderPath[100] = { L"S:/Presagis/Suite16/Stage/data/sm_db/default/me_mission/" };
+	//folderPath = folderPathStr.c_str();
+	//StringToWchar(folderPathStr, folderPath);
 	map<string, string> variableMap;
 	vector<wchar_t*> files;
 
@@ -290,259 +299,267 @@ map<string, string> ReadXML(wchar_t* singleFileName = L"")
 		files.push_back(singleFileName);
 	//}
 
-	for (auto it = files.begin(); it != files.end(); ++it)
-	{
-		wchar_t missionName[40];
-		wcsncpy(missionName, *it, 40);
-
-		if (DEBUG)
+		for (auto it = files.begin(); it != files.end(); ++it)
 		{
+			wchar_t missionName[40];
+			wcsncpy(missionName, *it, 40);
+			
+		
+			if (DEBUG)
+			{
 
-			sig_wprint(missionName);
-			sig_print(" :in ReadXML \n");
-		}
+				sig_wprint(missionName);
+				sig_print(" :in ReadXML \n");
+			}
 
 		
-		wchar_t* filename = wcscat(folderPath, missionName);//"KillEnemy.me_mission";
+			wchar_t* filename = wcscat(folderPath, missionName);//"KillEnemy.me_mission";
 
-		if (DEBUG)
-		{
+			if (DEBUG)
+			{
 
-			sig_wprint(filename);
-			sig_print(" : filename \n");
-		}
-		string outfile = "tempFile.xml";
-		ifstream ifs(filename, std::ios::in | std::ios::binary | std::ios::ate);
+				sig_wprint(filename);
 		
-		fstream myFile(outfile, std::ios::out | std::ios::trunc);
-		ifstream::pos_type fsize = ifs.tellg();
-		ifs.seekg(0, ios::beg);
-		vector<char> bytes(fsize);
-
-
-
-		ifs.read(&bytes[0], fsize);
-
-		// Create string from vector
-		string xml_str(&bytes[0], fsize);
-
-		// Skip unsupported statements
-		size_t pos = 0;
-		while (true)
-		{
-			pos = xml_str.find_first_of("<", pos);
-			if (xml_str[pos + 1] == '?' || // <?xml...
-				xml_str[pos + 1] == '!')   // <!DOCTYPE... or [<!ENTITY...
-			{
-				// Skip this line
-				pos = xml_str.find_first_of("\n", pos);
+				sig_print(" : filename \n");
 			}
-			else
-				break;
-		}
-		xml_str = xml_str.substr(pos);
 
-		myFile << xml_str;
-		ifs.close();
-		myFile.close();
-		//----------------------------------------//
-
-		int errorCode = 0;
-		tinyxml2::XMLDocument xmlDoc;
-		XMLError eResult = xmlDoc.LoadFile("S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\tempFile.xml");
-		XMLCheckResult(eResult);
-		XMLNode * pRoot = xmlDoc.FirstChild();
-		if (pRoot == nullptr)
-			sig_print( "Error reading first child \n");
-
-
-		//Ensures it loops every task group
-		XMLElement * pElement = pRoot->FirstChildElement("Field")->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
-		if (pElement == nullptr)
-			sig_print("Error reading field \n");
-
-		while (pElement != nullptr)
-		{
-			//For every databaseListInstance this is being performed
-			//Ensures it loops every task group
-
-			XMLElement * qElement = pElement->FirstChildElement("Field");
-			bool found = false;
-			while (qElement != nullptr)
-			{
-				//Get to datablock reference
-				string type_name;
-				const char * szAttributeText = nullptr;
-				szAttributeText = qElement->Attribute("Type_Name");
-				type_name = szAttributeText;
-				if (type_name == "Datablock Reference")
-				{
-					found = true;
-					break;
-				}
-				qElement = qElement->NextSiblingElement("Field");
-			}
+			char tempXmlFileStr[256];
+			sprintf(tempXmlFileStr, "%s%cGUIPlugin%cEXECUTABLES%c%s",
+				stage_get_ansi_path(STAGE_DIR),
+				SIG_PATH_SEP, SIG_PATH_SEP, SIG_PATH_SEP, TEMP_XML_BUFFER_FILE);
 
 			
-			if (found)
+			ifstream ifs(filename, std::ios::in | std::ios::binary | std::ios::ate);
+		
+			fstream myFile(tempXmlFileStr, std::ios::out | std::ios::trunc);
+			ifstream::pos_type fsize = ifs.tellg();
+			ifs.seekg(0, ios::beg);
+			vector<char> bytes(fsize);
+
+
+
+			ifs.read(&bytes[0], fsize);
+
+			// Create string from vector
+			string xml_str(&bytes[0], fsize);
+
+			// Skip unsupported statements
+			size_t pos = 0;
+			while (true)
 			{
-				if (DEBUG)
+				pos = xml_str.find_first_of("<", pos);
+				if (xml_str[pos + 1] == '?' || // <?xml...
+					xml_str[pos + 1] == '!')   // <!DOCTYPE... or [<!ENTITY...
 				{
-					sig_print("Root field found \n");
+					// Skip this line
+					pos = xml_str.find_first_of("\n", pos);
 				}
-				//qElement is Field->Dblist->DblistInstance->Field(DBLIST or DBREFERENCE)
-				//string typeOfMission = qElement->GetText(); qElement->FirstChildElement("Name")->GetText();
+				else
+					break;
+			}
+			xml_str = xml_str.substr(pos);
+
+			myFile << xml_str;
+			ifs.close();
+			myFile.close();
+			//----------------------------------------//
+
+			int errorCode = 0;
+			tinyxml2::XMLDocument xmlDoc;
+			XMLError eResult = xmlDoc.LoadFile(tempXmlFileStr);
+			XMLCheckResult(eResult);
+			XMLNode * pRoot = xmlDoc.FirstChild();
+			if (pRoot == nullptr)
+				sig_print( "Error reading first child \n");
 
 
+			//Ensures it loops every task group
+			XMLElement * pElement = pRoot->FirstChildElement("Field")->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
+			if (pElement == nullptr)
+				sig_print("Error reading field \n");
 
+			while (pElement != nullptr)
+			{
+				//For every databaseListInstance this is being performed
+				//Ensures it loops every task group
 
-				//Get to datablock list after field
-				XMLElement * vElement = qElement->FirstChildElement("Datablock")->FirstChildElement("Field");
-				bool found2 = false;
-				while (vElement != nullptr)
+				XMLElement * qElement = pElement->FirstChildElement("Field");
+				bool found = false;
+				while (qElement != nullptr)
 				{
+					//Get to datablock reference
 					string type_name;
 					const char * szAttributeText = nullptr;
-					szAttributeText = vElement->Attribute("Type_Name");
+					szAttributeText = qElement->Attribute("Type_Name");
 					type_name = szAttributeText;
-					if (type_name == "Datablock List")
+					if (type_name == "Datablock Reference")
 					{
-						found2 = true;
+						found = true;
 						break;
 					}
-
-					vElement = vElement->NextSiblingElement("Field");
+					qElement = qElement->NextSiblingElement("Field");
 				}
 
-				if (found2)
+			
+				if (found)
 				{
-					XMLElement * wElement = vElement->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
-
-					while (wElement != nullptr)
+					if (DEBUG)
 					{
-						//Iterates over every DBLIST I.E PROCEDURE
+						sig_print("Root field found \n");
+					}
+					//qElement is Field->Dblist->DblistInstance->Field(DBLIST or DBREFERENCE)
+					//string typeOfMission = qElement->GetText(); qElement->FirstChildElement("Name")->GetText();
 
-						XMLElement * xElement = wElement->FirstChildElement("Field");
 
-						bool found3 = false;
-						while (xElement != nullptr)
+
+
+					//Get to datablock list after field
+					XMLElement * vElement = qElement->FirstChildElement("Datablock")->FirstChildElement("Field");
+					bool found2 = false;
+					while (vElement != nullptr)
+					{
+						string type_name;
+						const char * szAttributeText = nullptr;
+						szAttributeText = vElement->Attribute("Type_Name");
+						type_name = szAttributeText;
+						if (type_name == "Datablock List")
 						{
-							string type_name;
-							const char * szAttributeText = nullptr;
-							szAttributeText = xElement->Attribute("Type_Name");
-							type_name = szAttributeText;
-							if (type_name == "Datablock Choice")
-							{
-								found3 = true;
-								break;
-							}
-							xElement = xElement->NextSiblingElement("Field");
+							found2 = true;
+							break;
 						}
 
-						if (found3)
-						{
-							//Find details of the procedure
-
-							XMLElement * yElement = xElement->FirstChildElement("DBChoice")->FirstChildElement("Datablock");
-
-							XMLElement * zElement = yElement->FirstChildElement("Field")->FirstChildElement("Value");
-							const char* str = zElement->GetText();
-							string textVal = str;
-
-							if (textVal == "loc_var_create")
-							{
-
-								XMLElement * finalE = yElement->FirstChildElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
-
-								XMLElement * varName = finalE->FirstChildElement("Field")->NextSiblingElement("Field")\
-									->NextSiblingElement("Field")->FirstChildElement("Value");
-								string nameOfVariable = varName->GetText();
-
-								string varType = finalE->NextSiblingElement("DBList_Instance")->FirstChildElement("Field")\
-									->NextSiblingElement("Field")->NextSiblingElement("Field")\
-									->FirstChildElement("Value")->GetText();
-
-								variableMap[nameOfVariable] = varType;
-								//cout << nameOfVariable << " " << varType << endl;
-							}
-						}
-						wElement = wElement->NextSiblingElement("DBList_Instance");
+						vElement = vElement->NextSiblingElement("Field");
 					}
 
-				}
-
-				if (DEBUG)
-				{
-					sig_print("Checking conditions event \n");
-				}
-				qElement = qElement->NextSiblingElement("Field");
-				//qElement is now Db list - chcek for conditionions event
-				XMLNode * nextNode = qElement->FirstChildElement("DBList")->FirstChild();
-				if (nextNode != nullptr)
-				{
-
-
-
-					XMLElement * nextElement = nextNode->FirstChildElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")->FirstChildElement("DBList");
-					if (nextElement != nullptr)
+					if (found2)
 					{
-						//Procedures iteratre through all creation of procedures
-						XMLElement * procedures = nextElement->FirstChildElement("DBList_Instance");
-						while (procedures != nullptr)
+						XMLElement * wElement = vElement->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
+
+						while (wElement != nullptr)
 						{
-							//varCreate is till datablock
-							XMLElement * varCreateProc = procedures->FirstChildElement("Field")->\
-								NextSiblingElement("Field")->FirstChildElement("DBChoice")->\
-								FirstChildElement("Datablock");
+							//Iterates over every DBLIST I.E PROCEDURE
 
-							XMLElement * temp = varCreateProc->FirstChildElement("Field")->\
-								FirstChildElement("Value");
+							XMLElement * xElement = wElement->FirstChildElement("Field");
 
-
-
-							string saveIt = temp->GetText();
-							if ((varCreateProc != nullptr) && (temp != nullptr) && (saveIt == "loc_var_create"))
+							bool found3 = false;
+							while (xElement != nullptr)
 							{
-								//varControl is till database list instance
-								XMLElement * varControl = varCreateProc->FirstChildElement("Field")->NextSiblingElement("Field")\
-									->NextSiblingElement("Field")->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
-
-								XMLElement * varNameXML = varControl\
-									->FirstChildElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")\
-									->FirstChildElement("Value");
-
-								if ((varControl != nullptr) && (varNameXML != nullptr))
+								string type_name;
+								const char * szAttributeText = nullptr;
+								szAttributeText = xElement->Attribute("Type_Name");
+								type_name = szAttributeText;
+								if (type_name == "Datablock Choice")
 								{
-									const char* varNameChar;
-									varNameChar = varNameXML->GetText();
-									string varName = varNameChar;
+									found3 = true;
+									break;
+								}
+								xElement = xElement->NextSiblingElement("Field");
+							}
 
+							if (found3)
+							{
+								//Find details of the procedure
 
-									string varType = varControl->NextSiblingElement("DBList_Instance")->FirstChildElement("Field")\
+								XMLElement * yElement = xElement->FirstChildElement("DBChoice")->FirstChildElement("Datablock");
+
+								XMLElement * zElement = yElement->FirstChildElement("Field")->FirstChildElement("Value");
+								const char* str = zElement->GetText();
+								string textVal = str;
+
+								if (textVal == "loc_var_create")
+								{
+
+									XMLElement * finalE = yElement->FirstChildElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
+
+									XMLElement * varName = finalE->FirstChildElement("Field")->NextSiblingElement("Field")\
+										->NextSiblingElement("Field")->FirstChildElement("Value");
+									string nameOfVariable = varName->GetText();
+
+									string varType = finalE->NextSiblingElement("DBList_Instance")->FirstChildElement("Field")\
 										->NextSiblingElement("Field")->NextSiblingElement("Field")\
 										->FirstChildElement("Value")->GetText();
 
-
-									variableMap[varName] = varType;
-									//cout << varName << " " << varType << endl;
-
+									variableMap[nameOfVariable] = varType;
+									//cout << nameOfVariable << " " << varType << endl;
 								}
 							}
+							wElement = wElement->NextSiblingElement("DBList_Instance");
+						}
 
-							procedures = procedures->NextSiblingElement("DBList_Instance");
+					}
+
+					if (DEBUG)
+					{
+						sig_print("Checking conditions event \n");
+					}
+					qElement = qElement->NextSiblingElement("Field");
+					//qElement is now Db list - chcek for conditionions event
+					XMLNode * nextNode = qElement->FirstChildElement("DBList")->FirstChild();
+					if (nextNode != nullptr)
+					{
+
+
+
+						XMLElement * nextElement = nextNode->FirstChildElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")->FirstChildElement("DBList");
+						if (nextElement != nullptr)
+						{
+							//Procedures iteratre through all creation of procedures
+							XMLElement * procedures = nextElement->FirstChildElement("DBList_Instance");
+							while (procedures != nullptr)
+							{
+								//varCreate is till datablock
+								XMLElement * varCreateProc = procedures->FirstChildElement("Field")->\
+									NextSiblingElement("Field")->FirstChildElement("DBChoice")->\
+									FirstChildElement("Datablock");
+
+								XMLElement * temp = varCreateProc->FirstChildElement("Field")->\
+									FirstChildElement("Value");
+
+
+
+								string saveIt = temp->GetText();
+								if ((varCreateProc != nullptr) && (temp != nullptr) && (saveIt == "loc_var_create"))
+								{
+									//varControl is till database list instance
+									XMLElement * varControl = varCreateProc->FirstChildElement("Field")->NextSiblingElement("Field")\
+										->NextSiblingElement("Field")->FirstChildElement("DBList")->FirstChildElement("DBList_Instance");
+
+									XMLElement * varNameXML = varControl\
+										->FirstChildElement("Field")->NextSiblingElement("Field")->NextSiblingElement("Field")\
+										->FirstChildElement("Value");
+
+									if ((varControl != nullptr) && (varNameXML != nullptr))
+									{
+										const char* varNameChar;
+										varNameChar = varNameXML->GetText();
+										string varName = varNameChar;
+
+
+										string varType = varControl->NextSiblingElement("DBList_Instance")->FirstChildElement("Field")\
+											->NextSiblingElement("Field")->NextSiblingElement("Field")\
+											->FirstChildElement("Value")->GetText();
+
+
+										variableMap[varName] = varType;
+										//cout << varName << " " << varType << endl;
+
+									}
+								}
+
+								procedures = procedures->NextSiblingElement("DBList_Instance");
+							}
 						}
 					}
+					pElement = pElement->NextSiblingElement("DBList_Instance");
 				}
-				pElement = pElement->NextSiblingElement("DBList_Instance");
 			}
-		}
 
-		if (DEBUG)
-		{
-			sig_print("File closed \n");
+			if (DEBUG)
+			{
+				sig_print("File closed \n");
+			}
+			remove(tempXmlFileStr);
 		}
-		remove("tempFile.xml");
-	}
 	return variableMap;
 }
 /*-------------------------------------------------------------*/
@@ -580,27 +597,9 @@ static int find_config_arg(char *cur_arg)
 /*                                                             */
 /* Return value: none                                          */
 /*-------------------------------------------------------------*/
-static void store_stop_entity_name(char* buf_ptr)
-{
-	int i = 0;
-	for (;;)
-	{
-		stop_entity_name[i] = (wchar_t)buf_ptr[i];
-		if (buf_ptr[i] == '\0') break;
-		++i;
-	}
-}
 
-static void store_mission_entity_name(char* buf_ptr)
-{
-	int i = 0;
-	for (;;)
-	{
-		mission_entity_name[i] = (wchar_t)buf_ptr[i];
-		if (buf_ptr[i] == '\0') break;
-		++i;
-	}
-}
+
+
 
 /*-------------------------------------------------------------*/
 /* parse_config_file()                                         */
@@ -727,64 +726,64 @@ static void parse_config_file(void)
 		}
 		break;
 
-		/* Random SEED */
-		case 4:
-		{
-			seed = atol(buf_ptr);
-		}
-		break;
+		///* Random SEED */
+		//case 4:
+		//{
+		//	seed = atol(buf_ptr);
+		//}
+		//break;
 
 		/* RUN number */
-		case 5:
+		case 4:
 		{
 			run_number = atoi(buf_ptr);
 		}
 		break;
 
-		/* ITERATION number */
-		case 6:
-		{
-			iteration_number = atoi(buf_ptr);
-		}
-		break;
+		///* ITERATION number */
+		//case 6:
+		//{
+		//	iteration_number = atoi(buf_ptr);
+		//}
+		//break;
 
 		/* STOP_CONDITION_TIME_ELAPSED */
-		case 7:
+		case 5:
 		{
 			stop_time = atof(buf_ptr);
 		}
 		break;
 
-		/* STOP_CONDITION_ENTITY_DEAD */
-		case 8:
-		{
-			store_stop_entity_name(buf_ptr);
-		}
-		break;
+		///* STOP_CONDITION_ENTITY_DEAD */
+		//case 8:
+		//{
+		//	store_stop_entity_name(buf_ptr);
+		//}
+		//break;
 
-		/* STOP_CONDITION_MIN_RED_PLATFORM_COUNT */
-		case 9:
-		{
-			min_red_platform_count = atoi(buf_ptr);
-		}
-		break;
+		///* STOP_CONDITION_MIN_RED_PLATFORM_COUNT */
+		//case 9:
+		//{
+		//	min_red_platform_count = atoi(buf_ptr);
+		//}
+		//break;
 
-		/* STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT */
-		case 10:
-		{
-			min_blue_platform_count = atoi(buf_ptr);
-		}
-		break;
+		///* STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT */
+		//case 10:
+		//{
+		//	min_blue_platform_count = atoi(buf_ptr);
+		//}
+		//break;
 
-		/* STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT */
-		case 11:
+		/* Init Publisher path */
+		case 6:
 		{
 			pubpart = string(buf_ptr);
 		}
 		break;
 
-		/* STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT */
-		case 12:
+		/* Command Subscriber path */
+		case 7:
 		{
 			subpart = string(buf_ptr);
 		}
@@ -911,7 +910,8 @@ int um_batch_init(void *gd)
 {
 	gdp = (Sim_Global_Data *)gd;
 	prd = gdp->priv;
-
+	
+	
 
 	rbidx_ptr = &gdp->pub->header->rbuff_idx;
 
@@ -921,6 +921,62 @@ int um_batch_init(void *gd)
 	//CreateXML();
 	//ReadXML();
 	return(0);
+}
+
+void SaveEntityDataToFile()
+{
+	std::vector<std::string> entityList;
+	std::vector<wstring> missionList;
+	Entity_Data* entity;
+	
+	
+	for (int i = 0; i < gdp->priv->config.max_nr_entities; i++)
+	{
+
+		
+		entity = &gdp->priv->ent[i];
+		if (entity_is_allocated(entity)
+			&& !entity_is_wreck(entity)
+			&& entity_is_ptf(entity)
+			&& entity->scn_ptf != NULL)
+		{
+
+			//WriteData to publish
+			
+			
+				Task_Ent_Data* op = entity->task;
+				if (op != NULL)
+				{
+					if (op->mission != NULL)
+					{
+
+						wchar_t* temp1 = (entity->state->name);
+						wchar_t temp2[40];
+						wcsncpy(temp2, (op->mission_name), 40);
+						if (temp2 != NULL && temp1 != NULL)
+						{
+
+
+							wchar_t* extension = L".me_mission";
+							wchar_t* withExtension = wcscat(temp2, extension);
+
+
+							string tempEntity = WcharToString(temp1);
+
+							
+							entityList.push_back(tempEntity);
+							missionList.push_back(withExtension);
+						}
+					}
+				}
+
+				initialEntities++;
+			
+		}
+	}
+
+	//
+	HandleData(entityList, missionList);
 }
 
 /*-------------------------------------------------------------*/
@@ -940,56 +996,32 @@ void um_batch_ctrl(int ctrl_type)
 	{
 		INIT = TRUE;
 		EXEC_CALL = FALSE;
-		char out_file_name[SIG_PATH_MAX];
-		time_t rawtime;
-		struct tm timeinfo;
+
 		/* Parse file when SIM is given Run command */
 		parse_config_file();
 
-		rawtime = time(NULL);
-		timeinfo = *localtime(&rawtime);
-
-		sprintf(out_file_name, "out_data.%d.%d", run_number, iteration_number);
-		out_file = fopen(out_file_name, "w");
-
-		if (out_file == NULL)
-		{
-			sig_print("um_batch_ctrl:Error opening out file <%s>\n", out_file_name);
-		}
+		
 
 		/* Display start message and stop conditions */
-		sig_print("Starting run #%d, iteration %d with seed %d\n",
-			run_number, iteration_number, seed);
+		sig_print("Starting run #%d\n",
+			run_number );
 		sig_print("Stop conditions: ");
 		if (stop_time > 0)
 		{
 			sig_print("after %f seconds, ", (float)stop_time);
 		}
 
-		if (stop_entity_name[0] != L'\0')
-		{
-			sig_wprint(L"when '%ls' dies, ", &stop_entity_name[0]);
-		}
-
-		if (min_red_platform_count > 0 || min_blue_platform_count > 0)
-		{
-			sig_print("when under %d red or %d blue platforms, ",
-				min_red_platform_count, min_blue_platform_count);
-		}
-
 		sig_print("\n");
-
+		sig_print("reaching here\n");
 		stopped = FALSE;
+		SaveEntityDataToFile();
 	}
 	break;
 
 	case CTRL_RESET:
 	{
 		
-		if (seed != 0)
-		{
-			sig_srand48(seed);/* Set random generator seed if selected in command file */
-		}
+		
 		
 	}
 	break;
@@ -997,9 +1029,7 @@ void um_batch_ctrl(int ctrl_type)
 	case CTRL_STOP:
 	{
 		stop_time = -1;
-		stop_entity_name[0] = L'\0';
-		min_red_platform_count = 0;
-		min_blue_platform_count = 0;
+		
 		if (out_file)
 		{
 			fclose(out_file);
@@ -1013,6 +1043,8 @@ void um_batch_ctrl(int ctrl_type)
 	}
 	}
 }
+
+
 
 size_t split(const std::string &txt, std::vector<std::string> &strs, char ch)
 {
@@ -1036,7 +1068,6 @@ size_t split(const std::string &txt, std::vector<std::string> &strs, char ch)
 
 int CheckActivatedMission(int debug)
 {
-
 	int ret_val = 0;
 	fstream missionFile(SIM_MISSION_FILE, ios::in);
 	string line;
@@ -1105,7 +1136,6 @@ void um_batch_exec()
 	if (EXEC_CALL==TRUE)
 	{
 
-
 		if (DELAY % 500 == 0)
 		{
 			DELAY = 1;
@@ -1129,9 +1159,6 @@ void um_batch_exec()
 
 		int i;
 		Entity_Data* entity;
-		int stop_entity_is_alive = 0;
-		int alive_red_platform_count = 0;
-		int alive_blue_platform_count = 0;
 		int should_stop = 0;
 
 		/* Check if the stop simulation time is reached */
@@ -1163,7 +1190,7 @@ void um_batch_exec()
 			{
 
 				//WriteData to publish
-				if (INIT==TRUE)
+				/*if (INIT==TRUE)
 				{
 				
 					Task_Ent_Data* op = entity->task;
@@ -1192,15 +1219,8 @@ void um_batch_exec()
 					}
 
 					initialEntities++;
-				}
-
-				/*if (wcscmp(entity->scn_ptf->scn_ptf_name, stop_entity_name) == 0)
-				{
-				stop_entity_is_alive = 1;
-				entity->scn_ptf->mission_active = GSIM_SCN_PTF_MISSION_ACTIVE_YES;
-
-
 				}*/
+
 
 				for (auto i = CommandQueue.begin(); i != CommandQueue.end(); ++i)
 				{
@@ -1210,7 +1230,6 @@ void um_batch_exec()
 
 					StringToWchar((*i).entityName, entityName);
 				
-					//wcsncpy(missionName, (*i).c_str(), 40);
 
 					/*If entity name equals mission entitiy name*/
 					if (wcscmp(entity->scn_ptf->scn_ptf_name, entityName) == 0)
@@ -1233,15 +1252,8 @@ void um_batch_exec()
 							sig_wprint(temp);
 							sig_print(" Found \n");
 
-							/*DeComment this block to make mission active again*/
-							// int missionStart = sim_task_start_mission(entity);
-							// if (missionStart == 0)
-							// {
-							//	 sig_print("Success \n");
-							// }
-
 							/*This Block converts char to wchar pointer */
-							//std::string strVar = "MyOwnVariable";
+
 							wchar_t* variableName;
 							StringToWchar(variableNameString, variableName);
 
@@ -1255,7 +1267,6 @@ void um_batch_exec()
 							}
 							else
 							{
-							
 								string varValue = (*i).value;
 							
 								if (UpdateVariableValue(local, varValue) == 0)
@@ -1266,67 +1277,17 @@ void um_batch_exec()
 								{
 									sig_print("Error changing value for variable: %s\n", variableNameString);
 								}
-							
 							}
-
-						}
-
-							//entity->active_time = prd->system_data.sim_time;
-						
+						}	
 					}
-
-
-				
-
-				}
-
-			
-
-			
-
-
-				if (entity->scn_ptf->mission_active == GSIM_SCN_PTF_MISSION_ACTIVE_NO)
-				{
-					//	sig_print("Mission activated\n");
-					//	entity->scn_ptf->mission_active = GSIM_SCN_PTF_MISSION_ACTIVE_YES;
-				}
-
-				switch (entity->scn_ptf->color)
-				{
-				case GSIM_SCN_PTF_COLOR_PTF_ID_BLUE:
-					alive_blue_platform_count++;
-					break;
-
-				case GSIM_SCN_PTF_COLOR_PTF_ID_RED:
-					alive_red_platform_count++;
-					break;
 				}
 			}
 		}
 
 		CommandQueue.clear();
 
-		if (INIT)
-		{
-			HandleData(entityList, missionList);
-		}
-		INIT = FALSE;
+		
 
-		/*if (alive_red_platform_count < min_red_platform_count
-			|| alive_blue_platform_count < min_blue_platform_count)
-		{
-			sig_print("Stop condition reached: %d/%d red and %d/%d blue platforms remain.\n",
-				alive_red_platform_count, min_red_platform_count,
-				alive_blue_platform_count, min_blue_platform_count);
-			should_stop = 1;
-		}
-
-		if (stop_entity_name[0] != L'\0' && !stop_entity_is_alive)
-		{
-			sig_wprint(L"Stop condition reached: Entity '%ls' is dead.\n",
-				&stop_entity_name[0]);
-			should_stop = 1;
-		}*/
 
 		if (should_stop)
 		{
@@ -1335,10 +1296,7 @@ void um_batch_exec()
 			EXEC_CALL = FALSE;
 			sim_rtc_stop(0);
 		}
-		else
-		{
-			um_batch_grab_data();
-		}
+		
 	}
 }
 
@@ -1349,7 +1307,11 @@ int CheckSimStatus(string simCommand)
 	{
 		um_batch_ctrl(CTRL_STOP);
 		sim_rtc_stop(0);
-		sig_print("SIMULATION STOPPED BY USER \n");
+
+		if (simCommand == "RTC_STOP")
+			sig_print("Simulation stopped by user \n");
+		if (simCommand == "RTC_RESTART")
+			sig_print("Restarting! Please load different scenerio and click \"Run\" \n");
 		ret_val = 1;
 	}
 
@@ -1560,53 +1522,10 @@ int UpdateVariableValue(simValue*& local, string varValue)
 
 /*-------------------------------------------------------------*/
 /* um_batch_grab_data()                                        */
-/*                                                             */
-/* Function called every iteration to save data that would     */
-/* be interesting for later analysis.                          */
-/*                                                             */
-/* Return value: none                                          */
 /*-------------------------------------------------------------*/
 void um_batch_grab_data(void)
 {
-	int i;
-
-	if (out_file)
-	{
-		Entity_Data *ent;
-		for (ent = prd->ent, i = 0; i < prd->config.max_nr_entities; i++, ent++)
-		{
-			if (entity_is_active(ent))
-			{
-				Actual *act = NULL;
-				float speed = 0;
-				float heading = 0;
-				float alt = 0;
-				float h_ground = 0;
-				float dam = 0;
-				if (ent->dyn)
-				{
-					act = &(ent->dyn->perm_data.act);
-					speed = act->speed;
-					heading = act->grnd_track;
-					alt = act->altitude;
-					h_ground = act->ground_elevation;
-					if (ent->scoring) dam = ent->scoring->perm_data.damages;
-				}
-				/*
-				* This form can be used to import the data
-				* inside a spreadsheet using spaces as separators
-				*/
-				fprintf(out_file, "%f %ls %f %f %f %f %f\n",
-					prd->system_data.sim_time, /* Save simulation time */
-					ent->state->name,          /* Save name of entity */
-					dam,                       /* Save damage level 0-100 */
-					speed,                     /* Save speed */
-					alt,                       /* Save altitude */
-					h_ground,                  /* Save ground elevation */
-					heading);                  /* Save heading */
-			}
-		}
-	}
+	
 }
 
 void um_tmpl_daemon()
@@ -1636,6 +1555,7 @@ void um_tmpl_background()
 			{
 				sig_print("Subscriber started successfully \n");
 				EXEC_CALL = TRUE;
+				INIT = FALSE;
 			}
 			else
 			{

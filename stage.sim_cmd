@@ -1,6 +1,4 @@
-SEED 0
 RUN 0
-ITERATION 0
 PUBLISHER S:\Presagis\Suite16\STAGE\GUIPlugin\EXECUTABLES\InitialPublisher.exe
 SUBSCRIBER S:\Presagis\Suite16\STAGE\GUIPlugin\EXECUTABLES\CommandSubscriber.exe
 Stop_At_Time 36000.000000

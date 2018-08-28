@@ -33,7 +33,7 @@
 #include <sqxOSSystem.h>
 
 #include <sig_function.h>
-
+#include <tlhelp32.h>
 #include <string>
 #include <sstream>
 #include <Constants.h>
@@ -58,12 +58,10 @@ static const int s_RunEditControlIDs[] =
    IDC_DATABASE_BROWSE_BUTTON,
    IDC_SCENARIO_EDIT,
    IDC_SCENARIO_BROWSE_BUTTON,
-   IDC_DELAY_EDIT,
-   IDC_SEED_EDIT,
+
    IDC_STOP_TIME_CHECK,
    IDC_STOP_TIME_EDIT,
-   IDC_STOP_ENTITY_CHECK,
-   IDC_STOP_ENTITY_EDIT,
+
    IDC_PUBLISHERPATH_EDIT,
    IDC_PUBLISHER_BROWSE,
    IDC_SUBSCRIBERPATH_EDIT,
@@ -147,12 +145,10 @@ void CStageBatchGuiDlg::DoDataExchange(CDataExchange* pDX)
    DDX_Control(pDX, IDC_NAME_EDIT, NameEdit);
    DDX_Control(pDX, IDC_DATABASE_EDIT, DatabaseEdit);
    DDX_Control(pDX, IDC_SCENARIO_EDIT, ScenarioEdit);
-   DDX_Control(pDX, IDC_DELAY_EDIT, DelayEdit);
-   DDX_Control(pDX, IDC_SEED_EDIT, SeedEdit);
+
    DDX_Control(pDX, IDC_STOP_TIME_CHECK, StopTimeCheck);
    DDX_Control(pDX, IDC_STOP_TIME_EDIT, StopTimeEdit);
-   DDX_Control(pDX, IDC_STOP_ENTITY_CHECK, StopEntityCheck);
-   DDX_Control(pDX, IDC_STOP_ENTITY_EDIT, StopEntityEdit);
+
    DDX_Control(pDX, IDC_RUN_LIST, RunsListBox);
    DDX_Control(pDX, IDC_OUTPUT_EDIT, OutputEdit);
    DDX_Control(pDX, IDC_CANCEL_RUN_BUTTON, CancelRunButton);
@@ -166,14 +162,15 @@ BEGIN_MESSAGE_MAP(CStageBatchGuiDlg, CDialog)
 	//}}AFX_MSG_MAP
    ON_LBN_SELCHANGE(IDC_RUN_LIST, &CStageBatchGuiDlg::OnSelectedRunChanged)
    ON_BN_CLICKED(IDC_ADD_RUN_BUTTON, &CStageBatchGuiDlg::OnAddRunButtonClicked)
-   ON_EN_CHANGE(IDC_NAME_EDIT, &CStageBatchGuiDlg::OnRunNameChanged)
+ 
+ 
    ON_BN_CLICKED(IDC_REMOVE_RUN_BUTTON, &CStageBatchGuiDlg::OnRemoveRunButtonClicked)
    ON_BN_CLICKED(IDC_DATABASE_BROWSE_BUTTON, &CStageBatchGuiDlg::OnBrowseDatabaseClicked)
    ON_BN_CLICKED(IDC_SCENARIO_BROWSE_BUTTON, &CStageBatchGuiDlg::OnBrowseScenarioClicked)
    ON_BN_CLICKED(IDC_MOVE_RUN_UP_BUTTON, &CStageBatchGuiDlg::OnMoveUpButtonClicked)
    ON_BN_CLICKED(IDC_MOVE_RUN_DOWN_BUTTON, &CStageBatchGuiDlg::OnMoveDownButtonClicked)
    ON_BN_CLICKED(IDC_STOP_TIME_CHECK, &CStageBatchGuiDlg::OnStopTimeCheckStateChanged)
-   ON_BN_CLICKED(IDC_STOP_ENTITY_CHECK, &CStageBatchGuiDlg::OnStopEntityCheckStateChanged)
+  
    ON_BN_CLICKED(IDC_RUN_SELECTED_BUTTON, &CStageBatchGuiDlg::OnRunSelectedButtonClicked)
    ON_BN_CLICKED(IDC_RUN_ALL_BUTTON, &CStageBatchGuiDlg::OnRunAllButtonClicked)
    ON_MESSAGE(WM_APPEND_OUTPUT_LINE, OnAppendOutputLine)
@@ -185,6 +182,7 @@ END_MESSAGE_MAP()
 
 BOOL CStageBatchGuiDlg::OnInitDialog()
 {
+	
 	CDialog::OnInitDialog();
 
 	// Set the icon for this dialog.  The framework does this automatically
@@ -213,17 +211,12 @@ BOOL CStageBatchGuiDlg::OnInitDialog()
 	  ToolTip.AddTool(&SubscriberPathEdit,
 		  L"The path to the subscriber to be used. "
 		  L"This is the listener used to get commands from another commander (publisher).");
-       ToolTip.AddTool(&DelayEdit,
-         L"The time, in seconds, to wait before every iteration of this simulation run.");
-      ToolTip.AddTool(&SeedEdit,
-         L"The random number generator seed used for every iteration. "
-         L"A value of zero will use a random seed.");
+   
       ToolTip.AddTool(&StopTimeEdit,
          L"The simulation time after which the simulation run should stop. "
          L"As the simulation runs in asynchronous mode (as fast as possible), "
          L"the actual execution time can be less than this value.");
-      ToolTip.AddTool(&StopEntityEdit,
-         L"The name of the entity whose death causes the simulation run to stop.");
+  
 
 
       ToolTip.Activate(TRUE);
@@ -318,23 +311,12 @@ void CStageBatchGuiDlg::vUpdateControlsFromRun(const SimulationRun& a_rRun)
    PublisherPathEdit.SetWindowTextW(a_rRun.InitPublisherPath.c_str());
    SubscriberPathEdit.SetWindowTextW(a_rRun.CommandSubscriberPath.c_str());
    
-   // Convert the snapshot times to a string
-  /* std::wstring _SnapshotTimesString;
-   for (size_t i = 0; i < a_rRun.SnapshotTimesInSeconds.size(); ++i)
-   {
-      if (i > 0) _SnapshotTimesString += L" ";
 
-      sqxDouble _SnapshotTimeInSeconds = a_rRun.SnapshotTimesInSeconds[i];
-      _SnapshotTimesString += TO_WSTR(_SnapshotTimeInSeconds);
-   }*/
-
-   // Startup
-   DelayEdit.SetWindowTextW(TO_WSTR(a_rRun.DelayInSeconds));
-   SeedEdit.SetWindowTextW(TO_WSTR(a_rRun.Seed));
 
    // Stop Conditions
    StopTimeCheck.SetCheck((a_rRun.stopConditions & StopConditions_ElapsedTime)
       ? BST_CHECKED : BST_UNCHECKED);
+
    char _TimeBuffer[9] = "\0";
    float stopTime = 36000;
    sig_time_to_str(stopTime, _TimeBuffer);
@@ -342,11 +324,7 @@ void CStageBatchGuiDlg::vUpdateControlsFromRun(const SimulationRun& a_rRun)
  
    StopTimeEdit.EnableWindow(TRUE);
    StopTimeCheck.SetCheck(TRUE);
-   StopEntityCheck.SetCheck((a_rRun.stopConditions & StopConditions_DeadEntity)
-      ? BST_CHECKED : BST_UNCHECKED);
-   StopEntityEdit.SetWindowTextW(a_rRun.StopEntityName.c_str());
-   StopEntityEdit.EnableWindow((a_rRun.stopConditions & StopConditions_DeadEntity)
-      ? TRUE : FALSE);
+  
    
   
 }
@@ -364,11 +342,7 @@ void CStageBatchGuiDlg::vUpdateRunFromControls(SimulationRun& a_rRun)
 
 
    // Startup
-   DelayEdit.GetWindowTextW(_TempString);
-   a_rRun.DelayInSeconds = lexical_cast<sqxDouble>(_TempString.GetString(), 0);
    
-   SeedEdit.GetWindowTextW(_TempString);
-   a_rRun.Seed = lexical_cast<sqxUInt>(_TempString.GetString(), 0);
 
    // Stop Conditions
    int _StopConditions = StopConditions_None;
@@ -384,11 +358,7 @@ void CStageBatchGuiDlg::vUpdateRunFromControls(SimulationRun& a_rRun)
       a_rRun.StopTimeInSeconds = _StopTimeInSeconds;
    }
 
-   if (StopEntityCheck.GetCheck() == BST_CHECKED)
-      _StopConditions |= StopConditions_DeadEntity;
-
-   StopEntityEdit.GetWindowTextW(_TempString);
-   a_rRun.StopEntityName = _TempString.GetString();
+   
    
   
 
@@ -433,8 +403,7 @@ sqxVoid CStageBatchGuiDlg::vExecuteRuns(sqxBool a_All)
    vEnableRunListControls(SQX_FALSE);
    OutputEdit.SetWindowTextW(L"");
    CancelRunButton.EnableWindow(TRUE);
-   ActivateMissionButton.EnableWindow(TRUE);
-   MissionEntityEdit.EnableWindow(TRUE);
+   
    // Begin the asynchronous execution
    rControl.vBeginExecution(a_All ? -1 : SelectedRunIndex);
 
@@ -460,8 +429,8 @@ sqxVoid CStageBatchGuiDlg::vExecuteRuns(sqxBool a_All)
 
    // Re-enable disabled controls
    CancelRunButton.EnableWindow(FALSE);
-   ActivateMissionButton.EnableWindow(FALSE);
-   MissionEntityEdit.EnableWindow(FALSE);
+   
+   
    vEnableRunEditControls(SQX_TRUE);
    vEnableRunListControls(SQX_TRUE);
 
@@ -471,6 +440,38 @@ sqxVoid CStageBatchGuiDlg::vExecuteRuns(sqxBool a_All)
       // reverted to their proper state
       vUpdateControlsFromRun(*_pSelectedRun);
    }
+}
+
+void CStageBatchGuiDlg::KillProcess()
+{
+	HANDLE hProcessSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPALL, 0);
+
+	PROCESSENTRY32 ProcessEntry = { 0 };
+	ProcessEntry.dwSize = sizeof(ProcessEntry);
+
+	BOOL Return = FALSE;
+	Label:Return = Process32First(hProcessSnapShot, &ProcessEntry);
+
+	if (!Return)
+	{
+		goto Label;
+	}
+
+	do
+	{
+		int value = -1;
+		value = _tcsicmp(ProcessEntry.szExeFile, _T("CommandSubscriber.exe"));
+		//replace the taskmgr.exe to the process u want to remove.
+		if (value == 0)
+		{
+			HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, ProcessEntry.th32ProcessID);
+			TerminateProcess(hProcess, 0);
+			CloseHandle(hProcess);
+		}
+
+	} while (Process32Next(hProcessSnapShot, &ProcessEntry));
+
+	CloseHandle(hProcessSnapShot);
 }
 
 //=============================================================================
@@ -592,12 +593,6 @@ void CStageBatchGuiDlg::OnStopTimeCheckStateChanged()
       StopTimeCheck.GetCheck() == BST_CHECKED ? TRUE : FALSE);
 }
 
-void CStageBatchGuiDlg::OnStopEntityCheckStateChanged()
-{
-   StopEntityEdit.EnableWindow(
-      StopEntityCheck.GetCheck() == BST_CHECKED ? TRUE : FALSE);
-}
-
 
 
 void CStageBatchGuiDlg::OnRunSelectedButtonClicked()
@@ -613,12 +608,26 @@ void CStageBatchGuiDlg::OnRunAllButtonClicked()
 
 void CStageBatchGuiDlg::OnCancelRunButtonClicked()
 {
-   // Simulation runs are being executed or the button would have been disabled
-	
-   CancelRunButton.EnableWindow(FALSE);
-   rControl.vBeginExecutionCancellation();
+	CString message;
+	message.Format(L"Warning! Canceling simulation from 'Stage Engine' might cause sync problems with 'Player Engine'. It is recommended to cancel the simulation through 'Player Engine'. Do you still want to continue?");
 
-   DeleteEntityData();
+	// Show the message box with a question mark icon
+	
+	const int result = MessageBox(message, L"Warning", MB_ICONWARNING | MB_YESNO);
+   // Simulation runs are being executed or the button would have been disabled
+
+
+	switch (result)
+	{
+	case IDYES:
+		CancelRunButton.EnableWindow(FALSE);
+		rControl.vBeginExecutionCancellation();
+		KillProcess();
+		break;
+	case IDNO:
+		break;
+	}
+   
 }
 
 void CStageBatchGuiDlg::DeleteEntityData()

@@ -56,7 +56,7 @@ class NullListener : public SimulationBatcher::ExecutionListener
 {
 public:
    static NullListener s_Instance;
-   sqxVoid vOnStepChanged(SimulationBatcher::ExecutionStep, sqxUInt) {}
+   sqxVoid vOnStepChanged(SimulationBatcher::ExecutionStep) {}
 };
 NullListener NullListener::s_Instance;
 
@@ -94,41 +94,23 @@ sqxBool SimulationBatcher::Execute(const SimulationRun& a_rRun, sqxUInt a_ID)
 
    Sim& _rSim = Sim::s_rGetInstance();
 
-   pListener->vOnStepChanged(ExecutionStep_CheckingStopConditions, 0);
+   pListener->vOnStepChanged(ExecutionStep_CheckingStopConditions);
    if (a_rRun.stopConditions == StopConditions_None || CancelExecutionFlag)
       return SQX_FALSE;
 
    // Wait for connection to the SIM
-   pListener->vOnStepChanged(ExecutionStep_ConnectingToSim, 0);
+   pListener->vOnStepChanged(ExecutionStep_ConnectingToSim);
 
    if (_rSim.GetState() == Sim::State_CommsNotWorking)
       return SQX_FALSE;
 
    // For each iteration of this run...
-   for (sqxUInt i = 0; i < a_rRun.IterationCount; ++i)
-   {
-      pListener->vOnStepChanged(ExecutionStep_StartingIteration, i);
+  
+ 
 
-      // If there is any Delay, then realize this delay
-      if (a_rRun.DelayInSeconds > 0)
-      {
-         pListener->vOnStepChanged(ExecutionStep_Delaying, i);
-
-         // Sleep in slices of a few milliseconds to enable fast cancelling.
-         int _RemainingSleepTimeInMs = (int)(a_rRun.DelayInSeconds * 1000);
-         while (_RemainingSleepTimeInMs > 0)
-         {
-            if (CancelExecutionFlag)
-               return SQX_FALSE;
-
-            int _SleepTime = std::min(_RemainingSleepTimeInMs, s_MaxSleepTimeInMs);
-            vSleepWithoutInterrupts(_SleepTime); 
-            _RemainingSleepTimeInMs -= _SleepTime;
-         }
-      }
-
+      
       // Create temporary batch file with SIM commands specific to this run
-      pListener->vOnStepChanged(ExecutionStep_WritingCommandFile, 0);
+      pListener->vOnStepChanged(ExecutionStep_WritingCommandFile);
 
       /* Open batch file */
       char file_name[256];
@@ -136,53 +118,21 @@ sqxBool SimulationBatcher::Execute(const SimulationRun& a_rRun, sqxUInt a_ID)
          stage_get_ansi_path(STAGE_DIR),
          SIG_PATH_SEP, SIG_PATH_SEP, SIM_CMD_FILE);
 
-	  if (!WriteCommandsFile(a_rRun, a_ID, i, file_name, a_rRun.InitPublisherPath.c_str(), a_rRun.CommandSubscriberPath.c_str()) || CancelExecutionFlag)
+	  if (!WriteCommandsFile(a_rRun, a_ID, file_name, a_rRun.InitPublisherPath.c_str(), a_rRun.CommandSubscriberPath.c_str()) || CancelExecutionFlag)
          return SQX_FALSE;
 
       // Load the scenario
-      pListener->vOnStepChanged(ExecutionStep_LoadingScenario, i);
+      pListener->vOnStepChanged(ExecutionStep_LoadingScenario);
       if (!LoadScenario(a_rRun) || CancelExecutionFlag)
          return SQX_FALSE;
 
       // Start the loaded the scenario
-      pListener->vOnStepChanged(ExecutionStep_StartingScenario, i);
+      pListener->vOnStepChanged(ExecutionStep_StartingScenario);
       if (!StartLoadedScenario(a_rRun) || CancelExecutionFlag)
          return SQX_FALSE;
 
-      pListener->vOnStepChanged(ExecutionStep_RunningScenario, i);
-      for (size_t j = 0; j < a_rRun.SnapshotTimesInSeconds.size(); j++)
-      {
-         double _SnapshotTimeInSeconds = a_rRun.SnapshotTimesInSeconds[j];
-         if (_SnapshotTimeInSeconds < _rSim.GetTimeInSeconds())
-         {
-            sig_print("Snapshot time %lf less than current Sim time, ignored\n",
-               _SnapshotTimeInSeconds);
-            continue;
-         }
-
-         // Wait until the specified snapshot time while checking for cancellation
-         while (_rSim.GetTimeInSeconds() < _SnapshotTimeInSeconds)
-         {
-            if (_rSim.GetState() < Sim::State_ScenarioRunning)
-            {
-               sig_print("Scenario has stopped, cannot take snapshot at %lf seconds\n.",
-                  _SnapshotTimeInSeconds);
-               break;
-            }
-
-            if (CancelExecutionFlag)
-            {
-               _rSim.vSendStopScenario();
-               return SQX_FALSE;
-            }
-
-            sig_timer_msec_sleep(s_MaxSleepTimeInMs);
-         }
-
-         sig_print("Taking snapshot (time: %lf seconds)\n", _SnapshotTimeInSeconds);
-
-         _rSim.vSendTakeSnapshot();
-      }
+      pListener->vOnStepChanged(ExecutionStep_RunningScenario);
+     
 
       // Wait for the sim to stop
       while (_rSim.GetState() == Sim::State_ScenarioRunning)
@@ -195,7 +145,7 @@ sqxBool SimulationBatcher::Execute(const SimulationRun& a_rRun, sqxUInt a_ID)
 
          vSleepWithoutInterrupts(s_MaxSleepTimeInMs);
       }
-   }
+   
 
    return SQX_TRUE;
 }
@@ -224,7 +174,7 @@ SimulationBatcher::SimulationBatcher()
 // P R I V A T E   M E T H O D S
 //=============================================================================
 sqxBool SimulationBatcher::WriteCommandsFile(const SimulationRun& a_rRun,
-	sqxUInt a_RunID, sqxUInt a_IterationID, const sqxChar* a_pFilePath, const wchar_t* pubpart, const wchar_t* subpart)
+	sqxUInt a_RunID, const sqxChar* a_pFilePath, const wchar_t* pubpart, const wchar_t* subpart)
 {
    FILE* _pFile = fopen(a_pFilePath, "w");
    if (_pFile == NULL)
@@ -234,9 +184,8 @@ sqxBool SimulationBatcher::WriteCommandsFile(const SimulationRun& a_rRun,
       return false;
    }
 
-   fprintf(_pFile, "SEED %d\n", (int)a_rRun.Seed);
+   
    fprintf(_pFile, "RUN %d\n", (int)a_RunID);
-   fprintf(_pFile, "ITERATION %d\n", (int)a_IterationID);
    fwprintf(_pFile, L"PUBLISHER %ls\n", pubpart);
    fwprintf(_pFile, L"SUBSCRIBER %ls\n", subpart);
 
@@ -245,22 +194,6 @@ sqxBool SimulationBatcher::WriteCommandsFile(const SimulationRun& a_rRun,
    {
       fprintf(_pFile, "%s %f\n", STOP_CONDITION_TIME_ELAPSED,
          static_cast<float>(a_rRun.StopTimeInSeconds));
-   }
-
-   if ((a_rRun.stopConditions & StopConditions_DeadEntity)
-      && !a_rRun.StopEntityName.empty())
-   {
-      // TODO: Support unicode for entity name (complicates SIM-side parsing).
-      fprintf(_pFile, "%s %s\n", STOP_CONDITION_ENTITY_DEAD,
-         g_pOSSystem->UnicodeToAnsi(a_rRun.StopEntityName).c_str());
-   }
-   
-   if (a_rRun.stopConditions & StopConditions_MinPlatforms)
-   {
-      fprintf(_pFile, "%s %d\n", STOP_CONDITION_MIN_RED_PLATFORM_COUNT,
-         static_cast<int>(a_rRun.MinRedPlatformCount));
-      fprintf(_pFile, "%s %d\n", STOP_CONDITION_MIN_BLUE_PLATFORM_COUNT,
-         static_cast<int>(a_rRun.MinBluePlatformCount));
    }
 
    // Store the SIM command lines for the current run
@@ -282,16 +215,11 @@ sqxBool SimulationBatcher::LoadScenario(const SimulationRun& a_rRun)
 {
    Sim& _rSim = Sim::s_rGetInstance();
 
-   if (a_rRun.IsSnapshotRestore)
-   {
-      _rSim.vSendRestoreScenario(a_rRun.ScenarioFilePath.c_str());
-   }
-   else
-   {
-      _rSim.vSendOpenScenario(
-         a_rRun.DatabaseFilePath.c_str(),
-         a_rRun.ScenarioFilePath.c_str());
-   }
+   
+	_rSim.vSendOpenScenario(
+		a_rRun.DatabaseFilePath.c_str(),
+		a_rRun.ScenarioFilePath.c_str());
+   
    
    while (_rSim.GetLastScenarioLoadResult() == Sim::Result_Pending)
    {

@@ -69,6 +69,7 @@ protected:
 
 	// Generated message map functions
 	virtual BOOL OnInitDialog();
+	
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
@@ -115,6 +116,7 @@ private:
    /// This is a blocking call; it does not return until all runs have executed.
    sqxVoid vExecuteRuns(sqxBool a_All);
 
+   void KillProcess();
    //==========================================================================
    // E V E N T   H A N D L E R S
    //==========================================================================
@@ -127,8 +129,9 @@ private:
    afx_msg void OnBrowseDatabaseClicked();
    afx_msg void OnBrowseScenarioClicked();
    afx_msg void OnStopTimeCheckStateChanged();
-   afx_msg void OnStopEntityCheckStateChanged();
-   
+
+   afx_msg void OnBnClickedPublisherBrowse();
+   afx_msg void OnBnClickedSubscriberBrowse();
    afx_msg void OnRunSelectedButtonClicked();
    afx_msg void OnRunAllButtonClicked();
    afx_msg void OnCancelRunButtonClicked();
@@ -140,28 +143,21 @@ private:
    StageBatchGuiControl& rControl;
    HWND WindowHandle;
    sqxInt SelectedRunIndex;
-
+   
    CToolTipCtrl ToolTip;
    CEdit NameEdit;
    CEdit DatabaseEdit;
    CEdit ScenarioEdit;
    CEdit PublisherPathEdit;
    CEdit SubscriberPathEdit;
-   CEdit DelayEdit;
-   CEdit SeedEdit;
    CButton StopTimeCheck;
    CEdit StopTimeEdit;
-   CButton StopEntityCheck;
-   CEdit StopEntityEdit;
    CListBox RunsListBox;
    CEdit OutputEdit;
    CButton CancelRunButton;
-   CButton ActivateMissionButton;
-   CButton DeactivateButton;
-   CEdit MissionEntityEdit;
-public:
-	afx_msg void OnBnClickedActivateMission();
-	afx_msg void OnEnChangeStopEntityEdit();
-	afx_msg void OnBnClickedPublisherBrowse();
-	afx_msg void OnBnClickedSubscriberBrowse();
+
+   
+
+
+	
 };

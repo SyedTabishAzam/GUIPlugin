@@ -11,19 +11,15 @@
 #define IDC_DATABASE_BROWSE_BUTTON      1007
 #define IDC_SCENARIO_EDIT               1008
 #define IDC_SCENARIO_BROWSE_BUTTON      1009
-#define IDC_ITERATIONS_EDIT             1010
-#define IDC_ITERATIONS_EDIT2            1011
-#define IDC_SNAPSHOT_TIMES_EDIT         1011
+
+
 #define IDC_PUBLISHER_BROWSE            1011
-#define IDC_DELAY_EDIT                  1012
-#define IDC_SEED_EDIT                   1013
 #define IDC_STOP_TIME_CHECK             1014
-#define IDC_MIN_RED_PLATFORM_COUNT_EDIT 1015
+
 #define IDC_SUBSCRIBER_BROWSE           1015
 #define IDC_MIN_BLUE_PLATFORM_COUNT_EDIT 1016
 #define IDC_STOP_TIME_EDIT              1017
-#define IDC_STOP_ENTITY_CHECK           1018
-#define IDC_STOP_ENTITY_EDIT            1019
+
 #define IDC_OUTPUT_EDIT                 1020
 #define IDC_RUN_ALL_BUTTON              1021
 #define IDC_RUN_SELECTED_BUTTON         1022
@@ -31,14 +27,11 @@
 #define IDC_MOVE_RUN_UP_BUTTON          1024
 #define IDC_MOVE_RUN_DOWN_BUTTON        1025
 #define IDC_CANCEL_RUN_BUTTON           1026
-#define IDC_STOP_PLATFORM_COUNTS_CHECK  1027
-#define IDC_MIN_PLATFORM_COUNTS_CHECK   1027
-#define IDC_ACTIVATE_MISSION            1028
-#define IDC_DEAC_MISSION                1029
-#define IDC_ENTITY_MISSION              1030
+
+
 #define IDC_PUBLISHERPATH_EDIT          1043
 #define IDC_SUBSCRIBERPATH_EDIT         1044
-
+#define ID_CTLCOLOR						1045
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED

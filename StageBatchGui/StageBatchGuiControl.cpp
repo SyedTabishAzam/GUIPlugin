@@ -185,7 +185,7 @@ sqxVoid StageBatchGuiControl::vCancelExecution()
 // P R I V A T E   M E T H O D S
 //=============================================================================
 sqxVoid StageBatchGuiControl::vOnStepChanged(
-   SimulationBatcher::ExecutionStep a_Step, sqxUInt a_ExecutionIndex)
+   SimulationBatcher::ExecutionStep a_Step )
 {
    SimulationRun& _rRun = *Runs[RunBeingExecutedIndex];
    CString _TempString;
@@ -198,25 +198,8 @@ sqxVoid StageBatchGuiControl::vOnStepChanged(
       pDialog->vAppendOutputLine(L"Connecting to SIM...");
       break;
 
-   case SimulationBatcher::ExecutionStep_StartingIteration:
-      _TempString.Format(L"=> Iteration %d:",
-         static_cast<int>(a_ExecutionIndex));
-      pDialog->vAppendOutputLine(_TempString.GetString());
-      break;
       
-   case SimulationBatcher::ExecutionStep_Delaying:
-      _TempString.Format(L"Delaying for %f seconds...",
-         static_cast<float>(_rRun.DelayInSeconds));
-      pDialog->vAppendOutputLine(_TempString.GetString());
-      break;
-      
-   case SimulationBatcher::ExecutionStep_LoadingScenario:
-      _TempString.Format(L"%s scenario '%s'...",
-         _rRun.IsSnapshotRestore ? L"Restoring" : L"Opening",
-         sig_wbasename(_rRun.ScenarioFilePath.c_str()));
-      pDialog->vAppendOutputLine(_TempString.GetString());
-      break;
-      
+     
    case SimulationBatcher::ExecutionStep_StartingScenario:
       _TempString.Format(L"Starting scenario...");
       pDialog->vAppendOutputLine(_TempString.GetString());

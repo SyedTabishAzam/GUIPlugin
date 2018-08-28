@@ -244,7 +244,7 @@ sqxBool ParseBatchFile(const sqxChar* a_pFilePath, std::vector<SimulationRun*>& 
             break;
          }   
 
-         _pRun->IsSnapshotRestore = SQX_FALSE;
+         
 
          // Retrieve the scenario name
          const sqxChar* _pToken = strtok(NULL, ": \t\n");
@@ -271,7 +271,7 @@ sqxBool ParseBatchFile(const sqxChar* a_pFilePath, std::vector<SimulationRun*>& 
             break;
          }   
 
-         _pRun->IsSnapshotRestore = SQX_TRUE;
+         
 
          // Retrieve the snapshot filename
          const sqxChar* _pFilePath = strtok(NULL, ": \t\n");
@@ -320,7 +320,7 @@ sqxBool ParseBatchFile(const sqxChar* a_pFilePath, std::vector<SimulationRun*>& 
                if (_pEntityName != SQX_NULL && _pEntityName[0] != '\0')
                {
                   _pRun->stopConditions |= StopConditions_DeadEntity;
-                  _pRun->StopEntityName = g_pOSSystem->AnsiToUnicode(_pEntityName);
+                  
 				  
                }
             }
@@ -330,50 +330,9 @@ sqxBool ParseBatchFile(const sqxChar* a_pFilePath, std::vector<SimulationRun*>& 
             }
          }
       }
-      else if (!strcmp(_pKeyword, s_pSeedKeyword))
-      { 
-         // Retrieve the random seed
-         const sqxChar* _pSeed = strtok(NULL, ": \t\n");
-         if (_pSeed != SQX_NULL && _pSeed[0] != '\0')
-            _pRun->Seed = atol(_pSeed);
-      }
-      else if (!strcmp(_pKeyword, s_pDelayKeyword))
-      {
-         if (!HasFlags(_Flags, ParsingFlags_RunParsed)
-            && !HasFlags(_Flags, ParsingFlags_RestoreParsed))
-         {
-            _pErrorMessage = "DELAY parameter encountered when not parsing a command";
-            break;
-         }   
-
-         const sqxChar* _pDelay = strtok(NULL, ": \t\n");
-         if (_pDelay != SQX_NULL && _pDelay[0] != '\0')
-         {
-            // Store the Delay
-            _pRun->DelayInSeconds = atof(_pDelay);
-            _Flags |= ParsingFlags_DelayParsed;
-            continue;
-         }
-         else
-         {
-            _pErrorMessage = "DELAY parameter without a numeric time value";
-            break;
-         }   
-      }
-      else if (!strcmp(_pKeyword, s_pSnapshotKeyword))
-      {
-         SimulationRun* _pRun = a_rRuns.at(a_rRuns.size() - 1);
-
-         const sqxChar* _pTime = strtok(NULL, ": \t\n");
-         while (_pTime != SQX_NULL)
-         {
-            // Store the snapshot times
-            _pRun->SnapshotTimesInSeconds.push_back(atof(_pTime));
-            _pTime = strtok(NULL," \t");
-         }
-         
-         continue;
-      }
+     
+      
+     
       else
       {
          // SIM command lines

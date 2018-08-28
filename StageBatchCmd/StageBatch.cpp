@@ -48,7 +48,7 @@ class Listener : public SimulationBatcher::ExecutionListener
 public:
    SimulationRun* pCurrentRun;
 
-   sqxVoid vOnStepChanged(SimulationBatcher::ExecutionStep a_Step, sqxUInt)
+   sqxVoid vOnStepChanged(SimulationBatcher::ExecutionStep a_Step)
    {
       switch (a_Step)
       {
@@ -56,14 +56,9 @@ public:
          sig_print("Connecting to the SIM...\n");
          break;
 
-      case SimulationBatcher::ExecutionStep_Delaying:
-         sig_print("Executing %f seconds delay...\n",
-            static_cast<float>(pCurrentRun->DelayInSeconds));
-         break;
          
       case SimulationBatcher::ExecutionStep_LoadingScenario:
-         sig_wprint(L"%ls scenario %ls...\n",
-            pCurrentRun->IsSnapshotRestore ? L"Restoring" : L"Opening",
+         sig_wprint(L"%ls scenario %ls...\n", L"Opening",
             sig_wbasename(pCurrentRun->ScenarioFilePath.c_str()));
          break;
          
@@ -121,13 +116,7 @@ int main(int argc, char *argv[])
    {
       sqxUInt _TotalRunCount = static_cast<sqxUInt>(_Runs.size());
 
-      sqxUInt _RestoreRunCount = 0;
-      for (sqxUInt i = 0; i < _TotalRunCount; ++i)
-         if (_Runs[i]->IsSnapshotRestore)
-            ++_RestoreRunCount;
 
-      sig_print("Command file parsed successfully, starting %i run(s) and %i restore(s).\n", 
-         _TotalRunCount - _RestoreRunCount, _RestoreRunCount);
       
       SimulationBatcher& _rBatcher = SimulationBatcher::s_rGetInstance();
       _rBatcher.vSetListener(&s_ListenerInstance);

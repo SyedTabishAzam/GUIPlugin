@@ -123,8 +123,7 @@ private:
    //==========================================================================
    /// @brief Simulation batcher progress callback used to display
    /// progress messages to the user.
-   sqxVoid vOnStepChanged(SimulationBatcher::ExecutionStep a_Step,
-      sqxUInt a_ExecutionIndex);
+   sqxVoid vOnStepChanged(SimulationBatcher::ExecutionStep a_Step);
 
    /// @brief Static worker thread entry point.
    static UINT StaticThreadProc(LPVOID pParam);

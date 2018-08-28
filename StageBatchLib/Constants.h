@@ -31,6 +31,8 @@
 
 /* Name of the SIM batch file */
 #define SIM_CMD_FILE "stage.sim_cmd"
+#define TEMP_XML_BUFFER_FILE "tempFile.xml"
+#define OUTPUT_XML_FILE "OutputFile.xml"
 #define SIM_MISSION_FILE "entitymission.missionactive"
 
 #define BUF_SIZE 256

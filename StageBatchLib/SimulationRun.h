@@ -97,17 +97,7 @@ public:
    std::wstring CommandSubscriberPath;
 
    /// @brief A flag indicating if the run implies restoring a snapshot.
-   sqxBool IsSnapshotRestore;
-
-   /// @brief The number of times to execute this run.
-   sqxUInt IterationCount;
-
-   /// @brief The delay before starting the execution of this run, in seconds.
-   sqxDouble DelayInSeconds;
-
-   /// @brief The random number generator seed for this run.
-   /// A value of zero indicates a random seed.
-   sqxUInt Seed;
+  
 
    /// @brief Flags indicating which stop conditions are used.
    StopConditions stopConditions;
@@ -118,20 +108,12 @@ public:
 
    /// @brief The name of the entity whose death causes the run to stop.
    /// This is only used if StopConditions_DeadEntity is set.
-   std::wstring StopEntityName;
+   //std::wstring StopEntityName;
 
-   /// @brief The number of red platforms below which the run should stop.
-   /// This is only used if StopConditions_PlatformCounts is set.
-   sqxUInt MinRedPlatformCount;
-
-   /// @brief The number of blue platforms below which the run should stop.
-   /// This is only used if StopConditions_PlatformCounts is set.
-   sqxUInt MinBluePlatformCount;
+  
 
    /// @brief The simulation times at which to take snapshots, in seconds.
-   ///
-   /// @remarks The snapshots might not be taken precisely at those times.
-   std::vector<sqxDouble> SnapshotTimesInSeconds;
+ 
 
    /// @brief Additional parameters to be passed to the SIM plugin.
    std::vector<std::string> SimParams;

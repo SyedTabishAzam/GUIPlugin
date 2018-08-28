@@ -78,8 +78,7 @@ public:
       /// @param a_Step The execution step that is reached.
       /// @param a_IterationIndex The iteration index for runs
       /// that must be executed multiple times.
-      virtual sqxVoid vOnStepChanged(ExecutionStep a_Step,
-         sqxUInt a_IterationIndex) = 0;
+      virtual sqxVoid vOnStepChanged(ExecutionStep a_Step) = 0;
    };
 
    //==========================================================================
@@ -125,7 +124,7 @@ private:
 
    /// @brief Writes the simulation command file for the given run.
    static sqxBool WriteCommandsFile(const SimulationRun& a_rRun,
-	   sqxUInt a_RunID, sqxUInt a_IterationID, const sqxChar* a_pFilePath, const wchar_t*, const wchar_t*);
+	   sqxUInt a_RunID, const sqxChar* a_pFilePath, const wchar_t*, const wchar_t*);
 
    //==========================================================================
    // P R I V A T E   F I E L D S
