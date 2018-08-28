@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="generic sonar 15km">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>17</Profile_ID>
+  <Instance_ID>44</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>type_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>11</Choice>
+      <Datablock>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>emission</Name>
+          <FieldID>1</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>power</Name>
+              <FieldID>1</FieldID>
+              <Value>5000</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>frequency</Name>
+              <FieldID>2</FieldID>
+              <Value>1e+008</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>env</Name>
+          <FieldID>2</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_elevation</Name>
+              <FieldID>1</FieldID>
+              <Value>-1.5708</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_elevation</Name>
+              <FieldID>2</FieldID>
+              <Value>1.5708</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_azimuth</Name>
+              <FieldID>3</FieldID>
+              <Value>-3.141593</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_azimuth</Name>
+              <FieldID>4</FieldID>
+              <Value>3.141593</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>scanning</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>rate</Name>
+              <FieldID>1</FieldID>
+              <Value>1</Value>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>nr_of_hits</Name>
+              <FieldID>2</FieldID>
+              <Value>1</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="5" Type_Name="Curve">
+          <Name>detection</Name>
+          <FieldID>4</FieldID>
+          <Curve>
+            <Z Value="100.000000">
+              <Point X="0.000000" Y="100.000000"/>
+              <Point X="15000.000000" Y="100.000000"/>
+            </Z>
+          </Curve>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+</Profile_Instance>

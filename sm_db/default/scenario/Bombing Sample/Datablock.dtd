@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT Choice (#PCDATA)>
+<!ELEMENT DBChoice (Choice, Datablock)>
+<!ELEMENT DBList (DBList_Instance*)>
+<!ELEMENT DBList_Instance (Field+)>
+<!ATTLIST DBList_Instance
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Database_Name (#PCDATA)>
+<!ELEMENT Datablock (Field*)>
+<!ELEMENT Datablock_Instance (Database_Name, Timestamp, Profile_ID, Field+)>
+<!ATTLIST Datablock_Instance
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Field (Name, FieldID, Value?, Datablock?, LatLon?, DBList?, DBChoice?, Gfx?)>
+<!ATTLIST Field
+	Type CDATA #REQUIRED
+	Type_Name CDATA #IMPLIED
+>
+<!ELEMENT Lat (#PCDATA)>
+<!ELEMENT LatLon (Lat, Lon)>
+<!ELEMENT Lon (#PCDATA)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT FieldID (#PCDATA)>
+<!ELEMENT Profile_ID (#PCDATA)>
+<!ELEMENT Timestamp (#PCDATA)>
+<!ELEMENT Value (#PCDATA)>
+
+<!ELEMENT Gfx ((Rectangle|Circle|Polygon),Point*)>
+<!ATTLIST  Gfx
+	Attrib_File CDATA #REQUIRED
+	Attrib_Sub_Dir CDATA #REQUIRED
+	Num_Points CDATA #REQUIRED
+	Type CDATA #REQUIRED
+>
+<!ELEMENT Rectangle EMPTY>
+<!ATTLIST Rectangle
+    Angle CDATA #REQUIRED
+	Height CDATA #REQUIRED
+	Width CDATA #REQUIRED
+>
+
+<!ELEMENT Circle EMPTY>
+<!ATTLIST Circle 
+   Radius CDATA #REQUIRED
+>
+
+<!ELEMENT Polygon EMPTY>
+<!ATTLIST Polygon
+   Area CDATA #REQUIRED
+   Lat0 CDATA #REQUIRED
+   Lat1 CDATA #REQUIRED
+   Lon0 CDATA #REQUIRED
+   Lon1 CDATA #REQUIRED
+>
+
+<!ELEMENT Point EMPTY>
+<!ATTLIST Point
+	Alt CDATA #REQUIRED
+	Lat CDATA #REQUIRED
+	Lon CDATA #REQUIRED
+>

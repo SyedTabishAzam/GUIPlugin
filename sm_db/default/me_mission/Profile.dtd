@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT Profile_Instance (Database_Name, Stage_Version, Timestamp, Profile_ID, Instance_ID, Field*)>
+<!ATTLIST Profile_Instance
+	Name CDATA #REQUIRED
+>
+<!ELEMENT Database_Name (#PCDATA)>
+<!ELEMENT Stage_Version (#PCDATA)>
+<!ELEMENT Timestamp (#PCDATA)>
+<!ELEMENT Profile_ID (#PCDATA)>
+<!ELEMENT Instance_ID (#PCDATA)>
+<!ELEMENT Field (Name,FieldID, Datablock*, Gfx*, LatLon*, DBList*, Curve*, Value*, DBChoice*)>
+<!ATTLIST Field
+	Type CDATA #REQUIRED
+	Type_Name CDATA #IMPLIED
+>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT FieldID (#PCDATA)>
+<!ELEMENT Gfx (Marker*, Point)>
+<!ATTLIST  Gfx
+	Attrib_File CDATA #REQUIRED
+	Attrib_Sub_Dir CDATA #REQUIRED
+	Num_Points CDATA #REQUIRED
+	Type CDATA #REQUIRED
+>
+<!ELEMENT Marker (#PCDATA)>
+
+<!ELEMENT LatLon (Lat, Lon)>
+<!ELEMENT Lat (#PCDATA)>
+<!ELEMENT Lon (#PCDATA)>
+
+<!ELEMENT DBList (DBList_Instance*,Datablock_Instance*,Additional_Folder*)>
+<!ELEMENT DBList_Instance (Field*)>
+<!ATTLIST DBList_Instance	
+Name CDATA #REQUIRED
+>
+
+<!ELEMENT Datablock_Instance (#PCDATA)>
+<!ATTLIST Datablock_Instance
+	Name CDATA #REQUIRED
+	Folder_Name CDATA #IMPLIED
+>
+
+<!ELEMENT Additional_Folder (#PCDATA)>
+
+<!ELEMENT Curve (Z*)>
+<!ELEMENT Z (Point*)>
+<!ATTLIST Z
+	Value CDATA #IMPLIED
+>
+<!ELEMENT Point (#PCDATA)>
+<!ATTLIST Point
+	X CDATA #IMPLIED
+	Y CDATA #IMPLIED
+	Alt CDATA #IMPLIED
+	Lat CDATA #IMPLIED
+	Lon CDATA #IMPLIED
+>
+
+<!ELEMENT Value (#PCDATA)>
+
+<!ELEMENT DBChoice (Choice, Datablock)>
+<!ELEMENT Choice (#PCDATA)>
+<!ELEMENT Datablock (Field*)>

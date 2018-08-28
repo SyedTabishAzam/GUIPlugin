@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Datablock_Instance SYSTEM "Datablock.dtd">
+<Datablock_Instance Name="Border">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1531126128</Timestamp>
+  <Profile_ID>16</Profile_ID>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>shape</Name>
+    <FieldID>2</FieldID>
+    <Datablock>
+      <Field Type="2" Type_Name="Double">
+        <Name>circle_radius</Name>
+        <FieldID>1</FieldID>
+        <Value>10</Value>
+      </Field>
+      <Field Type="6" Type_Name="LatLon">
+        <Name>center</Name>
+        <FieldID>2</FieldID>
+        <LatLon>
+          <Lat>N00:00:00.000000000</Lat>
+          <Lon>E000:00:00.000000000</Lon>
+        </LatLon>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>rectangle_width</Name>
+        <FieldID>3</FieldID>
+        <Value>10</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>rectangle_height</Name>
+        <FieldID>4</FieldID>
+        <Value>10</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>rectangle_orientation</Name>
+        <FieldID>5</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>attribute</Name>
+        <FieldID>6</FieldID>
+        <Value>orange</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>edit_orientation</Name>
+        <FieldID>7</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>editor_type</Name>
+        <FieldID>8</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>type</Name>
+        <FieldID>9</FieldID>
+        <Value>100000003</Value>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>circle</Name>
+        <FieldID>10</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="14">
+          <Circle Radius="0.000000"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>rectangle</Name>
+        <FieldID>11</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="13">
+          <Rectangle Angle="0.000000" Height="0.000000" Width="0.000000"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>polyline</Name>
+        <FieldID>12</FieldID>
+        <Gfx Attrib_File="orange" Attrib_Sub_Dir="symbols" Num_Points="21" Type="17">
+          <Polyline/>
+          <Point Alt="0.0" Lat="N33:13:38.892" Lon="W117:24:30.949"/>
+          <Point Alt="0.0" Lat="N33:15:20.764" Lon="W117:22:17.779"/>
+          <Point Alt="0.0" Lat="N33:17:43.965" Lon="W117:22:40.924"/>
+          <Point Alt="0.0" Lat="N33:19:31.614" Lon="W117:19:33.870"/>
+          <Point Alt="0.0" Lat="N33:22:00.664" Lon="W117:19:26.561"/>
+          <Point Alt="0.0" Lat="N33:23:55.913" Lon="W117:14:55.088"/>
+          <Point Alt="0.0" Lat="N33:26:22.971" Lon="W117:14:35.949"/>
+          <Point Alt="0.0" Lat="N33:26:38.598" Lon="W117:14:05.490"/>
+          <Point Alt="0.0" Lat="N33:27:17.793" Lon="W117:13:51.331"/>
+          <Point Alt="0.0" Lat="N33:26:52.250" Lon="W117:13:30.354"/>
+          <Point Alt="0.0" Lat="N33:26:48.216" Lon="W117:12:41.235"/>
+          <Point Alt="0.0" Lat="N33:28:41.352" Lon="W117:08:42.137"/>
+          <Point Alt="0.0" Lat="N33:27:34.399" Lon="W117:07:11.152"/>
+          <Point Alt="0.0" Lat="N33:26:56.809" Lon="W117:05:28.370"/>
+          <Point Alt="0.0" Lat="N33:26:44.666" Lon="W117:03:38.467"/>
+          <Point Alt="0.0" Lat="N33:28:48.066" Lon="W117:02:53.374"/>
+          <Point Alt="0.0" Lat="N33:29:37.314" Lon="W117:03:53.982"/>
+          <Point Alt="0.0" Lat="N33:28:39.916" Lon="W117:01:31.501"/>
+          <Point Alt="0.0" Lat="N33:29:54.299" Lon="W117:00:53.638"/>
+          <Point Alt="0.0" Lat="N33:29:59.874" Lon="W116:59:36.352"/>
+          <Point Alt="0.0" Lat="N33:25:25.193" Lon="W116:59:12.220"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>polygon</Name>
+        <FieldID>13</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="18">
+          <Polygon Area="0.000000" Lat0="N00:00:00.000" Lat1="N00:00:00.000" Lon0="E000:00:00.000" Lon1="E000:00:00.000"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>marker</Name>
+        <FieldID>14</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="11">
+          <Marker/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>text</Name>
+        <FieldID>15</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="" Num_Points="0" Type="19">
+          <Text AlignmentType="0" Angle="0.000000" FontGroup="" MaxScaleFactor="0.000000" MinScaleFactor="0.000000" OffsetX="0" OffsetY="0" ScaleFactor="0.000000" ScaleMode="Screen">
+            <String/>
+          </Text>
+        </Gfx>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>text_string</Name>
+        <FieldID>16</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>text_font_group</Name>
+        <FieldID>17</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>text_alignment</Name>
+        <FieldID>18</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>vertical_alignment_type</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>horizontal_alignment_type</Name>
+            <FieldID>2</FieldID>
+            <Value>100000002</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>text_screen_offset</Name>
+        <FieldID>19</FieldID>
+        <Datablock>
+          <Field Type="0" Type_Name="Integer">
+            <Name>x</Name>
+            <FieldID>1</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="0" Type_Name="Integer">
+            <Name>y</Name>
+            <FieldID>2</FieldID>
+            <Value>0</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>text_scale_option</Name>
+        <FieldID>20</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>text_scale_mode</Name>
+            <FieldID>1</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>text_scale_value</Name>
+            <FieldID>2</FieldID>
+            <Value>1</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>text_scale_virtual_min</Name>
+            <FieldID>3</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>text_scale_virtual_max</Name>
+            <FieldID>4</FieldID>
+            <Value>10000</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>custom_shape_type</Name>
+        <FieldID>21</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>custom_shape_attribute_1</Name>
+        <FieldID>22</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>custom_shape_attribute_2</Name>
+        <FieldID>23</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+</Datablock_Instance>

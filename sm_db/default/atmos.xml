@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="atmos">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>4</Profile_ID>
+  <Profile_Instance Name="Global Atmosphere">atmos/Global Atmosphere.atmos</Profile_Instance>
+</Profile_Category>

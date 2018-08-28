@@ -1,0 +1,2009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="EscortMission 1">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657863</Timestamp>
+  <Profile_ID>11</Profile_ID>
+  <Instance_ID>5</Instance_ID>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>task_group</Name>
+    <FieldID>2</FieldID>
+    <DBList>
+      <DBList_Instance Name="Init">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>Init</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000001</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>event_task</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>event</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>type</Name>
+                  <FieldID>1</FieldID>
+                  <Value>100000004</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>value</Name>
+                  <FieldID>2</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_mode</Name>
+                  <FieldID>3</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_medium</Name>
+                  <FieldID>4</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="11" Type_Name="Datablock List">
+                  <Name>to</Name>
+                  <FieldID>5</FieldID>
+                  <DBList/>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>from</Name>
+                  <FieldID>6</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>end_reason</Name>
+                  <FieldID>7</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>reason</Name>
+                  <FieldID>8</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="13">
+                  <Name>sim_ptr</Name>
+                  <FieldID>9</FieldID>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>actions</Name>
+              <FieldID>2</FieldID>
+              <DBList>
+                <DBList_Instance Name="Follow Platform">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Follow Platform</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>nav_follow</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Platform Name">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Platform Name</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>Master</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Relative Range">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Relative Range</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>100.00000000000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Relative Bearing">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Relative Bearing</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>-1.91986217719376</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Relative Altitude">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Relative Altitude</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>10.00000000000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Tolerance">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Tolerance</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>20.000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Activate Sensor By Name">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Activate Sensor By Name</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Activate Sensor By Name</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Sensor Name">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Sensor Name</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>AN/APG-68(V)</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+              </DBList>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="11" Type_Name="Datablock List">
+          <Name>cond_tasks</Name>
+          <FieldID>4</FieldID>
+          <DBList/>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="Follow">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>Follow</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000001</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>event_task</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>event</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>type</Name>
+                  <FieldID>1</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>value</Name>
+                  <FieldID>2</FieldID>
+                  <Value>STARTCAPMAN</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_mode</Name>
+                  <FieldID>3</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_medium</Name>
+                  <FieldID>4</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="11" Type_Name="Datablock List">
+                  <Name>to</Name>
+                  <FieldID>5</FieldID>
+                  <DBList/>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>from</Name>
+                  <FieldID>6</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>end_reason</Name>
+                  <FieldID>7</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>reason</Name>
+                  <FieldID>8</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="13">
+                  <Name>sim_ptr</Name>
+                  <FieldID>9</FieldID>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>actions</Name>
+              <FieldID>2</FieldID>
+              <DBList>
+                <DBList_Instance Name="STOP Follow Platform">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>STOP Follow Platform</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000005</Choice>
+                      <Datablock>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>1</FieldID>
+                          <Value>100000003</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>2</FieldID>
+                          <Value>nav_follow</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="CAP Maneuver">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>CAP Maneuver</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>nav_cap</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Reference Point">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Reference Point</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>RefPointCap1</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Range">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Range</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>1500.00000000000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Bearing">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Bearing</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>1.57079632679490</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Turn Rate">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Turn Rate</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>0.17453292519943</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Speed">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Speed</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>102.889000</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Altitude">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Altitude</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>500.000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Report start cap man">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Report start cap man</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Report</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="ExtraInfo">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>ExtraInfo</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>false</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="value">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>value</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value/>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Message">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Message</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>Escort: Starting cap maneuver</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Track Cycle On">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Track Cycle On</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Track Cycle On</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Class">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Class</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>all</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Detected">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Detected</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>yes</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+              </DBList>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="11" Type_Name="Datablock List">
+          <Name>cond_tasks</Name>
+          <FieldID>4</FieldID>
+          <DBList/>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="CapMan">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>CapMan</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000001</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>event_task</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>event</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>type</Name>
+                  <FieldID>1</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>value</Name>
+                  <FieldID>2</FieldID>
+                  <Value>MASTERNEEDESCORT</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_mode</Name>
+                  <FieldID>3</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_medium</Name>
+                  <FieldID>4</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="11" Type_Name="Datablock List">
+                  <Name>to</Name>
+                  <FieldID>5</FieldID>
+                  <DBList/>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>from</Name>
+                  <FieldID>6</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>end_reason</Name>
+                  <FieldID>7</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>reason</Name>
+                  <FieldID>8</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="13">
+                  <Name>sim_ptr</Name>
+                  <FieldID>9</FieldID>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>actions</Name>
+              <FieldID>2</FieldID>
+              <DBList>
+                <DBList_Instance Name="STOP CAP Maneuver">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>STOP CAP Maneuver</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000005</Choice>
+                      <Datablock>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>1</FieldID>
+                          <Value>100000003</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>2</FieldID>
+                          <Value>nav_cap</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Follow Platform">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Follow Platform</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>nav_follow</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Platform Name">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Platform Name</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>Master</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Relative Range">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Relative Range</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>150.00000000000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Relative Bearing">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Relative Bearing</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>-2.35619449019234</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Relative Altitude">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Relative Altitude</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>10.00000000000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="Tolerance">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Tolerance</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>20.000000</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Report starting follow master">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Report starting follow master</Value>
+                  </Field>
+                  <Field Type="12" Type_Name="Datablock Choice">
+                    <Name>type_obj</Name>
+                    <FieldID>2</FieldID>
+                    <DBChoice>
+                      <Choice>100000002</Choice>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Report</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>reason</Name>
+                          <FieldID>2</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>3</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="ExtraInfo">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>ExtraInfo</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>false</Value>
+                              </Field>
+                            </DBList_Instance>
+                            <DBList_Instance Name="value">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>value</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value/>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>4</FieldID>
+                          <DBList>
+                            <DBList_Instance Name="Message">
+                              <Field Type="3" Type_Name="String">
+                                <Name>name</Name>
+                                <FieldID>1</FieldID>
+                                <Value>Message</Value>
+                              </Field>
+                              <Field Type="9" Type_Name="Integer Choice">
+                                <Name>source</Name>
+                                <FieldID>2</FieldID>
+                                <Value>100000001</Value>
+                              </Field>
+                              <Field Type="3" Type_Name="String">
+                                <Name>value</Name>
+                                <FieldID>3</FieldID>
+                                <Value>Escort starting follow master</Value>
+                              </Field>
+                            </DBList_Instance>
+                          </DBList>
+                        </Field>
+                        <Field Type="13">
+                          <Name>procedure_info</Name>
+                          <FieldID>5</FieldID>
+                        </Field>
+                      </Datablock>
+                    </DBChoice>
+                  </Field>
+                  <Field Type="13">
+                    <Name>sim_ptr</Name>
+                    <FieldID>3</FieldID>
+                  </Field>
+                </DBList_Instance>
+              </DBList>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="11" Type_Name="Datablock List">
+          <Name>cond_tasks</Name>
+          <FieldID>4</FieldID>
+          <DBList/>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="Track next">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>Track next</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000001</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>event_task</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>event</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>type</Name>
+                  <FieldID>1</FieldID>
+                  <Value>100000002</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>value</Name>
+                  <FieldID>2</FieldID>
+                  <Value>TRACK_NEXT</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_mode</Name>
+                  <FieldID>3</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_medium</Name>
+                  <FieldID>4</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="11" Type_Name="Datablock List">
+                  <Name>to</Name>
+                  <FieldID>5</FieldID>
+                  <DBList/>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>from</Name>
+                  <FieldID>6</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>end_reason</Name>
+                  <FieldID>7</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>reason</Name>
+                  <FieldID>8</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="13">
+                  <Name>sim_ptr</Name>
+                  <FieldID>9</FieldID>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>actions</Name>
+              <FieldID>2</FieldID>
+              <DBList/>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="11" Type_Name="Datablock List">
+          <Name>cond_tasks</Name>
+          <FieldID>4</FieldID>
+          <DBList>
+            <DBList_Instance Name="item1">
+              <Field Type="3" Type_Name="String">
+                <Name>name</Name>
+                <FieldID>1</FieldID>
+                <Value>item1</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>type</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="11" Type_Name="Datablock List">
+                <Name>conditions</Name>
+                <FieldID>3</FieldID>
+                <DBList>
+                  <DBList_Instance Name="Opponent Present">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Opponent Present</Value>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>logical_op</Name>
+                      <FieldID>2</FieldID>
+                      <Value>100000001</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_left</Name>
+                      <FieldID>3</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Opponent Present</Value>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000002</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value>Opponent Present</Value>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>comp_operator</Name>
+                      <FieldID>4</FieldID>
+                      <Value>100000005</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_right</Name>
+                      <FieldID>5</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000001</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value>false</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="1" Type_Name="Float">
+                      <Name>tolerance</Name>
+                      <FieldID>6</FieldID>
+                      <Value>1</Value>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>7</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="Opponent Hostile">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Opponent Hostile</Value>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>logical_op</Name>
+                      <FieldID>2</FieldID>
+                      <Value>100000001</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_left</Name>
+                      <FieldID>3</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Opponent Hostile</Value>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000002</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value>Track Hostile</Value>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>comp_operator</Name>
+                      <FieldID>4</FieldID>
+                      <Value>100000005</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_right</Name>
+                      <FieldID>5</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000001</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value>true</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="1" Type_Name="Float">
+                      <Name>tolerance</Name>
+                      <FieldID>6</FieldID>
+                      <Value>1</Value>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>7</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="Track Range">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Track Range</Value>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>logical_op</Name>
+                      <FieldID>2</FieldID>
+                      <Value>100000001</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_left</Name>
+                      <FieldID>3</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Track Range</Value>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000002</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value>Track Range</Value>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>comp_operator</Name>
+                      <FieldID>4</FieldID>
+                      <Value>100000003</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_right</Name>
+                      <FieldID>5</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000001</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value>15000.000000</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="1" Type_Name="Float">
+                      <Name>tolerance</Name>
+                      <FieldID>6</FieldID>
+                      <Value>1</Value>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>7</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="Track Locked">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Track Locked</Value>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>logical_op</Name>
+                      <FieldID>2</FieldID>
+                      <Value>100000001</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_left</Name>
+                      <FieldID>3</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Track Locked</Value>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000002</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value>Track Locked</Value>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>comp_operator</Name>
+                      <FieldID>4</FieldID>
+                      <Value>100000005</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_right</Name>
+                      <FieldID>5</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000001</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value>false</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="1" Type_Name="Float">
+                      <Name>tolerance</Name>
+                      <FieldID>6</FieldID>
+                      <Value>1</Value>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>7</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="Track Assigned as Opponent">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Track Assigned as Opponent</Value>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>logical_op</Name>
+                      <FieldID>2</FieldID>
+                      <Value>100000001</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_left</Name>
+                      <FieldID>3</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value>Track Assigned as Opponent</Value>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000002</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value>Track Assigned as Opponent</Value>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="9" Type_Name="Integer Choice">
+                      <Name>comp_operator</Name>
+                      <FieldID>4</FieldID>
+                      <Value>100000005</Value>
+                    </Field>
+                    <Field Type="10" Type_Name="Datablock Reference">
+                      <Name>term_right</Name>
+                      <FieldID>5</FieldID>
+                      <Datablock>
+                        <Field Type="3" Type_Name="String">
+                          <Name>term_name</Name>
+                          <FieldID>1</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="9" Type_Name="Integer Choice">
+                          <Name>type</Name>
+                          <FieldID>2</FieldID>
+                          <Value>100000001</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>value</Name>
+                          <FieldID>3</FieldID>
+                          <Value>false</Value>
+                        </Field>
+                        <Field Type="3" Type_Name="String">
+                          <Name>proc_name</Name>
+                          <FieldID>4</FieldID>
+                          <Value/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>parameters</Name>
+                          <FieldID>5</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="11" Type_Name="Datablock List">
+                          <Name>long_params</Name>
+                          <FieldID>6</FieldID>
+                          <DBList/>
+                        </Field>
+                        <Field Type="13">
+                          <Name>condition_info</Name>
+                          <FieldID>7</FieldID>
+                        </Field>
+                      </Datablock>
+                    </Field>
+                    <Field Type="1" Type_Name="Float">
+                      <Name>tolerance</Name>
+                      <FieldID>6</FieldID>
+                      <Value>1</Value>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>7</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                </DBList>
+              </Field>
+              <Field Type="11" Type_Name="Datablock List">
+                <Name>actions</Name>
+                <FieldID>4</FieldID>
+                <DBList>
+                  <DBList_Instance Name="Opponent Assign From Track">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Opponent Assign From Track</Value>
+                    </Field>
+                    <Field Type="12" Type_Name="Datablock Choice">
+                      <Name>type_obj</Name>
+                      <FieldID>2</FieldID>
+                      <DBChoice>
+                        <Choice>100000002</Choice>
+                        <Datablock>
+                          <Field Type="3" Type_Name="String">
+                            <Name>proc_name</Name>
+                            <FieldID>1</FieldID>
+                            <Value>Opponent Assign From Track</Value>
+                          </Field>
+                          <Field Type="3" Type_Name="String">
+                            <Name>reason</Name>
+                            <FieldID>2</FieldID>
+                            <Value/>
+                          </Field>
+                          <Field Type="11" Type_Name="Datablock List">
+                            <Name>parameters</Name>
+                            <FieldID>3</FieldID>
+                            <DBList>
+                              <DBList_Instance Name="Entity Name">
+                                <Field Type="3" Type_Name="String">
+                                  <Name>name</Name>
+                                  <FieldID>1</FieldID>
+                                  <Value>Entity Name</Value>
+                                </Field>
+                                <Field Type="9" Type_Name="Integer Choice">
+                                  <Name>source</Name>
+                                  <FieldID>2</FieldID>
+                                  <Value>100000001</Value>
+                                </Field>
+                                <Field Type="3" Type_Name="String">
+                                  <Name>value</Name>
+                                  <FieldID>3</FieldID>
+                                  <Value/>
+                                </Field>
+                              </DBList_Instance>
+                            </DBList>
+                          </Field>
+                          <Field Type="11" Type_Name="Datablock List">
+                            <Name>long_params</Name>
+                            <FieldID>4</FieldID>
+                            <DBList/>
+                          </Field>
+                          <Field Type="13">
+                            <Name>procedure_info</Name>
+                            <FieldID>5</FieldID>
+                          </Field>
+                        </Datablock>
+                      </DBChoice>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>3</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="SUSPEND Track Cycle On">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>SUSPEND Track Cycle On</Value>
+                    </Field>
+                    <Field Type="12" Type_Name="Datablock Choice">
+                      <Name>type_obj</Name>
+                      <FieldID>2</FieldID>
+                      <DBChoice>
+                        <Choice>100000005</Choice>
+                        <Datablock>
+                          <Field Type="9" Type_Name="Integer Choice">
+                            <Name>type</Name>
+                            <FieldID>1</FieldID>
+                            <Value>100000002</Value>
+                          </Field>
+                          <Field Type="3" Type_Name="String">
+                            <Name>proc_name</Name>
+                            <FieldID>2</FieldID>
+                            <Value>Track Cycle On</Value>
+                          </Field>
+                          <Field Type="3" Type_Name="String">
+                            <Name>reason</Name>
+                            <FieldID>3</FieldID>
+                            <Value/>
+                          </Field>
+                        </Datablock>
+                      </DBChoice>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>3</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="START AirTo Air sub-mission">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>START AirTo Air sub-mission</Value>
+                    </Field>
+                    <Field Type="12" Type_Name="Datablock Choice">
+                      <Name>type_obj</Name>
+                      <FieldID>2</FieldID>
+                      <DBChoice>
+                        <Choice>100000003</Choice>
+                        <Datablock>
+                          <Field Type="9" Type_Name="Integer Choice">
+                            <Name>type</Name>
+                            <FieldID>1</FieldID>
+                            <Value>100000001</Value>
+                          </Field>
+                          <Field Type="8" Type_Name="Profile Reference">
+                            <Name>submission_ref</Name>
+                            <FieldID>2</FieldID>
+                            <Value>AirTo Air sub-mission</Value>
+                          </Field>
+                          <Field Type="3" Type_Name="String">
+                            <Name>reason</Name>
+                            <FieldID>3</FieldID>
+                            <Value/>
+                          </Field>
+                        </Datablock>
+                      </DBChoice>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>3</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                  <DBList_Instance Name="Report Start Air to Air sub mis">
+                    <Field Type="3" Type_Name="String">
+                      <Name>name</Name>
+                      <FieldID>1</FieldID>
+                      <Value>Report Start Air to Air sub mis</Value>
+                    </Field>
+                    <Field Type="12" Type_Name="Datablock Choice">
+                      <Name>type_obj</Name>
+                      <FieldID>2</FieldID>
+                      <DBChoice>
+                        <Choice>100000002</Choice>
+                        <Datablock>
+                          <Field Type="3" Type_Name="String">
+                            <Name>proc_name</Name>
+                            <FieldID>1</FieldID>
+                            <Value>Report</Value>
+                          </Field>
+                          <Field Type="3" Type_Name="String">
+                            <Name>reason</Name>
+                            <FieldID>2</FieldID>
+                            <Value/>
+                          </Field>
+                          <Field Type="11" Type_Name="Datablock List">
+                            <Name>parameters</Name>
+                            <FieldID>3</FieldID>
+                            <DBList>
+                              <DBList_Instance Name="ExtraInfo">
+                                <Field Type="3" Type_Name="String">
+                                  <Name>name</Name>
+                                  <FieldID>1</FieldID>
+                                  <Value>ExtraInfo</Value>
+                                </Field>
+                                <Field Type="9" Type_Name="Integer Choice">
+                                  <Name>source</Name>
+                                  <FieldID>2</FieldID>
+                                  <Value>100000001</Value>
+                                </Field>
+                                <Field Type="3" Type_Name="String">
+                                  <Name>value</Name>
+                                  <FieldID>3</FieldID>
+                                  <Value>false</Value>
+                                </Field>
+                              </DBList_Instance>
+                              <DBList_Instance Name="value">
+                                <Field Type="3" Type_Name="String">
+                                  <Name>name</Name>
+                                  <FieldID>1</FieldID>
+                                  <Value>value</Value>
+                                </Field>
+                                <Field Type="9" Type_Name="Integer Choice">
+                                  <Name>source</Name>
+                                  <FieldID>2</FieldID>
+                                  <Value>100000001</Value>
+                                </Field>
+                                <Field Type="3" Type_Name="String">
+                                  <Name>value</Name>
+                                  <FieldID>3</FieldID>
+                                  <Value/>
+                                </Field>
+                              </DBList_Instance>
+                            </DBList>
+                          </Field>
+                          <Field Type="11" Type_Name="Datablock List">
+                            <Name>long_params</Name>
+                            <FieldID>4</FieldID>
+                            <DBList>
+                              <DBList_Instance Name="Message">
+                                <Field Type="3" Type_Name="String">
+                                  <Name>name</Name>
+                                  <FieldID>1</FieldID>
+                                  <Value>Message</Value>
+                                </Field>
+                                <Field Type="9" Type_Name="Integer Choice">
+                                  <Name>source</Name>
+                                  <FieldID>2</FieldID>
+                                  <Value>100000001</Value>
+                                </Field>
+                                <Field Type="3" Type_Name="String">
+                                  <Name>value</Name>
+                                  <FieldID>3</FieldID>
+                                  <Value>Escort: Starting Air to Air sub mission</Value>
+                                </Field>
+                              </DBList_Instance>
+                            </DBList>
+                          </Field>
+                          <Field Type="13">
+                            <Name>procedure_info</Name>
+                            <FieldID>5</FieldID>
+                          </Field>
+                        </Datablock>
+                      </DBChoice>
+                    </Field>
+                    <Field Type="13">
+                      <Name>sim_ptr</Name>
+                      <FieldID>3</FieldID>
+                    </Field>
+                  </DBList_Instance>
+                </DBList>
+              </Field>
+            </DBList_Instance>
+          </DBList>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="End">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>End</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000001</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>event_task</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>event</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>type</Name>
+                  <FieldID>1</FieldID>
+                  <Value>100000005</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>value</Name>
+                  <FieldID>2</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_mode</Name>
+                  <FieldID>3</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>send_medium</Name>
+                  <FieldID>4</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="11" Type_Name="Datablock List">
+                  <Name>to</Name>
+                  <FieldID>5</FieldID>
+                  <DBList/>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>from</Name>
+                  <FieldID>6</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>end_reason</Name>
+                  <FieldID>7</FieldID>
+                  <Value>100000001</Value>
+                </Field>
+                <Field Type="3" Type_Name="String">
+                  <Name>reason</Name>
+                  <FieldID>8</FieldID>
+                  <Value/>
+                </Field>
+                <Field Type="13">
+                  <Name>sim_ptr</Name>
+                  <FieldID>9</FieldID>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>actions</Name>
+              <FieldID>2</FieldID>
+              <DBList/>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="11" Type_Name="Datablock List">
+          <Name>cond_tasks</Name>
+          <FieldID>4</FieldID>
+          <DBList/>
+        </Field>
+      </DBList_Instance>
+    </DBList>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>description</Name>
+    <FieldID>4</FieldID>
+    <Value/>
+  </Field>
+</Profile_Instance>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Minefield">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>18</Profile_ID>
+  <Instance_ID>3</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>type_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>100000001</Choice>
+      <Datablock>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>bitmap</Name>
+          <FieldID>1</FieldID>
+          <Datablock>
+            <Field Type="7" Type_Name="File">
+              <Name>name</Name>
+              <FieldID>1</FieldID>
+              <Value>explosion.xpm</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>1</Value>
+        </Field>
+        <Field Type="2" Type_Name="Double">
+          <Name>trigger_range</Name>
+          <FieldID>3</FieldID>
+          <Value>1</Value>
+        </Field>
+        <Field Type="2" Type_Name="Double">
+          <Name>trigger_weight</Name>
+          <FieldID>4</FieldID>
+          <Value>10</Value>
+        </Field>
+        <Field Type="2" Type_Name="Double">
+          <Name>density</Name>
+          <FieldID>5</FieldID>
+          <Value>1000</Value>
+        </Field>
+        <Field Type="5" Type_Name="Curve">
+          <Name>prob_kill</Name>
+          <FieldID>6</FieldID>
+          <Curve>
+            <Z Value="0.000000">
+              <Point X="0.000000" Y="100.000000"/>
+              <Point X="51.948048" Y="100.000000"/>
+              <Point X="55.844151" Y="50.125000"/>
+              <Point X="102.597389" Y="49.875000"/>
+              <Point X="106.493500" Y="0.000000"/>
+            </Z>
+          </Curve>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+</Profile_Instance>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="30mm GSh-301">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657866</Timestamp>
+  <Profile_ID>20</Profile_ID>
+  <Instance_ID>19</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>wpn_class_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>100000001</Choice>
+      <Datablock>
+        <Field Type="12" Type_Name="Datablock Choice">
+          <Name>approach_obj</Name>
+          <FieldID>1</FieldID>
+          <DBChoice>
+            <Choice>100000001</Choice>
+            <Datablock>
+              <Field Type="10" Type_Name="Datablock Reference">
+                <Name>wpn_firing</Name>
+                <FieldID>1</FieldID>
+                <Datablock>
+                  <Field Type="1" Type_Name="Float">
+                    <Name>muzzle_spd</Name>
+                    <FieldID>1</FieldID>
+                    <Value>860</Value>
+                  </Field>
+                  <Field Type="1" Type_Name="Float">
+                    <Name>max_rate</Name>
+                    <FieldID>2</FieldID>
+                    <Value>25</Value>
+                  </Field>
+                </Datablock>
+              </Field>
+              <Field Type="10" Type_Name="Datablock Reference">
+                <Name>deviation</Name>
+                <FieldID>2</FieldID>
+                <Datablock>
+                  <Field Type="5" Type_Name="Curve">
+                    <Name>max_dev</Name>
+                    <FieldID>1</FieldID>
+                    <Curve>
+                      <Z Value="0.000000">
+                        <Point X="0.000000" Y="0.000000"/>
+                        <Point X="1500.000000" Y="1.000000"/>
+                        <Point X="1800.000000" Y="5.000000"/>
+                        <Point X="2100.000000" Y="20.000000"/>
+                        <Point X="10000.000000" Y="500.000000"/>
+                      </Z>
+                    </Curve>
+                  </Field>
+                  <Field Type="1" Type_Name="Float">
+                    <Name>max_rng</Name>
+                    <FieldID>2</FieldID>
+                    <Value>2100</Value>
+                  </Field>
+                </Datablock>
+              </Field>
+            </Datablock>
+          </DBChoice>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+  <Field Type="5" Type_Name="Curve">
+    <Name>kill</Name>
+    <FieldID>3</FieldID>
+    <Curve>
+      <Z Value="0.000000">
+        <Point X="0.000000" Y="92.604004"/>
+        <Point X="1351.074707" Y="87.673340"/>
+        <Point X="1780.962158" Y="75.346687"/>
+        <Point X="2021.494385" Y="0.000000"/>
+      </Z>
+    </Curve>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>detonation</Name>
+    <FieldID>4</FieldID>
+    <Datablock>
+      <Field Type="5" Type_Name="Curve">
+        <Name>intensity_curve</Name>
+        <FieldID>1</FieldID>
+        <Curve>
+          <Z Value="0.000000"/>
+        </Curve>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>intensity_value</Name>
+        <FieldID>2</FieldID>
+        <Value>10</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="7" Type_Name="File">
+    <Name>object_3d</Name>
+    <FieldID>5</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="0" Type_Name="Integer">
+    <Name>visual_type</Name>
+    <FieldID>6</FieldID>
+    <Value>0</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>dis_type</Name>
+    <FieldID>7</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>marking</Name>
+        <FieldID>1</FieldID>
+        <Value>GSh-301-30</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>type</Name>
+        <FieldID>2</FieldID>
+        <Value>002-009-0222-002-005-000-000</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>kind_gui</Name>
+        <FieldID>3</FieldID>
+        <Value>002 - Munition</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>kind</Name>
+        <FieldID>4</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>domain</Name>
+        <FieldID>5</FieldID>
+        <Value>009 - Battlefield Support</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>country</Name>
+        <FieldID>6</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>country</Name>
+            <FieldID>1</FieldID>
+            <Value>100000222</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>category</Name>
+        <FieldID>7</FieldID>
+        <Value>2</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>sub_category</Name>
+        <FieldID>8</FieldID>
+        <Value>5</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>sub_cat_gui</Name>
+        <FieldID>9</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>specific</Name>
+        <FieldID>10</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>specific_gui</Name>
+        <FieldID>11</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>extra</Name>
+        <FieldID>12</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>new_input</Name>
+        <FieldID>13</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>first_load</Name>
+        <FieldID>14</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>ied_initialized</Name>
+    <FieldID>8</FieldID>
+    <Value>100000001</Value>
+  </Field>
+</Profile_Instance>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="AN/ARC-164 UHF">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>15</Profile_ID>
+  <Instance_ID>1</Instance_ID>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>use_los</Name>
+    <FieldID>2</FieldID>
+    <Value>100000001</Value>
+  </Field>
+  <Field Type="1" Type_Name="Float">
+    <Name>earth_radius_factor</Name>
+    <FieldID>3</FieldID>
+    <Value>1.33333</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>type</Name>
+    <FieldID>4</FieldID>
+    <Value>100000001</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>radio_dis_type</Name>
+    <FieldID>5</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>type</Name>
+        <FieldID>1</FieldID>
+        <Value>007-###-0225-001-000-000</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>country</Name>
+        <FieldID>3</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>country</Name>
+            <FieldID>1</FieldID>
+            <Value>100000225</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>category_gui</Name>
+        <FieldID>4</FieldID>
+        <Value>001 - Voice Transmission/Reception</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>nomenclature_version</Name>
+        <FieldID>5</FieldID>
+        <Value>100000000</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>nomenclature</Name>
+        <FieldID>6</FieldID>
+        <Value>100000000</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>new_input</Name>
+        <FieldID>7</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>category</Name>
+        <FieldID>8</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>first_load</Name>
+        <FieldID>10</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>radio_transmitter</Name>
+    <FieldID>6</FieldID>
+    <Datablock>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>trans_freq_env</Name>
+        <FieldID>1</FieldID>
+        <Datablock>
+          <Field Type="2" Type_Name="Double">
+            <Name>min_frequency</Name>
+            <FieldID>1</FieldID>
+            <Value>225000000</Value>
+          </Field>
+          <Field Type="2" Type_Name="Double">
+            <Name>max_frequency</Name>
+            <FieldID>2</FieldID>
+            <Value>400000000</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>power</Name>
+        <FieldID>2</FieldID>
+        <Value>10</Value>
+      </Field>
+      <Field Type="5" Type_Name="Curve">
+        <Name>power_degradation</Name>
+        <FieldID>3</FieldID>
+        <Curve>
+          <Z Value="300.000000">
+            <Point X="0.000000" Y="100.000000"/>
+            <Point X="100515.460938" Y="49.728752"/>
+            <Point X="498711.343750" Y="0.000000"/>
+          </Z>
+        </Curve>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>trans_crypto</Name>
+        <FieldID>4</FieldID>
+        <Datablock>
+          <Field Type="0" Type_Name="Integer">
+            <Name>crypto_sys</Name>
+            <FieldID>1</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="0" Type_Name="Integer">
+            <Name>crypto_key</Name>
+            <FieldID>2</FieldID>
+            <Value>0</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>transmitting_env</Name>
+        <FieldID>5</FieldID>
+        <Datablock>
+          <Field Type="1" Type_Name="Float">
+            <Name>min_elevation</Name>
+            <FieldID>1</FieldID>
+            <Value>-1.5708</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>max_elevation</Name>
+            <FieldID>2</FieldID>
+            <Value>1.5708</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>min_azimuth</Name>
+            <FieldID>3</FieldID>
+            <Value>-3.14159</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>max_azimuth</Name>
+            <FieldID>4</FieldID>
+            <Value>3.14159</Value>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>radio_receiver</Name>
+    <FieldID>7</FieldID>
+    <Datablock>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>recv_freq_env</Name>
+        <FieldID>1</FieldID>
+        <Datablock>
+          <Field Type="2" Type_Name="Double">
+            <Name>min_frequency</Name>
+            <FieldID>1</FieldID>
+            <Value>225000000</Value>
+          </Field>
+          <Field Type="2" Type_Name="Double">
+            <Name>max_frequency</Name>
+            <FieldID>2</FieldID>
+            <Value>400000000</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>threshold_power</Name>
+        <FieldID>2</FieldID>
+        <Value>0.09999999</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>recv_crypto</Name>
+        <FieldID>3</FieldID>
+        <Datablock>
+          <Field Type="0" Type_Name="Integer">
+            <Name>crypto_sys</Name>
+            <FieldID>1</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="0" Type_Name="Integer">
+            <Name>crypto_key</Name>
+            <FieldID>2</FieldID>
+            <Value>0</Value>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>modulation_type</Name>
+    <FieldID>8</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>spread_spectrum</Name>
+        <FieldID>1</FieldID>
+        <Value>100000000</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>major_modulation</Name>
+        <FieldID>2</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>detail_modulation_gui</Name>
+        <FieldID>3</FieldID>
+        <Value>Other</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>system</Name>
+        <FieldID>4</FieldID>
+        <Value>100000000</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>detail_modulation</Name>
+        <FieldID>5</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+</Profile_Instance>

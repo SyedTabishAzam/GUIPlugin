@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Flare">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>6</Profile_ID>
+  <Instance_ID>1</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>type_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>100000001</Choice>
+      <Datablock>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>bitmaps</Name>
+          <FieldID>1</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>blue_bitmap</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value/>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>neutral_bitmap</Name>
+              <FieldID>2</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value/>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>red_bitmap</Name>
+              <FieldID>3</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value/>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>wreck_bitmap</Name>
+              <FieldID>4</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value/>
+                </Field>
+              </Datablock>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="12" Type_Name="Datablock Choice">
+          <Name>type_obj</Name>
+          <FieldID>2</FieldID>
+          <DBChoice>
+            <Choice>100000002</Choice>
+            <Datablock>
+              <Field Type="5" Type_Name="Curve">
+                <Name>effect</Name>
+                <FieldID>1</FieldID>
+                <Curve>
+                  <Z Value="10.000000">
+                    <Point X="0.000000" Y="100.000000"/>
+                    <Point X="143.019302" Y="98.305084"/>
+                    <Point X="362.088531" Y="13.559322"/>
+                    <Point X="900.113525" Y="0.000000"/>
+                  </Z>
+                </Curve>
+              </Field>
+              <Field Type="4" Type_Name="Time">
+                <Name>flight_time</Name>
+                <FieldID>2</FieldID>
+                <Value>00:00:03</Value>
+              </Field>
+              <Field Type="4" Type_Name="Time">
+                <Name>bloom_time</Name>
+                <FieldID>3</FieldID>
+                <Value>00:00:01</Value>
+              </Field>
+              <Field Type="4" Type_Name="Time">
+                <Name>duration</Name>
+                <FieldID>4</FieldID>
+                <Value>00:00:15</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>radius</Name>
+                <FieldID>5</FieldID>
+                <Value>1</Value>
+              </Field>
+              <Field Type="2" Type_Name="Double">
+                <Name>mass</Name>
+                <FieldID>6</FieldID>
+                <Value>0.5</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>drag</Name>
+                <FieldID>7</FieldID>
+                <Value>1</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max_rcs</Name>
+                <FieldID>8</FieldID>
+                <Value>100</Value>
+              </Field>
+            </Datablock>
+          </DBChoice>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>dis_type</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="3" Type_Name="String">
+              <Name>marking</Name>
+              <FieldID>1</FieldID>
+              <Value>Flare</Value>
+            </Field>
+            <Field Type="3" Type_Name="String">
+              <Name>type</Name>
+              <FieldID>2</FieldID>
+              <Value>008-002-0225-002-000-000-000</Value>
+            </Field>
+            <Field Type="3" Type_Name="String">
+              <Name>kind_gui</Name>
+              <FieldID>3</FieldID>
+              <Value>008 - Expendable</Value>
+            </Field>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>kind</Name>
+              <FieldID>4</FieldID>
+              <Value>100000008</Value>
+            </Field>
+            <Field Type="3" Type_Name="String">
+              <Name>domain</Name>
+              <FieldID>5</FieldID>
+              <Value>002 - Air</Value>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>country</Name>
+              <FieldID>6</FieldID>
+              <Datablock>
+                <Field Type="9" Type_Name="Integer Choice">
+                  <Name>country</Name>
+                  <FieldID>1</FieldID>
+                  <Value>100000225</Value>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>category</Name>
+              <FieldID>7</FieldID>
+              <Value>2</Value>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>sub_category</Name>
+              <FieldID>8</FieldID>
+              <Value>0</Value>
+            </Field>
+            <Field Type="3" Type_Name="String">
+              <Name>sub_cat_gui</Name>
+              <FieldID>9</FieldID>
+              <Value/>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>specific</Name>
+              <FieldID>10</FieldID>
+              <Value>0</Value>
+            </Field>
+            <Field Type="3" Type_Name="String">
+              <Name>specific_gui</Name>
+              <FieldID>11</FieldID>
+              <Value/>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>extra</Name>
+              <FieldID>12</FieldID>
+              <Value>0</Value>
+            </Field>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>new_input</Name>
+              <FieldID>13</FieldID>
+              <Value>100000001</Value>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>first_load</Name>
+              <FieldID>14</FieldID>
+              <Value>0</Value>
+            </Field>
+          </Datablock>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+  <Field Type="7" Type_Name="File">
+    <Name>object_3d</Name>
+    <FieldID>3</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="0" Type_Name="Integer">
+    <Name>visual_type</Name>
+    <FieldID>4</FieldID>
+    <Value>0</Value>
+  </Field>
+</Profile_Instance>

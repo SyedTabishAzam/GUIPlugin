@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="AN/AWS-1(V)1">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>7</Profile_ID>
+  <Instance_ID>3</Instance_ID>
+  <Field Type="2" Type_Name="Double">
+    <Name>power</Name>
+    <FieldID>2</FieldID>
+    <Value>5000</Value>
+  </Field>
+  <Field Type="2" Type_Name="Double">
+    <Name>wavelength</Name>
+    <FieldID>3</FieldID>
+    <Value>1.064e-006</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>attenuation_type</Name>
+    <FieldID>4</FieldID>
+    <Value>100000002</Value>
+  </Field>
+  <Field Type="5" Type_Name="Curve">
+    <Name>transmission_factor</Name>
+    <FieldID>5</FieldID>
+    <Curve>
+      <Z Value="1.000000">
+        <Point X="15.827339" Y="100.000000"/>
+        <Point X="1899.000000" Y="95.000000"/>
+        <Point X="4618.705078" Y="69.807693"/>
+        <Point X="8007.194336" Y="0.000000"/>
+      </Z>
+      <Z Value="10.000000">
+        <Point X="0.000000" Y="100.000000"/>
+        <Point X="3118.000000" Y="95.000000"/>
+        <Point X="5892.086426" Y="69.423080"/>
+        <Point X="9215.827148" Y="0.000000"/>
+      </Z>
+      <Z Value="100.000000">
+        <Point X="0.000000" Y="100.000000"/>
+        <Point X="3909.000000" Y="95.000000"/>
+        <Point X="6014.388672" Y="81.250000"/>
+        <Point X="7985.611328" Y="50.551472"/>
+        <Point X="10014.388672" Y="0.000000"/>
+      </Z>
+    </Curve>
+  </Field>
+</Profile_Instance>

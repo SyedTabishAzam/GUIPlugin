@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="sensor">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>17</Profile_ID>
+  <Profile_Instance Folder_Name="\ESM" Name="generic ESM">sensor/generic ESM.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Laser" Name="Nd-YAG Seeker">sensor/Nd-YAG Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="AGM-65B Seeker">sensor/AGM-65B Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="AGM-65D Seeker">sensor/AGM-65D Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="AIM-120 Seeker">sensor/AIM-120 Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="AIM-7M Seeker">sensor/AIM-7M Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="AIM-9 Seeker">sensor/AIM-9 Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="Astra Seeker">sensor/Astra Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="R-77 Seeker">sensor/R-77 Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="RIM-7 Seeker">sensor/RIM-7 Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="Standard Infrared Seeker">sensor/Standard Infrared Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile Seeker" Name="Standard Radar Seeker">sensor/Standard Radar Seeker.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AI.24 (Foxhunter)">sensor/AI.24 (Foxhunter).sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/AAR-60 MILDS">sensor/AN/AAR-60 MILDS.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APG-68(V)">sensor/AN/APG-68(V).sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APG-70">sensor/AN/APG-70.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APG-73">sensor/AN/APG-73.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APG-77">sensor/AN/APG-77.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APG-78 Longbow">sensor/AN/APG-78 Longbow.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APQ-164">sensor/AN/APQ-164.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APQ-180">sensor/AN/APQ-180.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APS-124">sensor/AN/APS-124.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APS-133(V)">sensor/AN/APS-133(V).sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APY-1">sensor/AN/APY-1.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="AN/APY-3">sensor/AN/APY-3.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="ECR 90 Captor">sensor/ECR 90 Captor.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="ERDE/HAL X-band">sensor/ERDE/HAL X-band.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="ESSD L-(MESA)">sensor/ESSD L-(MESA).sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="NIIP N001 Mech">sensor/NIIP N001 Mech.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="RDY-2">sensor/RDY-2.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="Sapfir-23ML">sensor/Sapfir-23ML.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Airborne Radar" Name="Zhuk-M">sensor/Zhuk-M.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Site Radar" Name="Fan Song Guidance">sensor/Fan Song Guidance.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar\Site Radar" Name="P-12 Spoon Rest">sensor/P-12 Spoon Rest.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Radar" Name="generic radar 50km">sensor/generic radar 50km.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Sonar\Active" Name="generic sonar 15km">sensor/generic sonar 15km.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Sonar\Active" Name="generic sonar 25km">sensor/generic sonar 25km.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Visual" Name="Crew eyes 180">sensor/Crew eyes 180.sensor</Profile_Instance>
+  <Profile_Instance Folder_Name="\Visual" Name="Crew eyes 360">sensor/Crew eyes 360.sensor</Profile_Instance>
+</Profile_Category>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="special_zone">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>18</Profile_ID>
+  <Profile_Instance Name="Area of Interest">special_zone/Area of Interest.special_zone</Profile_Instance>
+  <Profile_Instance Name="Engagement Zone">special_zone/Engagement Zone.special_zone</Profile_Instance>
+  <Profile_Instance Name="Minefield">special_zone/Minefield.special_zone</Profile_Instance>
+</Profile_Category>

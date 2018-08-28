@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="countermeasure">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>6</Profile_ID>
+  <Profile_Instance Name="Acoustic Decoy">countermeasure/Acoustic Decoy.countermeasure</Profile_Instance>
+  <Profile_Instance Name="Chaff">countermeasure/Chaff.countermeasure</Profile_Instance>
+  <Profile_Instance Name="Flare">countermeasure/Flare.countermeasure</Profile_Instance>
+  <Profile_Instance Name="Infrared Jammer">countermeasure/Infrared Jammer.countermeasure</Profile_Instance>
+  <Profile_Instance Name="Radar Jammer">countermeasure/Radar Jammer.countermeasure</Profile_Instance>
+  <Profile_Instance Name="Smoke">countermeasure/Smoke.countermeasure</Profile_Instance>
+</Profile_Category>

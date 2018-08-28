@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Mine">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>6.3.0</Stage_Version>
+  <Timestamp>1346364818</Timestamp>
+  <Profile_ID>22</Profile_ID>
+  <Instance_ID>47</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>type_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>100000002</Choice>
+      <Datablock>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>bitmaps</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>blue_bitmap</Name>
+              <FieldID>1</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value>mine_tank_blue.xpm</Value>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>neutral_bitmap</Name>
+              <FieldID>2</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value>mine_tank.bmp</Value>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>red_bitmap</Name>
+              <FieldID>3</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value>mine_tank_red.xpm</Value>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>wreck_bitmap</Name>
+              <FieldID>4</FieldID>
+              <Datablock>
+                <Field Type="7" Type_Name="File">
+                  <Name>name</Name>
+                  <FieldID>1</FieldID>
+                  <Value/>
+                </Field>
+              </Datablock>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>cross_sections</Name>
+          <FieldID>4</FieldID>
+          <Datablock>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>radar_eff</Name>
+              <FieldID>9</FieldID>
+              <Datablock>
+                <Field Type="1" Type_Name="Float">
+                  <Name>uniformed_value</Name>
+                  <FieldID>1</FieldID>
+                  <Value>1</Value>
+                </Field>
+                <Field Type="5" Type_Name="Curve">
+                  <Name>modulation_value</Name>
+                  <FieldID>2</FieldID>
+                  <Curve/>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>visual_eff</Name>
+              <FieldID>11</FieldID>
+              <Datablock>
+                <Field Type="1" Type_Name="Float">
+                  <Name>uniformed_value</Name>
+                  <FieldID>1</FieldID>
+                  <Value>1</Value>
+                </Field>
+                <Field Type="5" Type_Name="Curve">
+                  <Name>modulation_value</Name>
+                  <FieldID>2</FieldID>
+                  <Curve/>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>infra_red_eff</Name>
+              <FieldID>12</FieldID>
+              <Datablock>
+                <Field Type="1" Type_Name="Float">
+                  <Name>uniformed_value</Name>
+                  <FieldID>1</FieldID>
+                  <Value>1</Value>
+                </Field>
+                <Field Type="5" Type_Name="Curve">
+                  <Name>modulation_value</Name>
+                  <FieldID>2</FieldID>
+                  <Curve/>
+                </Field>
+              </Datablock>
+            </Field>
+            <Field Type="10" Type_Name="Datablock Reference">
+              <Name>sonar_eff</Name>
+              <FieldID>10</FieldID>
+              <Datablock>
+                <Field Type="1" Type_Name="Float">
+                  <Name>uniformed_value</Name>
+                  <FieldID>1</FieldID>
+                  <Value>0</Value>
+                </Field>
+                <Field Type="5" Type_Name="Curve">
+                  <Name>modulation_value</Name>
+                  <FieldID>2</FieldID>
+                  <Curve/>
+                </Field>
+              </Datablock>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>dimension</Name>
+          <FieldID>5</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>length</Name>
+              <FieldID>1</FieldID>
+              <Value>0.5</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>height</Name>
+              <FieldID>2</FieldID>
+              <Value>0.2</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>width</Name>
+              <FieldID>3</FieldID>
+              <Value>0.2</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>volume</Name>
+              <FieldID>4</FieldID>
+              <Value>0.02</Value>
+            </Field>
+            <Field Type="2" Type_Name="Double">
+              <Name>mass</Name>
+              <FieldID>5</FieldID>
+              <Value>25000</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="11" Type_Name="Datablock List">
+          <Name>triggers</Name>
+          <FieldID>6</FieldID>
+          <DBList>
+            <DBList_Instance Name="Pressure">
+              <Field Type="3" Type_Name="String">
+                <Name>name</Name>
+                <FieldID>1</FieldID>
+                <Value>Pressure</Value>
+              </Field>
+              <Field Type="12" Type_Name="Datablock Choice">
+                <Name>type_obj</Name>
+                <FieldID>4</FieldID>
+                <DBChoice>
+                  <Choice>100000001</Choice>
+                  <Datablock>
+                    <Field Type="2" Type_Name="Double">
+                      <Name>min_weight</Name>
+                      <FieldID>1</FieldID>
+                      <Value>200000</Value>
+                    </Field>
+                    <Field Type="2" Type_Name="Double">
+                      <Name>activation_radius</Name>
+                      <FieldID>2</FieldID>
+                      <Value>2</Value>
+                    </Field>
+                    <Field Type="2" Type_Name="Double">
+                      <Name>x_offset</Name>
+                      <FieldID>3</FieldID>
+                      <Value>0</Value>
+                    </Field>
+                    <Field Type="2" Type_Name="Double">
+                      <Name>y_offset</Name>
+                      <FieldID>4</FieldID>
+                      <Value>0</Value>
+                    </Field>
+                    <Field Type="2" Type_Name="Double">
+                      <Name>z_offset</Name>
+                      <FieldID>5</FieldID>
+                      <Value>0</Value>
+                    </Field>
+                  </Datablock>
+                </DBChoice>
+              </Field>
+            </DBList_Instance>
+          </DBList>
+        </Field>
+        <Field Type="2" Type_Name="Double">
+          <Name>blast_r</Name>
+          <FieldID>7</FieldID>
+          <Value>25</Value>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+  <Field Type="5" Type_Name="Curve">
+    <Name>kill</Name>
+    <FieldID>3</FieldID>
+    <Curve>
+      <Z Value="0.000000">
+        <Point X="0.000000" Y="100.000000"/>
+        <Point X="11.361310" Y="94.298920"/>
+        <Point X="23.252508" Y="0.000000"/>
+      </Z>
+    </Curve>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>object_3d</Name>
+    <FieldID>4</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="0" Type_Name="Integer">
+    <Name>visual_type</Name>
+    <FieldID>5</FieldID>
+    <Value>0</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>dis_type</Name>
+    <FieldID>6</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>marking</Name>
+        <FieldID>1</FieldID>
+        <Value>IED</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>type</Name>
+        <FieldID>2</FieldID>
+        <Value>002-002-0000-000-000-000-000</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>kind_gui</Name>
+        <FieldID>3</FieldID>
+        <Value>002 - Munition</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>kind</Name>
+        <FieldID>4</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>domain</Name>
+        <FieldID>5</FieldID>
+        <Value>002 - Anti-Armor</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>country</Name>
+        <FieldID>6</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>country</Name>
+            <FieldID>1</FieldID>
+            <Value>100000000</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>category</Name>
+        <FieldID>7</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>sub_category</Name>
+        <FieldID>8</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>sub_cat_gui</Name>
+        <FieldID>13</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>specific</Name>
+        <FieldID>9</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>specific_gui</Name>
+        <FieldID>14</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>extra</Name>
+        <FieldID>10</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>new_input</Name>
+        <FieldID>11</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>first_load</Name>
+        <FieldID>12</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+</Profile_Instance>

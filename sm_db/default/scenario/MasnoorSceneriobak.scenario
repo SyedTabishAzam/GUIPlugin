@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="MasnoorSceneriobak">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1535098317</Timestamp>
+  <Profile_ID>16</Profile_ID>
+  <Instance_ID>-1</Instance_ID>
+  <Field Type="3" Type_Name="String">
+    <Name>desc</Name>
+    <FieldID>2</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="7" Type_Name="File">
+    <Name>desc_file</Name>
+    <FieldID>3</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>map_info</Name>
+    <FieldID>4</FieldID>
+    <Datablock>
+      <Field Type="7" Type_Name="File">
+        <Name>map_filename</Name>
+        <FieldID>1</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>large_map_file</Name>
+        <FieldID>2</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>contour_fname</Name>
+        <FieldID>3</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>dfad_filename</Name>
+        <FieldID>4</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>dfad_config</Name>
+        <FieldID>5</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>terrain_filename</Name>
+        <FieldID>6</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>navaids_file</Name>
+        <FieldID>7</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>ai_world</Name>
+        <FieldID>8</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>chart_info</Name>
+        <FieldID>9</FieldID>
+        <Datablock>
+          <Field Type="3" Type_Name="String">
+            <Name>chart_filename</Name>
+            <FieldID>1</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="6" Type_Name="LatLon">
+            <Name>sw_corner</Name>
+            <FieldID>2</FieldID>
+            <LatLon>
+              <Lat>N00:00:00.000000000</Lat>
+              <Lon>E000:00:00.000000000</Lon>
+            </LatLon>
+          </Field>
+          <Field Type="6" Type_Name="LatLon">
+            <Name>ne_corner</Name>
+            <FieldID>3</FieldID>
+            <LatLon>
+              <Lat>N00:00:00.000000000</Lat>
+              <Lon>E000:00:00.000000000</Lon>
+            </LatLon>
+          </Field>
+          <Field Type="0" Type_Name="Integer">
+            <Name>new_chart</Name>
+            <FieldID>4</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="11" Type_Name="Datablock List">
+            <Name>layer_list</Name>
+            <FieldID>5</FieldID>
+            <DBList/>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="6" Type_Name="LatLon">
+        <Name>center</Name>
+        <FieldID>10</FieldID>
+        <LatLon>
+          <Lat>N24:53:45.757373083</Lat>
+          <Lon>E066:56:36.998888274</Lon>
+        </LatLon>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>center_alt</Name>
+        <FieldID>11</FieldID>
+        <Value>11</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>size</Name>
+        <FieldID>12</FieldID>
+        <Value>10792</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>earth_model</Name>
+        <FieldID>13</FieldID>
+        <Value>4</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>polar_radius</Name>
+        <FieldID>14</FieldID>
+        <Value>6356752.3</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>equa_radius</Name>
+        <FieldID>15</FieldID>
+        <Value>6378137</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>projection</Name>
+        <FieldID>16</FieldID>
+        <Value>3</Value>
+      </Field>
+      <Field Type="6" Type_Name="LatLon">
+        <Name>ref_parallel1</Name>
+        <FieldID>17</FieldID>
+        <LatLon>
+          <Lat>N20:00:00.030857449</Lat>
+          <Lon>E000:00:00.000000000</Lon>
+        </LatLon>
+      </Field>
+      <Field Type="6" Type_Name="LatLon">
+        <Name>ref_parallel2</Name>
+        <FieldID>18</FieldID>
+        <LatLon>
+          <Lat>N60:00:00.092572347</Lat>
+          <Lon>E000:00:00.000000000</Lon>
+        </LatLon>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>atmos</Name>
+    <FieldID>5</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>ocean</Name>
+    <FieldID>6</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>attn_fac</Name>
+    <FieldID>7</FieldID>
+    <Datablock>
+      <Field Type="1" Type_Name="Float">
+        <Name>optical</Name>
+        <FieldID>1</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>radio</Name>
+        <FieldID>2</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>thermal</Name>
+        <FieldID>3</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>acoustic</Name>
+        <FieldID>4</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>default_bitmaps</Name>
+    <FieldID>8</FieldID>
+    <Value>MIL2525B.icons</Value>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>ptf</Name>
+    <FieldID>9</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>wpn</Name>
+    <FieldID>10</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>detailed_buildings</Name>
+    <FieldID>12</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>zone</Name>
+    <FieldID>13</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>gfx_layer</Name>
+    <FieldID>14</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="0" Type_Name="Integer">
+    <Name>max_ptf_done</Name>
+    <FieldID>15</FieldID>
+    <Value>0</Value>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>ref_pts</Name>
+    <FieldID>16</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>groups</Name>
+    <FieldID>17</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>dynamic_terrain_actions</Name>
+    <FieldID>18</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>scn_iff</Name>
+    <FieldID>19</FieldID>
+    <Datablock>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>challenge</Name>
+        <FieldID>1</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>auto_challenge</Name>
+            <FieldID>1</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>timeout</Name>
+            <FieldID>2</FieldID>
+            <Value>30</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="11" Type_Name="Datablock List">
+        <Name>iff_force_codes</Name>
+        <FieldID>2</FieldID>
+        <DBList>
+          <DBList_Instance Name="Codes For Force Blue">
+            <Field Type="3" Type_Name="String">
+              <Name>name</Name>
+              <FieldID>1</FieldID>
+              <Value>Codes For Force Blue</Value>
+            </Field>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>force</Name>
+              <FieldID>2</FieldID>
+              <Value>100000001</Value>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>mode</Name>
+              <FieldID>3</FieldID>
+              <DBList>
+                <DBList_Instance Name="Mode 1">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 1</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000001</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Mode 2">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 2</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000002</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Mode 3/A">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 3/A</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000003</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Mode 4">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 4</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000004</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+              </DBList>
+            </Field>
+          </DBList_Instance>
+          <DBList_Instance Name="Codes For Force Red">
+            <Field Type="3" Type_Name="String">
+              <Name>name</Name>
+              <FieldID>1</FieldID>
+              <Value>Codes For Force Red</Value>
+            </Field>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>force</Name>
+              <FieldID>2</FieldID>
+              <Value>100000002</Value>
+            </Field>
+            <Field Type="11" Type_Name="Datablock List">
+              <Name>mode</Name>
+              <FieldID>3</FieldID>
+              <DBList>
+                <DBList_Instance Name="Mode 1">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 1</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000001</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Mode 2">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 2</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000002</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Mode 3/A">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 3/A</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000003</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+                <DBList_Instance Name="Mode 4">
+                  <Field Type="3" Type_Name="String">
+                    <Name>name</Name>
+                    <FieldID>1</FieldID>
+                    <Value>Mode 4</Value>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>mode_type</Name>
+                    <FieldID>2</FieldID>
+                    <Datablock>
+                      <Field Type="9" Type_Name="Integer Choice">
+                        <Name>mode_type</Name>
+                        <FieldID>1</FieldID>
+                        <Value>100000004</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                  <Field Type="10" Type_Name="Datablock Reference">
+                    <Name>code</Name>
+                    <FieldID>3</FieldID>
+                    <Datablock>
+                      <Field Type="3" Type_Name="String">
+                        <Name>five_pulse</Name>
+                        <FieldID>1</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>six_pulse</Name>
+                        <FieldID>2</FieldID>
+                        <Value>00</Value>
+                      </Field>
+                      <Field Type="3" Type_Name="String">
+                        <Name>twelve_pulse</Name>
+                        <FieldID>3</FieldID>
+                        <Value>0000</Value>
+                      </Field>
+                    </Datablock>
+                  </Field>
+                </DBList_Instance>
+              </DBList>
+            </Field>
+          </DBList_Instance>
+        </DBList>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>settings</Name>
+    <FieldID>20</FieldID>
+    <Datablock>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>auto_zoom</Name>
+        <FieldID>1</FieldID>
+        <Datablock>
+          <Field Type="3" Type_Name="String">
+            <Name>area_name</Name>
+            <FieldID>1</FieldID>
+            <Value/>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>collision_opt</Name>
+        <FieldID>2</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_use_los</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_use_3d_xsection</Name>
+            <FieldID>2</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_use_ned_env</Name>
+            <FieldID>3</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>tactical_obscurants</Name>
+            <FieldID>4</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_coast_collision</Name>
+            <FieldID>5</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_feature_collision</Name>
+            <FieldID>6</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_ground_collision</Name>
+            <FieldID>7</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_platform_collision</Name>
+            <FieldID>8</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_sea_bot_collision</Name>
+            <FieldID>9</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_terrain_effect</Name>
+            <FieldID>10</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>stage_terrain_external</Name>
+            <FieldID>11</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="7" Type_Name="File">
+            <Name>ai_template</Name>
+            <FieldID>12</FieldID>
+            <Value/>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>snapshot</Name>
+        <FieldID>3</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>automatic_snapshot</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>automatic_snap_enable</Name>
+                <FieldID>1</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="0" Type_Name="Integer">
+                <Name>automatic_snap_period</Name>
+                <FieldID>2</FieldID>
+                <Value>60</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>snap_type</Name>
+                <FieldID>3</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="10" Type_Name="Datablock Reference">
+                <Name>automatic_snap_type_incremental</Name>
+                <FieldID>4</FieldID>
+                <Datablock>
+                  <Field Type="9" Type_Name="Integer Choice">
+                    <Name>incr_snap_ctrl</Name>
+                    <FieldID>1</FieldID>
+                    <Value>100000001</Value>
+                  </Field>
+                  <Field Type="0" Type_Name="Integer">
+                    <Name>incr_snap_num_incremental</Name>
+                    <FieldID>2</FieldID>
+                    <Value>5</Value>
+                  </Field>
+                  <Field Type="0" Type_Name="Integer">
+                    <Name>incr_snap_size_incremental</Name>
+                    <FieldID>3</FieldID>
+                    <Value>1024</Value>
+                  </Field>
+                </Datablock>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>external_entities</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>external_ent_restore</Name>
+                <FieldID>1</FieldID>
+                <Value>100000002</Value>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>comms_config</Name>
+        <FieldID>4</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>active</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="11" Type_Name="Datablock List">
+            <Name>comms_senders</Name>
+            <FieldID>2</FieldID>
+            <DBList/>
+          </Field>
+          <Field Type="11" Type_Name="Datablock List">
+            <Name>comms_receivers</Name>
+            <FieldID>3</FieldID>
+            <DBList/>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>runtime_bitmaps</Name>
+    <FieldID>21</FieldID>
+    <Value>MIL2525B.icons</Value>
+  </Field>
+  <Field Type="13">
+    <Name>scn_detailed_bldg_data</Name>
+    <FieldID>22</FieldID>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>map_system</Name>
+    <FieldID>23</FieldID>
+    <Value>2</Value>
+  </Field>
+</Profile_Instance>

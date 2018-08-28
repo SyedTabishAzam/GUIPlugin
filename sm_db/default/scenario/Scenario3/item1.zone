@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Datablock_Instance SYSTEM "Datablock.dtd">
+<Datablock_Instance Name="item1">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1531126128</Timestamp>
+  <Profile_ID>16</Profile_ID>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>special_zone</Name>
+    <FieldID>2</FieldID>
+    <Value>Area of Interest</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>zone_active</Name>
+    <FieldID>3</FieldID>
+    <Value>100000003</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>zone_bound</Name>
+    <FieldID>4</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>has_lower_bound</Name>
+        <FieldID>1</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>lower_bound_alt</Name>
+        <FieldID>2</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>has_upper_bound</Name>
+        <FieldID>3</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>upper_bound_alt</Name>
+        <FieldID>4</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>water_level</Name>
+        <FieldID>5</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>shape</Name>
+    <FieldID>5</FieldID>
+    <Datablock>
+      <Field Type="2" Type_Name="Double">
+        <Name>circle_radius</Name>
+        <FieldID>1</FieldID>
+        <Value>10</Value>
+      </Field>
+      <Field Type="6" Type_Name="LatLon">
+        <Name>center</Name>
+        <FieldID>2</FieldID>
+        <LatLon>
+          <Lat>N33:19:57.248618450</Lat>
+          <Lon>W117:19:29.201897509</Lon>
+        </LatLon>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>rectangle_width</Name>
+        <FieldID>3</FieldID>
+        <Value>30575.0482927393</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>rectangle_height</Name>
+        <FieldID>4</FieldID>
+        <Value>6888.4496153607</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>rectangle_orientation</Name>
+        <FieldID>5</FieldID>
+        <Value>-54.1721222697712</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>attribute</Name>
+        <FieldID>6</FieldID>
+        <Value>hatch_red</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>edit_orientation</Name>
+        <FieldID>7</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>editor_type</Name>
+        <FieldID>8</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>type</Name>
+        <FieldID>9</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>circle</Name>
+        <FieldID>10</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="14">
+          <Circle Radius="0.000000"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>rectangle</Name>
+        <FieldID>11</FieldID>
+        <Gfx Attrib_File="hatch_red" Attrib_Sub_Dir="symbols" Num_Points="4" Type="13">
+          <Rectangle Angle="-0.945482" Height="6888.449615" Width="30575.048293"/>
+          <Point Alt="0.0" Lat="N33:12:10.625" Lon="W117:23:27.397"/>
+          <Point Alt="0.0" Lat="N33:14:21.117" Lon="W117:27:03.585"/>
+          <Point Alt="0.0" Lat="N33:27:43.158" Lon="W117:15:29.035"/>
+          <Point Alt="0.0" Lat="N33:25:32.562" Lon="W117:11:52.384"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>polyline</Name>
+        <FieldID>12</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="17">
+          <Polyline/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>polygon</Name>
+        <FieldID>13</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="18">
+          <Polygon Area="0.000000" Lat0="N00:00:00.000" Lat1="N00:00:00.000" Lon0="E000:00:00.000" Lon1="E000:00:00.000"/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>marker</Name>
+        <FieldID>14</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="symbols" Num_Points="0" Type="11">
+          <Marker/>
+        </Gfx>
+      </Field>
+      <Field Type="14" Type_Name="GFX">
+        <Name>text</Name>
+        <FieldID>15</FieldID>
+        <Gfx Attrib_File="" Attrib_Sub_Dir="" Num_Points="0" Type="19">
+          <Text AlignmentType="0" Angle="0.000000" FontGroup="" MaxScaleFactor="0.000000" MinScaleFactor="0.000000" OffsetX="0" OffsetY="0" ScaleFactor="0.000000" ScaleMode="Screen">
+            <String/>
+          </Text>
+        </Gfx>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>text_string</Name>
+        <FieldID>16</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>text_font_group</Name>
+        <FieldID>17</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>text_alignment</Name>
+        <FieldID>18</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>vertical_alignment_type</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>horizontal_alignment_type</Name>
+            <FieldID>2</FieldID>
+            <Value>100000002</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>text_screen_offset</Name>
+        <FieldID>19</FieldID>
+        <Datablock>
+          <Field Type="0" Type_Name="Integer">
+            <Name>x</Name>
+            <FieldID>1</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="0" Type_Name="Integer">
+            <Name>y</Name>
+            <FieldID>2</FieldID>
+            <Value>0</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>text_scale_option</Name>
+        <FieldID>20</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>text_scale_mode</Name>
+            <FieldID>1</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>text_scale_value</Name>
+            <FieldID>2</FieldID>
+            <Value>1</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>text_scale_virtual_min</Name>
+            <FieldID>3</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>text_scale_virtual_max</Name>
+            <FieldID>4</FieldID>
+            <Value>10000</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>custom_shape_type</Name>
+        <FieldID>21</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>custom_shape_attribute_1</Name>
+        <FieldID>22</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>custom_shape_attribute_2</Name>
+        <FieldID>23</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>area_of_interest</Name>
+    <FieldID>6</FieldID>
+    <Value>100000002</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>aoi_info</Name>
+    <FieldID>7</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>model_fidelity_type</Name>
+        <FieldID>1</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>nav_context</Name>
+        <FieldID>2</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>ground_interest</Name>
+        <FieldID>3</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>gs</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="0" Type_Name="Integer">
+                <Name>geospecific_lod</Name>
+                <FieldID>1</FieldID>
+                <Value>4</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gs_manmadepoint</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gs_naturalpoint</Name>
+                <FieldID>3</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gs_simplifypoints</Name>
+                <FieldID>4</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gs_tree</Name>
+                <FieldID>5</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gs_aerial</Name>
+                <FieldID>6</FieldID>
+                <Value>100000002</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>gt</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="0" Type_Name="Integer">
+                <Name>geotypicial_lod</Name>
+                <FieldID>1</FieldID>
+                <Value>2</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gt_manmadepoint</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gt_simplifypoints</Name>
+                <FieldID>3</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>gt_tree</Name>
+                <FieldID>4</FieldID>
+                <Value>100000002</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>hydro</Name>
+            <FieldID>3</FieldID>
+            <Datablock>
+              <Field Type="0" Type_Name="Integer">
+                <Name>hydro_lod</Name>
+                <FieldID>1</FieldID>
+                <Value>2</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>hydro_area</Name>
+                <FieldID>2</FieldID>
+                <Value>100000002</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>linear</Name>
+            <FieldID>4</FieldID>
+            <Datablock>
+              <Field Type="0" Type_Name="Integer">
+                <Name>linear_lod</Name>
+                <FieldID>1</FieldID>
+                <Value>2</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>linear_road</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>linear_sidewalk</Name>
+                <FieldID>3</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>linear_rail</Name>
+                <FieldID>4</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>network_distance</Name>
+                <FieldID>5</FieldID>
+                <Value>20000</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>terrain_type</Name>
+            <FieldID>5</FieldID>
+            <Datablock>
+              <Field Type="0" Type_Name="Integer">
+                <Name>terrain_type_lod</Name>
+                <FieldID>1</FieldID>
+                <Value>4</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>terrain_type_option</Name>
+                <FieldID>2</FieldID>
+                <Value>100000002</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>filtering_setting</Name>
+            <FieldID>6</FieldID>
+            <Value>AL050;AL080;AL110;AL116</Value>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>nav_filter_setting</Name>
+            <FieldID>7</FieldID>
+            <Value>AL241-001</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>simplify_option</Name>
+            <FieldID>8</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="0" Type_Name="Integer">
+            <Name>split_factor</Name>
+            <FieldID>9</FieldID>
+            <Value>-1</Value>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="0" Type_Name="Integer">
+    <Name>state</Name>
+    <FieldID>8</FieldID>
+    <Value>1</Value>
+  </Field>
+  <Field Type="13">
+    <Name>old_color</Name>
+    <FieldID>9</FieldID>
+  </Field>
+</Datablock_Instance>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Database SYSTEM "Database.dtd">
+<Database Name="default" Stage_Version="16.0.0">
+  <Timestamp>1535347389</Timestamp>
+  <Profile>default/art_part.xml</Profile>
+  <Profile>default/atmos.xml</Profile>
+  <Profile>default/countermeasure.xml</Profile>
+  <Profile>default/designator.xml</Profile>
+  <Profile>default/detailed_building_prof.xml</Profile>
+  <Profile>default/formation.xml</Profile>
+  <Profile>default/iff.xml</Profile>
+  <Profile>default/me_mission.xml</Profile>
+  <Profile>default/me_submission.xml</Profile>
+  <Profile>default/ocean.xml</Profile>
+  <Profile>default/platform.xml</Profile>
+  <Profile>default/radio.xml</Profile>
+  <Profile>default/sensor.xml</Profile>
+  <Profile>default/special_zone.xml</Profile>
+  <Profile>default/supply.xml</Profile>
+  <Profile>default/weapon.xml</Profile>
+</Database>

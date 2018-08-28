@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="supply">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>19</Profile_ID>
+  <Profile_Instance Folder_Name="\Decon" Name="Decon - Agent STB">supply/Decon - Agent STB.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Decon" Name="Decon - Ferric Chloride">supply/Decon - Ferric Chloride.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Decon" Name="Decon - Other">supply/Decon - Other.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Equipment" Name="Equipment - Mine Plow">supply/Equipment - Mine Plow.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Equipment" Name="Equipment - Mine Rollers">supply/Equipment - Mine Rollers.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Equipment" Name="Equipment - Other">supply/Equipment - Other.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - Bread">supply/Food - Bread.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - H-Daily Ration">supply/Food - H-Daily Ration.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - LRP Ration">supply/Food - LRP Ration.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - MRE">supply/Food - MRE.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - Meal Cold Weather">supply/Food - Meal Cold Weather.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - Water Clear">supply/Food - Water Clear.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food - Water Dist - Sparkling">supply/Food - Water Dist - Sparkling.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Food" Name="Food- MRE Vegitarian">supply/Food- MRE Vegitarian.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - Diesel">supply/Fuel - Diesel.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - Fog Oil">supply/Fuel - Fog Oil.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - Fuel Oil">supply/Fuel - Fuel Oil.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - Gasoline">supply/Fuel - Gasoline.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - JP-4">supply/Fuel - JP-4.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - JP-8">supply/Fuel - JP-8.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - Multi-Spectral Fog Oil">supply/Fuel - Multi-Spectral Fog Oil.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Fuel" Name="Fuel - Other">supply/Fuel - Other.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Lubricants" Name="Lubricants">supply/Lubricants.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Oils" Name="Oils">supply/Oils.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Pallets" Name="Pallets of Fuel (JP8)">supply/Pallets of Fuel (JP8).supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Pallets" Name="Pallets with Ammunition">supply/Pallets with Ammunition.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Pallets" Name="Pallets with Water">supply/Pallets with Water.supply</Profile_Instance>
+  <Profile_Instance Folder_Name="\Spare Parts" Name="Spare Parts">supply/Spare Parts.supply</Profile_Instance>
+</Profile_Category>

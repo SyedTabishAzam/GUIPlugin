@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="platform">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1535342679</Timestamp>
+  <Profile_ID>14</Profile_ID>
+  <Profile_Instance Folder_Name="\Civil\Ground\Civilian" Name="Civilian1">platform/Civilian1.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Civilian" Name="Civilian2">platform/Civilian2.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Civilian" Name="Civilian3">platform/Civilian3.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Civilian" Name="Civilian4">platform/Civilian4.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Civilian" Name="Civilian5">platform/Civilian5.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Civilian" Name="Civilian6">platform/Civilian6.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Traffic" Name="BMW">platform/BMW.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Traffic" Name="Camry">platform/Camry.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Traffic" Name="Mercedes">platform/Mercedes.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Traffic" Name="Sonata">platform/Sonata.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Civil\Ground\Traffic" Name="Tacoma">platform/Tacoma.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Bomber" Name="B1-B">platform/B1-B.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Electronic Warfare" Name="737 AEW&amp;C">platform/737 AEW&amp;C.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Electronic Warfare" Name="E-3C">platform/E-3C.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Electronic Warfare" Name="E-8C JSTARS">platform/E-8C JSTARS.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Electronic Warfare" Name="E-2C Hawkeye">platform/E-2C Hawkeye.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="A-10C">platform/A-10C.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="AC-130U">platform/AC-130U.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="AV-8B Sea Harrier">platform/AV-8B Sea Harrier.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="Eurofighter Typhoon">platform/Eurofighter Typhoon.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="F-15E">platform/F-15E.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="F-15E_LGB">platform/F-15E_LGB.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="F-16C">platform/F-16C.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="F-22A">platform/F-22A.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="F-35C">platform/F-35C.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="FA-18E">platform/FA-18E.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="MiG-23">platform/MiG-23.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="MiG-29">platform/MiG-29.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="Mirage 2000">platform/Mirage 2000.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="SU-27">platform/SU-27.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="Tejas AF">platform/Tejas AF.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Fighter/Attack" Name="Tornado GR4">platform/Tornado GR4.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Reconnaissance/Patrol" Name="P-3 Orion">platform/P-3 Orion.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="A330-200 MRTT">platform/A330-200 MRTT.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="A400M">platform/A400M.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="C-130J">platform/C-130J.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="C-17A">platform/C-17A.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="C-5">platform/C-5.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="KC-10">platform/KC-10.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Fixed Wing\Transport/Utility" Name="KC-135R">platform/KC-135R.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Attack" Name="AH-64D Apache">platform/AH-64D Apache.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Attack" Name="MI-25 HIND D">platform/MI-25 HIND D.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Attack" Name="PAH-2 Tiger">platform/PAH-2 Tiger.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Attack" Name="SH-60 Seahawk">platform/SH-60 Seahawk.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="Bell 412">platform/Bell 412.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="CH-148 Cyclone">platform/CH-148 Cyclone.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="CH-46">platform/CH-46.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="CH-47">platform/CH-47.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="EH-101">platform/EH-101.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="NH-90">platform/NH-90.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="OH-58A">platform/OH-58A.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="CH-53E Super Stallion">platform/CH-53E Super Stallion.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="Mi-17">platform/Mi-17.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\Rotary Wing\Transport/Utility" Name="AS 532 Cougar">platform/AS 532 Cougar.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\UAS" Name="MQ-1C Grey Eagle">platform/MQ-1C Grey Eagle.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\UAS" Name="MQ-9A Predator B">platform/MQ-9A Predator B.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\UAS" Name="RQ-2 Pioneer">platform/RQ-2 Pioneer.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\UAS" Name="RQ-4A GlobalHawk">platform/RQ-4A GlobalHawk.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Air\UAS" Name="RQ-7 Shadow">platform/RQ-7 Shadow.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Formation" Name="Tank Platoon">platform/Tank Platoon.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Formation" Name="ManPAD Team">platform/ManPAD Team.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\APC/IFV" Name="M2A3">platform/M2A3.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\APC/IFV" Name="Marder">platform/Marder.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\APC/IFV" Name="Stryker">platform/Stryker.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\APC/IFV" Name="BMP-2">platform/BMP-2.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Bomber">platform/Bomber.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Insurgent">platform/Insurgent.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="ManPAD Gunner">platform/ManPAD Gunner.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Marine Sergeant">platform/Marine Sergeant.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Marine Soldier">platform/Marine Soldier.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Soldier">platform/Soldier.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Soldier Forward Observer">platform/Soldier Forward Observer.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Human" Name="Soldier_Designator">platform/Soldier_Designator.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\SP Artillery" Name="M109A6 Paladin">platform/M109A6 Paladin.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\SP Artillery" Name="ZSU 23">platform/ZSU 23.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Tank" Name="Leopard 2">platform/Leopard 2.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Tank" Name="M1A3">platform/M1A3.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Tank" Name="T-72">platform/T-72.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Tank" Name="T-84">platform/T-84.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Tank" Name="Challenger 2">platform/Challenger 2.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Tank" Name="Merkava Mark IV">platform/Merkava Mark IV.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Transport/Utility" Name="HMMWV M998">platform/HMMWV M998.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Transport/Utility" Name="M-35">platform/M-35.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Transport/Utility" Name="Cougar H MRAP">platform/Cougar H MRAP.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Ground\Transport/Utility" Name="HEMTT">platform/HEMTT.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Carrier" Name="Invincible Class">platform/Invincible Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Carrier" Name="Nimitz Class">platform/Nimitz Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Carrier" Name="Wasp Class">platform/Wasp Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Cruiser" Name="Ticonderoga Class">platform/Ticonderoga Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Cruiser" Name="Kirov Class">platform/Kirov Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Destroyer" Name="Arleigh Burke Class">platform/Arleigh Burke Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Destroyer" Name="Sovremenny Class">platform/Sovremenny Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Destroyer" Name="Kashin Class">platform/Kashin Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Destroyer" Name="Luda Class">platform/Luda Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Frigate" Name="Oliver Hazard Perry Class">platform/Oliver Hazard Perry Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Frigate" Name="Halifax Class">platform/Halifax Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Frigate" Name="Jianghu Class">platform/Jianghu Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Frigate" Name="Knox Class">platform/Knox Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Frigate" Name="La Fayette Class">platform/La Fayette Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Misc" Name="LCAC">platform/LCAC.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Misc" Name="Cyclone Class">platform/Cyclone Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Misc" Name="Avenger Class">platform/Avenger Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Submarine" Name="Akula Class">platform/Akula Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Submarine" Name="Kilo Class">platform/Kilo Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Submarine" Name="Los Angeles Class">platform/Los Angeles Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Submarine" Name="Ming Class">platform/Ming Class.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Submarine" Name="Type 209">platform/Type 209.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Naval\Submarine" Name="demo_submarine">platform/demo_submarine.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Site" Name="SA-2 Aquisition Radar">platform/SA-2 Aquisition Radar.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Site" Name="SA-2 Guidance">platform/SA-2 Guidance.platform</Profile_Instance>
+  <Profile_Instance Folder_Name="\Defense\Site" Name="SA-2 Launcher">platform/SA-2 Launcher.platform</Profile_Instance>
+</Profile_Category>

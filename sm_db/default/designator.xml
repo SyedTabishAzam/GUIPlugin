@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="designator">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>7</Profile_ID>
+  <Profile_Instance Folder_Name="\Manportable" Name="AN/PAQ-1">designator/AN/PAQ-1.designator</Profile_Instance>
+  <Profile_Instance Folder_Name="\Manportable" Name="AN/TVQ-2">designator/AN/TVQ-2.designator</Profile_Instance>
+  <Profile_Instance Name="AN/AWS-1(V)1">designator/AN/AWS-1(V)1.designator</Profile_Instance>
+  <Profile_Instance Name="ASQ-228">designator/ASQ-228.designator</Profile_Instance>
+</Profile_Category>

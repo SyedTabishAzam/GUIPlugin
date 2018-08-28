@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Datablock_Instance SYSTEM "Datablock.dtd">
+<Datablock_Instance Name="1st Squad">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481728093</Timestamp>
+  <Profile_ID>16</Profile_ID>
+  <Field Type="3" Type_Name="String">
+    <Name>scn_ptf_name</Name>
+    <FieldID>1</FieldID>
+    <Value>1st Squad</Value>
+  </Field>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>platform</Name>
+    <FieldID>2</FieldID>
+    <Value>M1A3</Value>
+  </Field>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>weapon</Name>
+    <FieldID>3</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>large_map_use</Name>
+    <FieldID>5</FieldID>
+    <Value>100000001</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>color</Name>
+    <FieldID>6</FieldID>
+    <Value>2</Value>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>parent_name</Name>
+    <FieldID>7</FieldID>
+    <Value>Maneuvering Team</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>display_ptf</Name>
+    <FieldID>9</FieldID>
+    <Value>100000001</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>user_display_ptf</Name>
+    <FieldID>10</FieldID>
+    <Value>100000003</Value>
+  </Field>
+  <Field Type="4" Type_Name="Time">
+    <Name>active_time</Name>
+    <FieldID>11</FieldID>
+    <Value>00:00:00</Value>
+  </Field>
+  <Field Type="7" Type_Name="File">
+    <Name>script</Name>
+    <FieldID>12</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>script_active</Name>
+    <FieldID>13</FieldID>
+    <Value>2</Value>
+  </Field>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>mission</Name>
+    <FieldID>14</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>mission_active</Name>
+    <FieldID>15</FieldID>
+    <Value>100000001</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>history_plot</Name>
+    <FieldID>16</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>enabled</Name>
+        <FieldID>1</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="4" Type_Name="Time">
+        <Name>delay</Name>
+        <FieldID>2</FieldID>
+        <Value>00:00:00</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>radius</Name>
+        <FieldID>3</FieldID>
+        <Value>10</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>initial</Name>
+    <FieldID>17</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>carrier_name</Name>
+        <FieldID>1</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="6" Type_Name="LatLon">
+        <Name>pos</Name>
+        <FieldID>2</FieldID>
+        <LatLon>
+          <Lat>N12:52:48.111252662</Lat>
+          <Lon>E044:57:17.673716073</Lon>
+        </LatLon>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>altitude</Name>
+        <FieldID>3</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>state</Name>
+            <FieldID>1</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>h_geo</Name>
+            <FieldID>2</FieldID>
+            <Value>20.081</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>h_radar</Name>
+            <FieldID>3</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>h_ground</Name>
+            <FieldID>4</FieldID>
+            <Value>20.081</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>h_water</Name>
+            <FieldID>5</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>input_type</Name>
+            <FieldID>6</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>new_input</Name>
+            <FieldID>7</FieldID>
+            <Value>100000001</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>speed</Name>
+        <FieldID>4</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>heading</Name>
+        <FieldID>5</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>pitch</Name>
+        <FieldID>6</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>roll</Name>
+        <FieldID>7</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>inside_bldg_state</Name>
+        <FieldID>8</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>inside_status</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>building</Name>
+            <FieldID>2</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>floor</Name>
+            <FieldID>3</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>rel_pos</Name>
+            <FieldID>4</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>x</Name>
+                <FieldID>1</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>y</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>z</Name>
+                <FieldID>3</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>rel_hdg</Name>
+            <FieldID>5</FieldID>
+            <Value>0</Value>
+          </Field>
+          <Field Type="13">
+            <Name>building_ptr</Name>
+            <FieldID>6</FieldID>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>new_input</Name>
+        <FieldID>9</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="13">
+        <Name>prev_carrier</Name>
+        <FieldID>10</FieldID>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>owner</Name>
+        <FieldID>11</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>armed</Name>
+        <FieldID>12</FieldID>
+        <Value>100000001</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>trajectory</Name>
+    <FieldID>18</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>formation_role</Name>
+        <FieldID>1</FieldID>
+        <Value>1</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>master_name</Name>
+        <FieldID>2</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="11" Type_Name="Datablock List">
+        <Name>way_points</Name>
+        <FieldID>3</FieldID>
+        <DBList/>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>wpt_reach_dist</Name>
+        <FieldID>4</FieldID>
+        <Value>10</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>reach_dst_set</Name>
+        <FieldID>5</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>last_wpt_action</Name>
+        <FieldID>6</FieldID>
+        <Value>1</Value>
+      </Field>
+      <Field Type="4" Type_Name="Time">
+        <Name>loop_eta</Name>
+        <FieldID>7</FieldID>
+        <Value>00:00:01</Value>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>loop_eta_tmp</Name>
+        <FieldID>8</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>loop_wpt</Name>
+        <FieldID>9</FieldID>
+        <Value>1</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>next_wpt</Name>
+        <FieldID>13</FieldID>
+        <Value>-1</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>loop_nr</Name>
+        <FieldID>14</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>last_wpt</Name>
+        <FieldID>15</FieldID>
+        <Value>-1</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>new_input</Name>
+        <FieldID>16</FieldID>
+        <Value>100000001</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>wpns_loaded</Name>
+    <FieldID>19</FieldID>
+    <DBList>
+      <DBList_Instance Name="Gun">
+        <Field Type="3" Type_Name="String">
+          <Name>wpn_name</Name>
+          <FieldID>1</FieldID>
+          <Value>Gun</Value>
+        </Field>
+        <Field Type="3" Type_Name="String">
+          <Name>wpn_prof_name</Name>
+          <FieldID>2</FieldID>
+          <Value>7.62mm</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>max_num</Name>
+          <FieldID>3</FieldID>
+          <Value>4750</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>number</Name>
+          <FieldID>4</FieldID>
+          <Value>4750</Value>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="Primary Weapon">
+        <Field Type="3" Type_Name="String">
+          <Name>wpn_name</Name>
+          <FieldID>1</FieldID>
+          <Value>Primary Weapon</Value>
+        </Field>
+        <Field Type="3" Type_Name="String">
+          <Name>wpn_prof_name</Name>
+          <FieldID>2</FieldID>
+          <Value>120mm M256 Smoothbore Gun</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>max_num</Name>
+          <FieldID>3</FieldID>
+          <Value>42</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>number</Name>
+          <FieldID>4</FieldID>
+          <Value>42</Value>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="Secondary Weapon">
+        <Field Type="3" Type_Name="String">
+          <Name>wpn_name</Name>
+          <FieldID>1</FieldID>
+          <Value>Secondary Weapon</Value>
+        </Field>
+        <Field Type="3" Type_Name="String">
+          <Name>wpn_prof_name</Name>
+          <FieldID>2</FieldID>
+          <Value>7.62mm</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>max_num</Name>
+          <FieldID>3</FieldID>
+          <Value>4750</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>number</Name>
+          <FieldID>4</FieldID>
+          <Value>4750</Value>
+        </Field>
+      </DBList_Instance>
+    </DBList>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>supplies_loaded</Name>
+    <FieldID>20</FieldID>
+    <DBList/>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>unit_data</Name>
+    <FieldID>21</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>agg_disp_state</Name>
+        <FieldID>2</FieldID>
+        <Value>100000005</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>default_form</Name>
+        <FieldID>3</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>formation</Name>
+        <FieldID>4</FieldID>
+        <Datablock>
+          <Field Type="8" Type_Name="Profile Reference">
+            <Name>profile</Name>
+            <FieldID>1</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>scaling_rng</Name>
+            <FieldID>2</FieldID>
+            <Value>1</Value>
+          </Field>
+          <Field Type="1" Type_Name="Float">
+            <Name>scaling_alt</Name>
+            <FieldID>3</FieldID>
+            <Value>1</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>form_active</Name>
+            <FieldID>4</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>in_formation</Name>
+            <FieldID>5</FieldID>
+            <Value>100000001</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>default_mbrs</Name>
+        <FieldID>5</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="11" Type_Name="Datablock List">
+        <Name>members</Name>
+        <FieldID>6</FieldID>
+        <DBList/>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>new_input</Name>
+    <FieldID>22</FieldID>
+    <Value>100000001</Value>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>dyn_ctrl</Name>
+    <FieldID>23</FieldID>
+    <Value>100000002</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>fh_flsim_config</Name>
+    <FieldID>24</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>ac_model</Name>
+        <FieldID>1</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>pilot_inputs</Name>
+        <FieldID>2</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>cigi_config</Name>
+        <FieldID>3</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>ncom_config</Name>
+        <FieldID>8</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>hot_request</Name>
+        <FieldID>9</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>ambient</Name>
+        <FieldID>4</FieldID>
+        <Datablock>
+          <Field Type="2" Type_Name="Double">
+            <Name>lapse_rate</Name>
+            <FieldID>1</FieldID>
+            <Value>2.256e-005</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>earth</Name>
+        <FieldID>5</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>rotation</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="2" Type_Name="Double">
+            <Name>rot_spd</Name>
+            <FieldID>2</FieldID>
+            <Value>7.292115e-005</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>cst_gravity</Name>
+            <FieldID>3</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="2" Type_Name="Double">
+            <Name>gravity</Name>
+            <FieldID>4</FieldID>
+            <Value>9.81</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>initial</Name>
+        <FieldID>6</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>ap_engaged</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>fms_engaged</Name>
+            <FieldID>2</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>ats_engaged</Name>
+            <FieldID>3</FieldID>
+            <Value>100000002</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>comms</Name>
+        <FieldID>7</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>flsim</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>auto_start</Name>
+                <FieldID>1</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>address</Name>
+                <FieldID>2</FieldID>
+                <Value/>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>port</Name>
+                <FieldID>4</FieldID>
+                <Value>5678</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>otw</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>scene</Name>
+                <FieldID>1</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>auto_start</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>address</Name>
+                <FieldID>3</FieldID>
+                <Value/>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>port</Name>
+                <FieldID>6</FieldID>
+                <Value>8765</Value>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>position</Name>
+                <FieldID>5</FieldID>
+                <Value/>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>fh_hlsim_config</Name>
+    <FieldID>25</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>helo_model</Name>
+        <FieldID>1</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>pilot_inputs</Name>
+        <FieldID>2</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>cigi_config</Name>
+        <FieldID>3</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>ncom_config</Name>
+        <FieldID>9</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>hot_request</Name>
+        <FieldID>10</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>ambient</Name>
+        <FieldID>4</FieldID>
+        <Datablock>
+          <Field Type="2" Type_Name="Double">
+            <Name>lapse_rate</Name>
+            <FieldID>1</FieldID>
+            <Value>2.256e-005</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>earth</Name>
+        <FieldID>5</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>rotation</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="2" Type_Name="Double">
+            <Name>rot_spd</Name>
+            <FieldID>2</FieldID>
+            <Value>7.292115e-005</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>cst_gravity</Name>
+            <FieldID>3</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="2" Type_Name="Double">
+            <Name>gravity</Name>
+            <FieldID>4</FieldID>
+            <Value>9.81</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>initial</Name>
+        <FieldID>6</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>ap_engaged</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>sas_engaged</Name>
+            <FieldID>2</FieldID>
+            <Value>100000001</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>fms_engaged</Name>
+            <FieldID>3</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>acs_engaged</Name>
+            <FieldID>4</FieldID>
+            <Value>100000002</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>comms</Name>
+        <FieldID>7</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>hlsim</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>auto_start</Name>
+                <FieldID>1</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>address</Name>
+                <FieldID>2</FieldID>
+                <Value/>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>port</Name>
+                <FieldID>4</FieldID>
+                <Value>5678</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>otw</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>scene</Name>
+                <FieldID>1</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>auto_start</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>address</Name>
+                <FieldID>3</FieldID>
+                <Value/>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>port</Name>
+                <FieldID>6</FieldID>
+                <Value>8765</Value>
+              </Field>
+              <Field Type="3" Type_Name="String">
+                <Name>position</Name>
+                <FieldID>5</FieldID>
+                <Value/>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>object3d_ref</Name>
+    <FieldID>26</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>override</Name>
+        <FieldID>1</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="7" Type_Name="File">
+        <Name>object_3d</Name>
+        <FieldID>2</FieldID>
+        <Value>M1_Abrams.vsb</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>diguy_ref</Name>
+        <FieldID>3</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>type</Name>
+            <FieldID>1</FieldID>
+            <Value>100000002</Value>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>characters</Name>
+            <FieldID>2</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>appearances</Name>
+            <FieldID>3</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>head_app</Name>
+            <FieldID>4</FieldID>
+            <Value/>
+          </Field>
+          <Field Type="3" Type_Name="String">
+            <Name>hand_item</Name>
+            <FieldID>5</FieldID>
+            <Value/>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>visual_type</Name>
+        <FieldID>4</FieldID>
+        <Value>2009</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>object_3d_result</Name>
+        <FieldID>5</FieldID>
+        <Value/>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>dis_type_ref</Name>
+    <FieldID>31</FieldID>
+    <Datablock>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>override</Name>
+        <FieldID>6</FieldID>
+        <Value>100000002</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>marking</Name>
+        <FieldID>7</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>type</Name>
+        <FieldID>8</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>specific</Name>
+        <FieldID>11</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>extra</Name>
+        <FieldID>13</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>containment</Name>
+    <FieldID>27</FieldID>
+    <Datablock>
+      <Field Type="11" Type_Name="Datablock List">
+        <Name>ptfs_list</Name>
+        <FieldID>1</FieldID>
+        <DBList/>
+      </Field>
+      <Field Type="1" Type_Name="Float">
+        <Name>volume</Name>
+        <FieldID>2</FieldID>
+        <Value>7</Value>
+      </Field>
+      <Field Type="2" Type_Name="Double">
+        <Name>mass</Name>
+        <FieldID>3</FieldID>
+        <Value>0</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="13">
+    <Name>sensor_cones</Name>
+    <FieldID>29</FieldID>
+  </Field>
+  <Field Type="9" Type_Name="Integer Choice">
+    <Name>load_default_mission</Name>
+    <FieldID>30</FieldID>
+    <Value>100000002</Value>
+  </Field>
+</Datablock_Instance>

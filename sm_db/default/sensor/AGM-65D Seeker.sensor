@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="AGM-65D Seeker">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657865</Timestamp>
+  <Profile_ID>17</Profile_ID>
+  <Instance_ID>33</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>type_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>15</Choice>
+      <Datablock>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>horizon</Name>
+          <FieldID>1</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>earth_rad_fact</Name>
+              <FieldID>1</FieldID>
+              <Value>1</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>dynamic_factor</Name>
+          <FieldID>2</FieldID>
+          <Value>1</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>env</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_elevation</Name>
+              <FieldID>1</FieldID>
+              <Value>-0.7853982</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_elevation</Name>
+              <FieldID>2</FieldID>
+              <Value>0.7853982</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_azimuth</Name>
+              <FieldID>3</FieldID>
+              <Value>-1.570796</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_azimuth</Name>
+              <FieldID>4</FieldID>
+              <Value>1.570796</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>wavelength_env</Name>
+          <FieldID>4</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_wavelength</Name>
+              <FieldID>1</FieldID>
+              <Value>1e-006</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_wavelength</Name>
+              <FieldID>2</FieldID>
+              <Value>1e-005</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="5" Type_Name="Curve">
+          <Name>detection</Name>
+          <FieldID>5</FieldID>
+          <Curve>
+            <Z Value="1.000000">
+              <Point X="0.000000" Y="94.915253"/>
+              <Point X="204.708298" Y="92.449921"/>
+              <Point X="383.828033" Y="85.053932"/>
+              <Point X="511.770721" Y="13.713406"/>
+              <Point X="742.067566" Y="4.622496"/>
+              <Point X="1381.781006" Y="0.154083"/>
+            </Z>
+            <Z Value="2.000000">
+              <Point X="0.000000" Y="100.000000"/>
+              <Point X="972.364380" Y="97.534668"/>
+              <Point X="1458.546631" Y="89.214172"/>
+              <Point X="1867.963135" Y="18.335901"/>
+              <Point X="2200.614014" Y="8.474576"/>
+              <Point X="2814.739014" Y="2.311248"/>
+              <Point X="3582.395020" Y="0.000000"/>
+            </Z>
+            <Z Value="10.000000">
+              <Point X="0.000000" Y="100.000000"/>
+              <Point X="6806.550781" Y="100.000000"/>
+              <Point X="9032.752930" Y="97.380585"/>
+              <Point X="10465.710938" Y="89.676422"/>
+              <Point X="11412.487305" Y="18.181818"/>
+              <Point X="11693.960938" Y="8.166409"/>
+              <Point X="12640.737305" Y="3.081664"/>
+              <Point X="13945.751953" Y="0.000000"/>
+            </Z>
+            <Z Value="50.000000">
+              <Point X="0.000000" Y="100.000000"/>
+              <Point X="12410.440430" Y="100.000000"/>
+              <Point X="14841.351563" Y="96.610168"/>
+              <Point X="15609.006836" Y="87.827423"/>
+              <Point X="16044.011719" Y="21.417566"/>
+              <Point X="16351.076172" Y="7.241910"/>
+              <Point X="17323.439453" Y="2.773498"/>
+              <Point X="18321.392578" Y="0.000000"/>
+            </Z>
+            <Z Value="100.000000">
+              <Point X="0.000000" Y="100.000000"/>
+              <Point X="17297.849609" Y="100.000000"/>
+              <Point X="19216.990234" Y="95.223419"/>
+              <Point X="19984.646484" Y="87.827423"/>
+              <Point X="20163.767578" Y="9.244992"/>
+              <Point X="20522.005859" Y="2.619415"/>
+              <Point X="21468.781250" Y="0.154083"/>
+              <Point X="22415.558594" Y="0.000000"/>
+            </Z>
+          </Curve>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+</Profile_Instance>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Food - LRP Ration">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657866</Timestamp>
+  <Profile_ID>19</Profile_ID>
+  <Instance_ID>9</Instance_ID>
+  <Field Type="3" Type_Name="String">
+    <Name>comment</Name>
+    <FieldID>2</FieldID>
+    <Value>Long Range Patrol Ration</Value>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>unit</Name>
+    <FieldID>3</FieldID>
+    <Value>NO_UNITS ()</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>dis_type</Name>
+    <FieldID>4</FieldID>
+    <Datablock>
+      <Field Type="3" Type_Name="String">
+        <Name>marking</Name>
+        <FieldID>1</FieldID>
+        <Value/>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>type</Name>
+        <FieldID>2</FieldID>
+        <Value>006-000-0000-000-004-008-000</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>kind_gui</Name>
+        <FieldID>3</FieldID>
+        <Value>006 - Supply</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>kind</Name>
+        <FieldID>4</FieldID>
+        <Value>100000006</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>domain</Name>
+        <FieldID>5</FieldID>
+        <Value>000 - Other</Value>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>country</Name>
+        <FieldID>6</FieldID>
+        <Datablock>
+          <Field Type="9" Type_Name="Integer Choice">
+            <Name>country</Name>
+            <FieldID>1</FieldID>
+            <Value>100000000</Value>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>category</Name>
+        <FieldID>7</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>sub_category</Name>
+        <FieldID>8</FieldID>
+        <Value>4</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>sub_cat_gui</Name>
+        <FieldID>9</FieldID>
+        <Value>004 - Food</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>specific</Name>
+        <FieldID>10</FieldID>
+        <Value>8</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>specific_gui</Name>
+        <FieldID>11</FieldID>
+        <Value>008 - Long Range Patrol Ration</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>extra</Name>
+        <FieldID>12</FieldID>
+        <Value>0</Value>
+      </Field>
+      <Field Type="9" Type_Name="Integer Choice">
+        <Name>new_input</Name>
+        <FieldID>13</FieldID>
+        <Value>100000001</Value>
+      </Field>
+      <Field Type="0" Type_Name="Integer">
+        <Name>first_load</Name>
+        <FieldID>14</FieldID>
+        <Value>1</Value>
+      </Field>
+    </Datablock>
+  </Field>
+</Profile_Instance>

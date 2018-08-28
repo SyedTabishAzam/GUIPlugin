@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="AN/APX-76T">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>10</Profile_ID>
+  <Instance_ID>1</Instance_ID>
+  <Field Type="12" Type_Name="Datablock Choice">
+    <Name>type_obj</Name>
+    <FieldID>2</FieldID>
+    <DBChoice>
+      <Choice>100000002</Choice>
+      <Datablock>
+        <Field Type="1" Type_Name="Float">
+          <Name>range</Name>
+          <FieldID>1</FieldID>
+          <Value>200000</Value>
+        </Field>
+        <Field Type="2" Type_Name="Double">
+          <Name>frequency</Name>
+          <FieldID>2</FieldID>
+          <Value>1090000000</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>recv_freq_env</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="2" Type_Name="Double">
+              <Name>min_frequency</Name>
+              <FieldID>1</FieldID>
+              <Value>1020000000</Value>
+            </Field>
+            <Field Type="2" Type_Name="Double">
+              <Name>max_frequency</Name>
+              <FieldID>2</FieldID>
+              <Value>1100000000</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>beam_envelope</Name>
+          <FieldID>4</FieldID>
+          <Datablock>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_elevation</Name>
+              <FieldID>1</FieldID>
+              <Value>-1.5708</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_elevation</Name>
+              <FieldID>2</FieldID>
+              <Value>1.5708</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>min_azimuth</Name>
+              <FieldID>3</FieldID>
+              <Value>-3.14159</Value>
+            </Field>
+            <Field Type="1" Type_Name="Float">
+              <Name>max_azimuth</Name>
+              <FieldID>4</FieldID>
+              <Value>3.14159</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>dis_sys_id</Name>
+          <FieldID>5</FieldID>
+          <Datablock>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>dis_sys_type</Name>
+              <FieldID>1</FieldID>
+              <Value>100000002</Value>
+            </Field>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>dis_sys_name</Name>
+              <FieldID>2</FieldID>
+              <Value>100000008</Value>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>old_dis_sys_type</Name>
+              <FieldID>3</FieldID>
+              <Value>100000002</Value>
+            </Field>
+            <Field Type="0" Type_Name="Integer">
+              <Name>new_dis_sys_type</Name>
+              <FieldID>4</FieldID>
+              <Value>100000002</Value>
+            </Field>
+          </Datablock>
+        </Field>
+      </Datablock>
+    </DBChoice>
+  </Field>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>modes</Name>
+    <FieldID>3</FieldID>
+    <DBList>
+      <DBList_Instance Name="Mode 3/A">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>Mode 3/A</Value>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>mode_type</Name>
+          <FieldID>2</FieldID>
+          <Datablock>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>mode_type</Name>
+              <FieldID>1</FieldID>
+              <Value>100000003</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="10" Type_Name="Datablock Reference">
+          <Name>code_system</Name>
+          <FieldID>3</FieldID>
+          <Datablock>
+            <Field Type="9" Type_Name="Integer Choice">
+              <Name>code_system</Name>
+              <FieldID>1</FieldID>
+              <Value>100000004</Value>
+            </Field>
+          </Datablock>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>crypto</Name>
+          <FieldID>4</FieldID>
+          <Value>100000001</Value>
+        </Field>
+      </DBList_Instance>
+    </DBList>
+  </Field>
+</Profile_Instance>

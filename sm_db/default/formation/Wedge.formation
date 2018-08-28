@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Wedge">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>9</Profile_ID>
+  <Instance_ID>2</Instance_ID>
+  <Field Type="11" Type_Name="Datablock List">
+    <Name>slaves</Name>
+    <FieldID>2</FieldID>
+    <DBList>
+      <DBList_Instance Name="Platoon Leader">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>Platoon Leader</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000002</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>rank</Name>
+          <FieldID>3</FieldID>
+          <Value>1</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>range</Name>
+          <FieldID>4</FieldID>
+          <Value>0</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>bearing</Name>
+          <FieldID>5</FieldID>
+          <Value>0</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>altitude</Name>
+          <FieldID>6</FieldID>
+          <Value>0</Value>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="1st Squad">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>1st Squad</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000002</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>rank</Name>
+          <FieldID>3</FieldID>
+          <Value>2</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>range</Name>
+          <FieldID>4</FieldID>
+          <Value>135</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>bearing</Name>
+          <FieldID>5</FieldID>
+          <Value>-2.443461</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>altitude</Name>
+          <FieldID>6</FieldID>
+          <Value>0</Value>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="2nd Squad">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>2nd Squad</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000002</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>rank</Name>
+          <FieldID>3</FieldID>
+          <Value>3</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>range</Name>
+          <FieldID>4</FieldID>
+          <Value>100</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>bearing</Name>
+          <FieldID>5</FieldID>
+          <Value>1.570796</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>altitude</Name>
+          <FieldID>6</FieldID>
+          <Value>0</Value>
+        </Field>
+      </DBList_Instance>
+      <DBList_Instance Name="3rd Squad">
+        <Field Type="3" Type_Name="String">
+          <Name>name</Name>
+          <FieldID>1</FieldID>
+          <Value>3rd Squad</Value>
+        </Field>
+        <Field Type="9" Type_Name="Integer Choice">
+          <Name>type</Name>
+          <FieldID>2</FieldID>
+          <Value>100000002</Value>
+        </Field>
+        <Field Type="0" Type_Name="Integer">
+          <Name>rank</Name>
+          <FieldID>3</FieldID>
+          <Value>4</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>range</Name>
+          <FieldID>4</FieldID>
+          <Value>215</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>bearing</Name>
+          <FieldID>5</FieldID>
+          <Value>2.094395</Value>
+        </Field>
+        <Field Type="1" Type_Name="Float">
+          <Name>altitude</Name>
+          <FieldID>6</FieldID>
+          <Value>0</Value>
+        </Field>
+      </DBList_Instance>
+    </DBList>
+  </Field>
+</Profile_Instance>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="me_submission">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1535347040</Timestamp>
+  <Profile_ID>12</Profile_ID>
+  <Profile_Instance Folder_Name="\Scenario Specific\Airport Sample" Name="AirTo Air sub-mission">me_submission/AirTo Air sub-mission.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\Airport Sample" Name="AirTo Ground sub-mission">me_submission/AirTo Ground sub-mission.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\Airport Sample" Name="LeopardEmbarkSubmission">me_submission/LeopardEmbarkSubmission.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\Bombing Sample" Name="Bomb Delivery">me_submission/Bomb Delivery.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\CAP Air Sample" Name="CAP Leader Attack">me_submission/CAP Leader Attack.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\DI-Guy Sample" Name="FindNewHostile">me_submission/FindNewHostile.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\DI-Guy Sample" Name="GetInPosition">me_submission/GetInPosition.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\DI-Guy Sample" Name="GotoObjectivePoint">me_submission/GotoObjectivePoint.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\DI-Guy Sample" Name="GotoRallyPoint">me_submission/GotoRallyPoint.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\DI-Guy Sample" Name="TakeOutHostile">me_submission/TakeOutHostile.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\Surface Sample" Name="Arleigh Burke Attack Ground">me_submission/Arleigh Burke Attack Ground.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\Surface Sample" Name="Arleigh Burke Drop Decoy">me_submission/Arleigh Burke Drop Decoy.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\UAS LGB Sample" Name="AirBombRun">me_submission/AirBombRun.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\UAS LGB Sample" Name="AirNavigateTarget">me_submission/AirNavigateTarget.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\UAS LGB Sample" Name="FOBombRun">me_submission/FOBombRun.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\UAS LGB Sample" Name="FOMonitorStrike">me_submission/FOMonitorStrike.me_submission</Profile_Instance>
+  <Profile_Instance Folder_Name="\Scenario Specific\UAS LGB Sample" Name="RecheckTarget">me_submission/RecheckTarget.me_submission</Profile_Instance>
+</Profile_Category>

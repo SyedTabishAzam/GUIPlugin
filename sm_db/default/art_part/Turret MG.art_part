@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Turret MG">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>3</Profile_ID>
+  <Instance_ID>2</Instance_ID>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>translation</Name>
+    <FieldID>2</FieldID>
+    <Datablock>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>envelopes</Name>
+        <FieldID>1</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>x_axis</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>dof</Name>
+                <FieldID>1</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>3</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>y_axis</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>dof</Name>
+                <FieldID>1</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>3</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>z_axis</Name>
+            <FieldID>3</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>dof</Name>
+                <FieldID>1</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>3</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>rates</Name>
+        <FieldID>2</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>x_axis</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>1</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>y_axis</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>1</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>z_axis</Name>
+            <FieldID>3</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>1</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>rotation</Name>
+    <FieldID>3</FieldID>
+    <Datablock>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>envelopes</Name>
+        <FieldID>1</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>z_axis</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>dof</Name>
+                <FieldID>1</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>is_limited</Name>
+                <FieldID>2</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>start</Name>
+                <FieldID>3</FieldID>
+                <Value>3.141595</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>end</Name>
+                <FieldID>4</FieldID>
+                <Value>3.14159</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>5</FieldID>
+                <Value>-3.141591</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>6</FieldID>
+                <Value>3.14159</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>y_axis</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>dof</Name>
+                <FieldID>1</FieldID>
+                <Value>100000001</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>is_limited</Name>
+                <FieldID>2</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>start</Name>
+                <FieldID>3</FieldID>
+                <Value>6.108653</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>end</Name>
+                <FieldID>4</FieldID>
+                <Value>0.7853982</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>5</FieldID>
+                <Value>-0.1745329</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>6</FieldID>
+                <Value>0.7853982</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>x_axis</Name>
+            <FieldID>3</FieldID>
+            <Datablock>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>dof</Name>
+                <FieldID>1</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="9" Type_Name="Integer Choice">
+                <Name>is_limited</Name>
+                <FieldID>2</FieldID>
+                <Value>100000002</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>start</Name>
+                <FieldID>3</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>end</Name>
+                <FieldID>4</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>5</FieldID>
+                <Value>-6.283185</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>6</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+      <Field Type="10" Type_Name="Datablock Reference">
+        <Name>rates</Name>
+        <FieldID>2</FieldID>
+        <Datablock>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>z_axis</Name>
+            <FieldID>1</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>1</FieldID>
+                <Value>0.6981317</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>2</FieldID>
+                <Value>0.6981317</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>y_axis</Name>
+            <FieldID>2</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>1</FieldID>
+                <Value>0.3490658</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>2</FieldID>
+                <Value>0.3490658</Value>
+              </Field>
+            </Datablock>
+          </Field>
+          <Field Type="10" Type_Name="Datablock Reference">
+            <Name>x_axis</Name>
+            <FieldID>3</FieldID>
+            <Datablock>
+              <Field Type="1" Type_Name="Float">
+                <Name>max</Name>
+                <FieldID>1</FieldID>
+                <Value>0</Value>
+              </Field>
+              <Field Type="1" Type_Name="Float">
+                <Name>min</Name>
+                <FieldID>2</FieldID>
+                <Value>0</Value>
+              </Field>
+            </Datablock>
+          </Field>
+        </Datablock>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>dis_param_type</Name>
+    <FieldID>4</FieldID>
+    <Datablock>
+      <Field Type="0" Type_Name="Integer">
+        <Name>type_class</Name>
+        <FieldID>1</FieldID>
+        <Value>4096</Value>
+      </Field>
+      <Field Type="3" Type_Name="String">
+        <Name>type_class_gui</Name>
+        <FieldID>2</FieldID>
+        <Value>4096 - Primary turret number 1</Value>
+      </Field>
+    </Datablock>
+  </Field>
+</Profile_Instance>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="iff">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>10</Profile_ID>
+  <Profile_Instance Name="AN/APX-76I">iff/AN/APX-76I.iff</Profile_Instance>
+  <Profile_Instance Name="AN/APX-76T">iff/AN/APX-76T.iff</Profile_Instance>
+</Profile_Category>

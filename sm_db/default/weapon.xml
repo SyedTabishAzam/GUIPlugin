@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Category SYSTEM "Profile_Category.dtd">
+<Profile_Category Name="weapon">
+  <Database_Name>default</Database_Name>
+  <Timestamp>1535342679</Timestamp>
+  <Profile_ID>20</Profile_ID>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="12.7mm YAK-B">weapon/12.7mm YAK-B.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="20mm M61A1">weapon/20mm M61A1.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="20mm M61A2">weapon/20mm M61A2.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="23mm GSh-23">weapon/23mm GSh-23.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="25mm GAU-12/U Equalizer">weapon/25mm GAU-12/U Equalizer.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="27mm Mauser IWKA">weapon/27mm Mauser IWKA.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="30mm ATK Bushmaster II">weapon/30mm ATK Bushmaster II.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="30mm DEFA 554">weapon/30mm DEFA 554.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="30mm GAU-8/A Avenger">weapon/30mm GAU-8/A Avenger.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="30mm GIAT M781 cannon">weapon/30mm GIAT M781 cannon.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="30mm GSh-301">weapon/30mm GSh-301.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="30mm M230 Chain Gun">weapon/30mm M230 Chain Gun.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Aircraft" Name="40mm L60 Bofors Cannon">weapon/40mm L60 Bofors Cannon.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="12.7mm NSVT MG">weapon/12.7mm NSVT MG.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="120mm L55 Smoothbore Gun">weapon/120mm L55 Smoothbore Gun.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="120mm M256 Smoothbore Gun">weapon/120mm M256 Smoothbore Gun.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="125mm KBA-3 Smoothbore Gun">weapon/125mm KBA-3 Smoothbore Gun.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="155mm M284 Howitzer">weapon/155mm M284 Howitzer.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="20mm MK 20 Rh 202">weapon/20mm MK 20 Rh 202.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="23mm AZP 23">weapon/23mm AZP 23.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="25mm M242 Bushmaster">weapon/25mm M242 Bushmaster.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Ground Vehicle" Name="7.62mm PKT MG">weapon/7.62mm PKT MG.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Infantry" Name="5.56mm M16A4">weapon/5.56mm M16A4.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Infantry" Name="7.62mm AK-47">weapon/7.62mm AK-47.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Infantry" Name="9mm M9A1">weapon/9mm M9A1.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Multi-Purpose" Name="105mm M102 Howitzer">weapon/105mm M102 Howitzer.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Multi-Purpose" Name="12.7mm M2 HB MG (.50Cal)">weapon/12.7mm M2 HB MG (.50Cal).weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Multi-Purpose" Name="40mm MK 19 AGL">weapon/40mm MK 19 AGL.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Gun\Multi-Purpose" Name="7.62mm">weapon/7.62mm.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\IED" Name="Buried Shell">weapon/Buried Shell.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\IED" Name="VBIED">weapon/VBIED.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\IED" Name="Roadside Tire">weapon/Roadside Tire.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\IED" Name="Covered">weapon/Covered.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\IED" Name="Litter">weapon/Litter.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="AIM-120C AMRAAM">weapon/AIM-120C AMRAAM.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="AIM-7M Sparrow">weapon/AIM-7M Sparrow.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="AIM-9X Sidewinder">weapon/AIM-9X Sidewinder.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="Alarm">weapon/Alarm.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="Astra">weapon/Astra.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="FIM-92 Stinger">weapon/FIM-92 Stinger.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="Magic 2">weapon/Magic 2.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="Meteor">weapon/Meteor.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="Mistral 2">weapon/Mistral 2.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="R-23T">weapon/R-23T.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="R-27ER">weapon/R-27ER.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="R-3S">weapon/R-3S.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="R-60T">weapon/R-60T.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="R-73E">weapon/R-73E.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Air" Name="R-77">weapon/R-77.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AGM-114K Hellfire II">weapon/AGM-114K Hellfire II.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AGM-158 JASSM">weapon/AGM-158 JASSM.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AGM-65B Maverick">weapon/AGM-65B Maverick.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AGM-65D Maverick">weapon/AGM-65D Maverick.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AGM-84 Harpoon">weapon/AGM-84 Harpoon.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AGM-88 HARM">weapon/AGM-88 HARM.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AT-2 Swatter">weapon/AT-2 Swatter.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Air to Ground" Name="AT-6 Spiral">weapon/AT-6 Spiral.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Anti-Armor" Name="BGM-71 TOW">weapon/BGM-71 TOW.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Anti-Armor" Name="HOT 3">weapon/HOT 3.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Anti-Armor" Name="LR-Trigat (PARS 3 LR)">weapon/LR-Trigat (PARS 3 LR).weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Cruise Missile" Name="Apache">weapon/Apache.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Cruise Missile" Name="SCALP EG">weapon/SCALP EG.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Surface to Air" Name="RIM-66C SM-2MR">weapon/RIM-66C SM-2MR.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Surface to Air" Name="RIM-7 Sea Sparrow">weapon/RIM-7 Sea Sparrow.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Missile\Surface to Air" Name="V-750VK Dvina Rocket (SA-2)">weapon/V-750VK Dvina Rocket (SA-2).weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Artillery" Name="M114">weapon/M114.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Artillery" Name="M198">weapon/M198.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Artillery" Name="LW155">weapon/LW155.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Artillery" Name="M256">weapon/M256.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="MK-84">weapon/MK-84.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="GBU-27">weapon/GBU-27.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="GBU-10">weapon/GBU-10.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="MK-82">weapon/MK-82.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="GBU-12">weapon/GBU-12.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="GBU-24">weapon/GBU-24.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Bomb" Name="GBU-28">weapon/GBU-28.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Gun" Name="M16">weapon/M16.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Gun" Name="M240">weapon/M240.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Missile" Name="AAM-5">weapon/AAM-5.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Missile" Name="AGM-114P Hellfire II">weapon/AGM-114P Hellfire II.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Missile" Name="AIM-120D ARMAAM">weapon/AIM-120D ARMAAM.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Missile" Name="SA-12">weapon/SA-12.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Missile" Name="SA-9">weapon/SA-9.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Rocket" Name="Hydra70">weapon/Hydra70.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Physics\Rocket" Name="WS-2">weapon/WS-2.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Torpedo" Name="Mk 48 ADCAP Mod 7 Torpedo">weapon/Mk 48 ADCAP Mod 7 Torpedo.weapon</Profile_Instance>
+  <Profile_Instance Folder_Name="\Torpedo" Name="Yu-6">weapon/Yu-6.weapon</Profile_Instance>
+</Profile_Category>

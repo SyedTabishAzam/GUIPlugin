@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Profile_Instance SYSTEM "Profile.dtd">
+<Profile_Instance Name="Sample_Building">
+  <Database_Name>default</Database_Name>
+  <Stage_Version>16.0.0</Stage_Version>
+  <Timestamp>1481657862</Timestamp>
+  <Profile_ID>8</Profile_ID>
+  <Instance_ID>1</Instance_ID>
+  <Field Type="7" Type_Name="File">
+    <Name>object_3d</Name>
+    <FieldID>2</FieldID>
+    <Value>default\detailed_building\Building1Modern01.flt</Value>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>bitmap</Name>
+    <FieldID>3</FieldID>
+    <Datablock>
+      <Field Type="7" Type_Name="File">
+        <Name>name</Name>
+        <FieldID>1</FieldID>
+        <Value>building.xpm</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>door_bitmap</Name>
+    <FieldID>4</FieldID>
+    <Datablock>
+      <Field Type="7" Type_Name="File">
+        <Name>name</Name>
+        <FieldID>1</FieldID>
+        <Value>door.xpm</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="10" Type_Name="Datablock Reference">
+    <Name>window_bitmap</Name>
+    <FieldID>5</FieldID>
+    <Datablock>
+      <Field Type="7" Type_Name="File">
+        <Name>name</Name>
+        <FieldID>1</FieldID>
+        <Value>window.xpm</Value>
+      </Field>
+    </Datablock>
+  </Field>
+  <Field Type="7" Type_Name="File">
+    <Name>navmesh</Name>
+    <FieldID>6</FieldID>
+    <Value>Building1Modern01.acx</Value>
+  </Field>
+  <Field Type="3" Type_Name="String">
+    <Name>gen_acx</Name>
+    <FieldID>7</FieldID>
+    <Value/>
+  </Field>
+  <Field Type="8" Type_Name="Profile Reference">
+    <Name>site_platform</Name>
+    <FieldID>8</FieldID>
+    <Value/>
+  </Field>
+</Profile_Instance>

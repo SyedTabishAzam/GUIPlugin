@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT Profile_Category (Database_Name, Timestamp, Profile_ID, Profile_Instance*, Additional_Folder*) >
+<!ATTLIST Profile_Category Name CDATA #REQUIRED>
+<!ELEMENT Database_Name (#PCDATA)>
+<!ELEMENT Timestamp (#PCDATA)>
+<!ELEMENT Profile_ID (#PCDATA)>
+<!ELEMENT Profile_Instance (#PCDATA)>
+<!ATTLIST Profile_Instance 
+    Name CDATA #REQUIRED
+	Folder_Name CDATA #IMPLIED
+	>
+<!ELEMENT Additional_Folder (#PCDATA)>

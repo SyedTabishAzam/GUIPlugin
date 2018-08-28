@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT Database (Timestamp,Profile*) >
+<!ATTLIST Database Name CDATA #REQUIRED>
+<!ATTLIST Database Stage_Version CDATA #REQUIRED>
+<!ELEMENT Timestamp (#PCDATA)>
+<!ELEMENT Profile (#PCDATA)>
