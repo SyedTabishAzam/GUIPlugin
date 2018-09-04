@@ -85,6 +85,7 @@ CStageBatchGuiDlg* StageBatchGuiControl::pGetDialog() const
 
 sqxVoid StageBatchGuiControl::vDoModal()
 {
+	
    pDialog->DoModal();
 }
 
@@ -161,7 +162,11 @@ sqxVoid StageBatchGuiControl::vBeginExecution(sqxUInt a_RunIndex)
    pWorkerThread = AfxBeginThread(StaticThreadProc, _pParams, 0, 0, CREATE_SUSPENDED);
    pWorkerThread->m_bAutoDelete = FALSE;
    pWorkerThread->ResumeThread();
+
+   
 }
+
+
 
 sqxVoid StageBatchGuiControl::vBeginExecutionCancellation()
 {
@@ -225,6 +230,7 @@ UINT StageBatchGuiControl::StaticThreadProc(LPVOID pParam)
    return _pInstance->ThreadProc(_RunIndex) ? 0 : 1;
 }
 
+
 sqxBool StageBatchGuiControl::ThreadProc(sqxInt a_RunToExecuteIndex)
 {
    // Determine the range of simulation runs to be executed
@@ -270,6 +276,6 @@ sqxBool StageBatchGuiControl::ThreadProc(sqxInt a_RunToExecuteIndex)
       ? L"Execution cancelled." : L"All runs completed!");
 
    RunBeingExecutedIndex = -1;
-
+   
    return SQX_TRUE;
 }

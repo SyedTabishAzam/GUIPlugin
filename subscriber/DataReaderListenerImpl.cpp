@@ -17,10 +17,11 @@
 #include <string>
 #include <time.h>
 using namespace std;
-
+enum CONNECTION_CODE { ACK = 500, SERVER_UPDATE = 501, SCENERIO_UPDATE = 502, EXIT = 503, ERROR_REC = 504 };
 const string SCNERIO_DATA_FILE = "ScenerioData.dat";
 
 void ReadCSV(string,string vars, string vartype);
+void WriteServerData(int count);
 void
 DataReaderListenerImpl::on_requested_deadline_missed(
   DDS::DataReader_ptr /*reader*/,
@@ -68,18 +69,30 @@ DataReaderListenerImpl::on_data_available(DDS::DataReader_ptr reader)
   DDS::ReturnCode_t error = reader_i->take_next_sample(message, info);
 
   if (error == DDS::RETCODE_OK) {
-    std::cout << "SampleInfo.sample_rank = " << info.sample_rank << std::endl;
-    std::cout << "SampleInfo.instance_state = " << info.instance_state << std::endl;
+	  std::cout << "Packet from server received" << endl;
+   
 
 	
 
     if (info.valid_data) {
-		std::cout << "         id = " << message.var_id << std::endl
-			<< "         entity= " << message.entity.in() << std::endl
-			<< "         count= " << message.count << std::endl; 
-
-		cout << "Reading Variable and their types" << endl;
-		ReadCSV(message.entity.in(),message.vars.in(), message.type.in());
+		
+		if (message.var_id == ACK)
+		{
+			std::cout << "id=" << message.var_id << " entity=" << message.entity.in() << std::endl
+				<< "count=" << message.count << std::endl;
+			
+			WriteServerData(message.count);
+		}
+		else if (message.var_id == SERVER_UPDATE)
+		{
+			cout << "id=" << message.var_id << ",defenders=" << message.entity.in() << ",attackers=" << message.vars.in() << ",ccc=" << message.type.in() << endl;
+		}
+		else if (message.var_id == SCENERIO_UPDATE)
+		{
+			cout << "id=" << message.var_id<<"?";
+			//cout << "Reading Variable and their types" << endl;
+			ReadCSV(message.entity.in(),message.vars.in(), message.type.in());
+		}
 
 			
 
@@ -108,12 +121,18 @@ DataReaderListenerImpl::on_sample_lost(
 {
 }
 
+void WriteServerData(int count)
+{
+	fstream myFile(SCNERIO_DATA_FILE, std::ios::out);
+	myFile << "SUBSCRIBER_COUNT"<< count << endl;
+	myFile.close();
+}
 void ReadCSV(string entity,string vars,string vartype)
 {
 	
 	
-	fstream myFile(SCNERIO_DATA_FILE, std::ios::out | std::ios::app);
-	myFile << entity << ">";
+	//fstream myFile(SCNERIO_DATA_FILE, std::ios::out | std::ios::app);
+	cout << entity << ">";
 	bool condition = true;
 	string str = "";
 	string vartypeSave = "";
@@ -144,19 +163,19 @@ void ReadCSV(string entity,string vars,string vartype)
 
 		if (commaCount == 0)
 		{
-			myFile << "(" << str << "," << vartypeSave << ")";
+			cout << "(" << str << "," << vartypeSave << ")";
 		}
 		else
 		{
-			myFile << " (" << str << "," << vartypeSave << ")";
+			cout << " (" << str << "," << vartypeSave << ")";
 		}
-		cout << str << " " << vartypeSave << endl;
+		//cout << str << " " << vartypeSave << endl;
 
 
 		commaCount++;
 		OFSET = 1;
 		condition = !(pos == string::npos);
 	} while (condition);
-	myFile << endl;
-	myFile.close();
+	cout << endl;
+//	myFile.close();
 }

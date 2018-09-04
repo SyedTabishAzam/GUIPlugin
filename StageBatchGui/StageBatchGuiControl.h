@@ -108,6 +108,8 @@ public:
    /// or -1 to execute all of them.
    sqxVoid vBeginExecution(sqxUInt a_RunIndex);
 
+   static UINT ServerBegin(LPVOID);
+   sqxVoid vStartServer();
    /// @brief Sends a message to the worker thread to indicate that the
    /// execution of simulation runs should be cancelled. IsExecuting can
    /// then be polled to know when the thread has stopped.
@@ -136,6 +138,7 @@ private:
    /// @retval A value indicating the execution success.
    sqxBool ThreadProc(sqxInt a_RunToExecuteIndex);
 
+   sqxVoid UpdateConnections();
    //==========================================================================
    // P R I V A T E   F I E L D S
    //==========================================================================

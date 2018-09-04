@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -73,7 +73,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\Datatransfer_Publisher\I386\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -82,7 +83,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\Datatransfer_Publisher\I386\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
@@ -91,7 +93,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Debug\Datatransfer_Publisher\AMD64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
@@ -100,7 +103,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Release\Datatransfer_Publisher\AMD64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
@@ -119,7 +123,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);$(DDS_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -136,14 +140,14 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ACEd.lib;TAOd.lib;TAO_AnyTypeCoded.lib;TAO_PortableServerd.lib;TAO_CodecFactoryd.lib;TAO_PId.lib;TAO_BiDirGIOPd.lib;OpenDDS_Dcpsd.lib;OpenDDS_InfoRepoDiscoveryd.lib;OpenDDS_Tcpd.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)publisher.exe</OutputFile>
+      <OutputFile>$(OutDir)InitialPublisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;$(DDS_ROOT)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\publisher_exe.pdb</ProgramDatabaseFile>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -175,15 +179,15 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ACE.lib;TAO.lib;TAO_AnyTypeCode.lib;TAO_PortableServer.lib;TAO_CodecFactory.lib;TAO_PI.lib;TAO_BiDirGIOP.lib;OpenDDS_Dcps.lib;OpenDDS_InfoRepoDiscovery.lib;OpenDDS_Tcp.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)publisher.exe</OutputFile>
+      <OutputFile>$(OutDir)InitialPublisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;$(DDS_ROOT)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -199,7 +203,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);$(DDS_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -219,18 +223,18 @@
       <OutputFile>$(OutDir)publisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;$(DDS_ROOT)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\publisher_exe.pdb</ProgramDatabaseFile>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -266,18 +270,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;$(DDS_ROOT)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -313,19 +317,31 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="DatatransferTypeSupport.idl">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;DatatransferTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib
+cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "DatatransferTypeSupport.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "$(ACE_ROOT)\bin\tao_idl on DatatransferTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DatatransferTypeSupportC.cpp;DatatransferTypeSupportC.h;DatatransferTypeSupportC.inl;DatatransferTypeSupportS.cpp;DatatransferTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;DatatransferTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib
+cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "DatatransferTypeSupport.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "$(ACE_ROOT)\bin\tao_idl on DatatransferTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">DatatransferTypeSupportC.cpp;DatatransferTypeSupportC.h;DatatransferTypeSupportC.inl;DatatransferTypeSupportS.cpp;DatatransferTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;DatatransferTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib
+cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "DatatransferTypeSupport.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "$(ACE_ROOT)\bin\tao_idl on DatatransferTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DatatransferTypeSupportC.cpp;DatatransferTypeSupportC.h;DatatransferTypeSupportC.inl;DatatransferTypeSupportS.cpp;DatatransferTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;DatatransferTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib
+cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "DatatransferTypeSupport.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "$(ACE_ROOT)\bin\tao_idl on DatatransferTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DatatransferTypeSupportC.cpp;DatatransferTypeSupportC.h;DatatransferTypeSupportC.inl;DatatransferTypeSupportS.cpp;DatatransferTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
@@ -333,19 +349,31 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Datatransfer.idl">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(DDS_ROOT)\bin\opendds_idl -Sa -St &quot;Datatransfer.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;Datatransfer.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
+cmd /c "$(DDS_ROOT)\bin\opendds_idl -Sa -St "Datatransfer.idl" &amp;&amp; cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "Datatransfer.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "$(DDS_ROOT)\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Datatransfer.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DatatransferC.cpp;DatatransferC.h;DatatransferC.inl;DatatransferS.cpp;DatatransferS.h;DatatransferTypeSupport.idl;DatatransferTypeSupportImpl.cpp;DatatransferTypeSupportImpl.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(DDS_ROOT)\bin\opendds_idl.exe;$(DDS_ROOT)\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(DDS_ROOT)\bin\opendds_idl -Sa -St &quot;Datatransfer.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;Datatransfer.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
+cmd /c "$(DDS_ROOT)\bin\opendds_idl -Sa -St "Datatransfer.idl" &amp;&amp; cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "Datatransfer.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "$(DDS_ROOT)\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Datatransfer.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">DatatransferC.cpp;DatatransferC.h;DatatransferC.inl;DatatransferS.cpp;DatatransferS.h;DatatransferTypeSupport.idl;DatatransferTypeSupportImpl.cpp;DatatransferTypeSupportImpl.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(DDS_ROOT)\bin\opendds_idl.exe;$(DDS_ROOT)\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(DDS_ROOT)\bin\opendds_idl -Sa -St &quot;Datatransfer.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;Datatransfer.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
+cmd /c "$(DDS_ROOT)\bin\opendds_idl -Sa -St "Datatransfer.idl" &amp;&amp; cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "Datatransfer.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "$(DDS_ROOT)\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Datatransfer.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DatatransferC.cpp;DatatransferC.h;DatatransferC.inl;DatatransferS.cpp;DatatransferS.h;DatatransferTypeSupport.idl;DatatransferTypeSupportImpl.cpp;DatatransferTypeSupportImpl.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(DDS_ROOT)\bin\opendds_idl.exe;$(DDS_ROOT)\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(DDS_ROOT)\bin\opendds_idl -Sa -St &quot;Datatransfer.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) &quot;Datatransfer.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
+cmd /c "$(DDS_ROOT)\bin\opendds_idl -Sa -St "Datatransfer.idl" &amp;&amp; cmd /c "$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I$(DDS_ROOT) "Datatransfer.idl""
+endlocal</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "$(DDS_ROOT)\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Datatransfer.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DatatransferC.cpp;DatatransferC.h;DatatransferC.inl;DatatransferS.cpp;DatatransferS.h;DatatransferTypeSupport.idl;DatatransferTypeSupportImpl.cpp;DatatransferTypeSupportImpl.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(DDS_ROOT)\bin\opendds_idl.exe;$(DDS_ROOT)\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>

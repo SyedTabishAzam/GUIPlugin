@@ -31,7 +31,7 @@
 #include "StageBatchGuiControl.h"
 
 #include <sqxOSSystem.h>
-
+#include <fstream>
 #include <sig_function.h>
 #include <tlhelp32.h>
 #include <string>
@@ -40,7 +40,7 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
+using namespace std;
 static bool missionActivated = false;
 
 //=============================================================================
@@ -148,8 +148,8 @@ void CStageBatchGuiDlg::DoDataExchange(CDataExchange* pDX)
 
    DDX_Control(pDX, IDC_STOP_TIME_CHECK, StopTimeCheck);
    DDX_Control(pDX, IDC_STOP_TIME_EDIT, StopTimeEdit);
-
    DDX_Control(pDX, IDC_RUN_LIST, RunsListBox);
+   DDX_Control(pDX, IDC_LIST2, ConnectionsCCC);
    DDX_Control(pDX, IDC_OUTPUT_EDIT, OutputEdit);
    DDX_Control(pDX, IDC_CANCEL_RUN_BUTTON, CancelRunButton);
    DDX_Control(pDX, IDC_PUBLISHERPATH_EDIT, PublisherPathEdit);
@@ -177,6 +177,9 @@ BEGIN_MESSAGE_MAP(CStageBatchGuiDlg, CDialog)
    ON_BN_CLICKED(IDC_CANCEL_RUN_BUTTON, &CStageBatchGuiDlg::OnCancelRunButtonClicked)
    ON_BN_CLICKED(IDC_PUBLISHER_BROWSE, &CStageBatchGuiDlg::OnBnClickedPublisherBrowse)
    ON_BN_CLICKED(IDC_SUBSCRIBER_BROWSE, &CStageBatchGuiDlg::OnBnClickedSubscriberBrowse)
+   ON_LBN_SELCHANGE(IDC_LIST3, &CStageBatchGuiDlg::OnLbnSelchangeList3)
+   ON_EN_CHANGE(IDC_OUTPUT_EDIT, &CStageBatchGuiDlg::OnEnChangeOutputEdit)
+   ON_BN_CLICKED(IDC_BUTTON1, &CStageBatchGuiDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -675,3 +678,134 @@ void CStageBatchGuiDlg::OnBnClickedSubscriberBrowse()
 {
 	vBrowsePath(SubscriberPathEdit, L"Subscriber file\0*.exe\0");
 }
+
+
+void CStageBatchGuiDlg::OnLbnSelchangeList3()
+{
+	// TODO: Add your control notification handler code here
+}
+
+
+void CStageBatchGuiDlg::OnEnChangeOutputEdit()
+{
+	// TODO:  If this is a RICHEDIT control, the control will not
+	// send this notification unless you override the CDialog::OnInitDialog()
+	// function and call CRichEditCtrl().SetEventMask()
+	// with the ENM_CHANGE flag ORed into the mask.
+
+	// TODO:  Add your control notification handler code here
+}
+
+
+void CStageBatchGuiDlg::OnBnClickedButton1()
+{
+	vStartServer();
+	
+	
+	
+}
+
+sqxVoid CStageBatchGuiDlg::vStartServer()
+{
+
+	CWinThread *m_pPointerToThread = AfxBeginThread(ServerBegin, static_cast<LPVOID>(this));
+	if (!m_pPointerToThread)
+		vAppendOutputLine(L"Server failed to start");
+	else
+	{
+		vAppendOutputLine(L"Server Started");
+	}
+
+}
+
+
+
+UINT CStageBatchGuiDlg::ServerBegin(LPVOID param)
+{
+	CStageBatchGuiDlg *m_pPointerToDialog = static_cast<CStageBatchGuiDlg*>(param);
+
+	// call a function: CSpecifiedDialog::ABC() in the same dialog
+	m_pPointerToDialog->UpdateConnections();
+
+	
+
+	return 0;
+}
+
+sqxVoid CStageBatchGuiDlg::UpdateConnections()
+{
+	while (true)
+	{
+		Sleep(3000);
+		CheckCCC();
+	}
+}
+
+sqxBool CStageBatchGuiDlg::CheckAttackers()
+{
+	return SQX_TRUE;
+}
+
+sqxBool CStageBatchGuiDlg::CheckCCC()
+{
+
+	string STAGE_DIR = getenv("STAGE_DIR");
+	string fileName = STAGE_DIR + "\\GUIPlugin\\" + SERVER_CONNECTION;
+
+	fstream fs;
+	fs.open(fileName, std::fstream::in );
+
+	if (fs.fail())
+	{
+		vAppendOutputLine(L"Waiting for connections..");
+	}
+	else
+	{
+		
+		int ccc;
+		fs >> ccc;
+		
+		
+		if (totalCrisisConnection < ccc)
+		{
+			
+			char buffer[50];
+			sprintf(buffer, "CCC %d joined the server", ccc);
+			CString str(buffer);
+			vAppendOutputLine(str);
+
+			sprintf(buffer, "CCC %d", ccc);
+			CString str2(buffer);
+			ConnectionsCCC.AddString(str2);
+			totalCrisisConnection = ccc;
+			return SQX_TRUE;
+		}
+		else if (totalCrisisConnection > ccc)
+		{
+			
+			char buffer[50];
+			sprintf(buffer, "CCC %d left the server", totalCrisisConnection);
+			CString str(buffer);
+			vAppendOutputLine(str);
+
+			
+			ConnectionsCCC.DeleteString(static_cast<UINT>(ccc));
+			totalCrisisConnection = ccc;
+			return SQX_TRUE;
+		}
+		fs.close();
+	}
+	
+
+	
+	
+	
+	
+	return SQX_FALSE;
+}
+
+sqxBool CStageBatchGuiDlg::CheckDefenders()
+{
+	return SQX_TRUE;
+}
+

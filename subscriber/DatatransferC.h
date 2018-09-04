@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_DATATRANSFERC_W9JEME_H_
-#define _TAO_IDL_DATATRANSFERC_W9JEME_H_
+#ifndef _TAO_IDL_DATATRANSFERC_8MSDDR_H_
+#define _TAO_IDL_DATATRANSFERC_8MSDDR_H_
 
 #include /**/ "ace/pre.h"
 

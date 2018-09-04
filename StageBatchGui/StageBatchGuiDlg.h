@@ -80,6 +80,8 @@ public:
    //==========================================================================
    virtual BOOL PreTranslateMessage(MSG* pMsg);
 
+   static UINT ServerBegin(LPVOID);
+   sqxVoid vStartServer();
    /// @brief Adds a line to the output text box.
    ///
    /// @param a_pLine The line of text to be appended.
@@ -93,6 +95,10 @@ private:
    //==========================================================================
    /// @brief Clears all controls used to edit the runs.
    sqxVoid vResetRunEditControls();
+   sqxVoid UpdateConnections();
+   sqxBool CheckAttackers();
+   sqxBool CheckCCC();
+   sqxBool CheckDefenders();
 
    /// @brief Enables or disables all controls used to edit the runs.
    sqxVoid vEnableRunEditControls(sqxBool a_Enable);
@@ -153,11 +159,17 @@ private:
    CButton StopTimeCheck;
    CEdit StopTimeEdit;
    CListBox RunsListBox;
+   CListBox ConnectionsCCC;
    CEdit OutputEdit;
    CButton CancelRunButton;
 
+   int totalCrisisConnection= 0;
    
 
 
 	
+	public:
+	afx_msg void OnLbnSelchangeList3();
+	afx_msg void OnEnChangeOutputEdit();
+	afx_msg void OnBnClickedButton1();
 };

@@ -29,8 +29,8 @@
 // TAO_IDL - Generated from
 // s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:652
 
-#ifndef _TAO_IDL_DATATRANSFERS_2EODUY_CPP_
-#define _TAO_IDL_DATATRANSFERS_2EODUY_CPP_
+#ifndef _TAO_IDL_DATATRANSFERS_8MSDDR_CPP_
+#define _TAO_IDL_DATATRANSFERS_8MSDDR_CPP_
 
 
 #include "DatatransferS.h"
