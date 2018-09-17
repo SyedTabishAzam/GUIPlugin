@@ -31,10 +31,12 @@
 
 /* Name of the SIM batch file */
 #define SIM_CMD_FILE "stage.sim_cmd"
-#define SERVER_CONNECTION "EXECUTABLES\\ServerJoined.dat"
-
+#define SERVER_CONNECTION "EXECUTABLES\\Server.dat"
+#define STAGE_PUBLISHER "RunMainPub.cmd"
+#define STAGE_SUBSCRIBER "RunMainSub.cmd"
 #define TEMP_XML_BUFFER_FILE "tempFile.xml"
 #define OUTPUT_XML_FILE "OutputFile.xml"
+
 #define SIM_MISSION_FILE "entitymission.missionactive"
 
 #define BUF_SIZE 256

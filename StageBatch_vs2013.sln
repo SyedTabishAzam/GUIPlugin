@@ -1,12 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageBatchCmd", "StageBatchCmd\StageBatchCmd_vs2013.vcxproj", "{0B403C9F-5C5C-4E61-8320-7D4B613DFC7C}"
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageBatchCmd_vs2013", "StageBatchCmd\StageBatchCmd_vs2013.vcxproj", "{0B403C9F-5C5C-4E61-8320-7D4B613DFC7C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimBatchPlugin", "SimBatchPlugin\SimBatchPlugin_vs2013.vcxproj", "{548E71EE-EFD3-4649-80E9-72D9904265FE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimBatchPlugin_vs2013", "SimBatchPlugin\SimBatchPlugin_vs2013.vcxproj", "{548E71EE-EFD3-4649-80E9-72D9904265FE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageBatchLib", "StageBatchLib\StageBatchLib_vs2013.vcxproj", "{2EA9DF2E-9C44-467A-9A0D-0020A7903856}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageBatchLib_vs2013", "StageBatchLib\StageBatchLib_vs2013.vcxproj", "{2EA9DF2E-9C44-467A-9A0D-0020A7903856}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageBatchGui", "StageBatchGui\StageBatchGui_vs2013.vcxproj", "{F697A6D7-B9F1-42FA-88DE-76D3FA2D785C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageBatchGui_vs2013", "StageBatchGui\StageBatchGui_vs2013.vcxproj", "{F697A6D7-B9F1-42FA-88DE-76D3FA2D785C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

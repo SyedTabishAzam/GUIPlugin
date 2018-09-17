@@ -42,21 +42,23 @@
 #include <tchar.h>
 #include <codecvt>
 #include <fstream>
+
 #include <stdio.h>
 #include <map>
 #include <iostream>
 #include <stdlib.h>  
+#include <filesystem>
 #include <string>  
-
+#include <process.h>
 #include <locale>
 #include <sstream>
-
+//#include <boost/lambda/lambda.hpp>
 #include <vector>
-#include <dirent.h>
+//#include <dirent.h>
 //#import <MSXML2.dll> rename_namespace(_T("MSXML"))
 
 #include "tinyxml2.h"
-
+#include "TabishUtility.h"
 using namespace tinyxml2;
 
 using namespace std;
@@ -65,7 +67,8 @@ using namespace std;
 /* L O C A L   C O N S T A N T S                               */
 /***************************************************************/
 enum MODE { APPEND, WRITE };
-
+enum Directions { UP, LEFT, DOWN, RIGHT,INC,DEC };
+enum View {  vLEFT, vRIGHT };
 /***************************************************************/
 /* L O C A L   M A C R O S                                     */
 /***************************************************************/
@@ -100,6 +103,9 @@ void UpdateDataForPublish();
 int CheckSimStatus(string);
 BOOL StartProcess(DWORD & exitCode,string);
 void CreateXML();
+const double MOVE_FACTOR = 0.00001;
+const float HEAD_MOVE_FACTOR = 0.05;
+double MOVE_FACTOR_RAD;
 
 //void ReadXML();
 /***************************************************************/
@@ -136,7 +142,7 @@ static int DELAY = 0;
 static string pubpart = "";
 static string subpart = "";
 bool INIT = FALSE;
-bool EXEC_CALL = FALSE;
+bool EXEC_CALL = TRUE;
 bool TOGGLE = TRUE;
 int initialEntities = 0;
 const bool DEBUG = false;
@@ -912,6 +918,7 @@ int um_batch_init(void *gd)
 	prd = gdp->priv;
 	
 	
+	TabishUtility::DegreeToRadian(MOVE_FACTOR, MOVE_FACTOR_RAD);
 
 	rbidx_ptr = &gdp->pub->header->rbuff_idx;
 
@@ -995,7 +1002,7 @@ void um_batch_ctrl(int ctrl_type)
 	case CTRL_START:
 	{
 		INIT = TRUE;
-		EXEC_CALL = FALSE;
+	
 
 		/* Parse file when SIM is given Run command */
 		parse_config_file();
@@ -1069,7 +1076,12 @@ size_t split(const std::string &txt, std::vector<std::string> &strs, char ch)
 int CheckActivatedMission(int debug)
 {
 	int ret_val = 0;
-	fstream missionFile(SIM_MISSION_FILE, ios::in);
+
+	char missionInpFile[100];
+	sprintf(missionInpFile, "%s%cGUIPlugin%c%s",
+		stage_get_ansi_path(STAGE_DIR),
+		SIG_PATH_SEP, SIG_PATH_SEP, SIM_MISSION_FILE);
+	fstream missionFile(missionInpFile, ios::in);
 	string line;
 	int simCommand = 0;
 	if (missionFile.is_open())
@@ -1114,7 +1126,7 @@ int CheckActivatedMission(int debug)
 
 			if (ret_val == 1)
 			{
-				missionFile.open(SIM_MISSION_FILE, std::ofstream::out | std::ofstream::trunc);
+				missionFile.open(missionInpFile, std::ofstream::out | std::ofstream::trunc);
 				missionFile.close();
 			}
 		
@@ -1136,26 +1148,28 @@ void um_batch_exec()
 	if (EXEC_CALL==TRUE)
 	{
 
-		if (DELAY % 500 == 0)
-		{
-			DELAY = 1;
-			if (CheckActivatedMission(1) == 1)
-			{			
-				sig_print("New mission commands found \n");
-				TOGGLE = TRUE;
-			}
-			else
-			{
-				if (TOGGLE)
-					sig_print("Nothing to execute \n");
-				TOGGLE = FALSE;
-			}
-
+		
+		if (CheckActivatedMission(1) == 1)
+		{			
+			sig_print("New mission commands found \n");
+			TOGGLE = TRUE;
 		}
 		else
 		{
-			DELAY = DELAY + 1;
+			
+			
+			if (TOGGLE)
+			{
+				fstream file;
+				file.open("test2.txt", fstream::out);
+				file._close();
+				sig_print("Nothing to execute \n");
+			}
+			TOGGLE = FALSE;
 		}
+
+		
+		
 
 		int i;
 		Entity_Data* entity;
@@ -1189,38 +1203,6 @@ void um_batch_exec()
 				&& entity->scn_ptf != NULL)
 			{
 
-				//WriteData to publish
-				/*if (INIT==TRUE)
-				{
-				
-					Task_Ent_Data* op = entity->task;
-					if (op != NULL)
-					{
-						if (op->mission != NULL)
-						{
-						
-							wchar_t* temp1 = (entity->state->name);
-							wchar_t temp2[40];
-							wcsncpy(temp2, (op->mission_name), 40);
-							if (temp2 != NULL && temp1!=NULL)
-							{
-
-
-								wchar_t* extension = L".me_mission";
-								wchar_t* withExtension = wcscat(temp2, extension);
-							
-
-								string tempEntity = WcharToString(temp1);
-
-								entityList.push_back(tempEntity);
-								missionList.push_back(withExtension);
-							}
-						}
-					}
-
-					initialEntities++;
-				}*/
-
 
 				for (auto i = CommandQueue.begin(); i != CommandQueue.end(); ++i)
 				{
@@ -1234,51 +1216,126 @@ void um_batch_exec()
 					/*If entity name equals mission entitiy name*/
 					if (wcscmp(entity->scn_ptf->scn_ptf_name, entityName) == 0)
 					{
-					
-						string variableNameString = (*i).variableName;
-						
-
-						Task_Ent_Data* op = entity->task;
-
-						if (op == NULL)
+						float heading = entity_heading(entity, 0);
+						if ((*i).variableName == "MOVE")
 						{
+							Sig_Pos_Ecs pos = entity_position(entity, 0);
+							
 
-							sig_print("No Mission found");
+							
+							
+							int direction = 0;
+							TabishUtility::StringToInt((*i).value, direction);
+							
+						
+							if (direction == Directions::UP)
+							{
+
+								pos.lat += MOVE_FACTOR_RAD*cos(heading);
+								pos.lon += MOVE_FACTOR_RAD*sin(heading);
+							}
+							if (direction == Directions::LEFT)
+							{
+								heading -= 1.5708;
+								pos.lat += MOVE_FACTOR_RAD*sin(heading);
+								pos.lon += MOVE_FACTOR_RAD*cos(heading);
+							}
+							if (direction == Directions::DOWN)
+							{
+								pos.lat -= MOVE_FACTOR_RAD*cos(heading);
+								pos.lon -= MOVE_FACTOR_RAD*sin(heading);
+							}
+							if (direction == Directions::RIGHT)
+							{
+								heading -= 1.5708;
+								pos.lat -= MOVE_FACTOR_RAD*sin(heading);
+								pos.lon -= MOVE_FACTOR_RAD*cos(heading);
+							}
+							if (direction == Directions::INC)
+							{
+								pos.alt += 1.0;
+							}
+							if (direction == Directions::DEC)
+							{
+								pos.alt -= 1.0;
+							}
+							sim_ptf_change_position_and_alt(entity, pos.lat, pos.lon,pos.alt);
+							
+
+						}
+						else if ((*i).variableName == "VIEW")
+						{
+							
+							
+
+
+
+							int direction = 0;
+							TabishUtility::StringToInt((*i).value, direction);
+
+							
+							if (direction == View::vLEFT)
+							{
+								heading -= HEAD_MOVE_FACTOR;
+							}
+							
+							if (direction == View::vRIGHT)
+							{
+								heading += HEAD_MOVE_FACTOR;
+							}
+
+							sim_ptf_change_heading(entity, heading);
+
 						}
 						else
 						{
-							wchar_t* temp = op->mission_name;
-							sig_print("Mission ");
-							sig_wprint(temp);
-							sig_print(" Found \n");
 
-							/*This Block converts char to wchar pointer */
-
-							wchar_t* variableName;
-							StringToWchar(variableNameString, variableName);
-
-
-							simValue* local = sim_task_get_local_variable(entity, variableName);
 						
-							if (local == NULL)
-							{
-								sig_print("Failed - Variable not found \n");
+						
+		
 
+							string variableNameString = (*i).variableName;
+							Task_Ent_Data* op = entity->task;
+
+							if (op == NULL)
+							{
+
+								sig_print("No Mission found");
 							}
 							else
 							{
-								string varValue = (*i).value;
-							
-								if (UpdateVariableValue(local, varValue) == 0)
+								wchar_t* temp = op->mission_name;
+								sig_print("Mission ");
+								sig_wprint(temp);
+								sig_print(" Found \n");
+
+								/*This Block converts char to wchar pointer */
+
+								wchar_t* variableName;
+								StringToWchar(variableNameString, variableName);
+
+								simValue* local = sim_task_get_local_variable(entity, variableName);
+						
+								if (local == NULL)
 								{
-									sig_print("Value of Variable changed \n");		
+									sig_print("Failed - Variable not found \n");
+
 								}
 								else
 								{
-									sig_print("Error changing value for variable: %s\n", variableNameString);
+									string varValue = (*i).value;
+							
+									if (UpdateVariableValue(local, varValue) == 0)
+									{
+										sig_print("Value of Variable changed \n");		
+									}
+									else
+									{
+										sig_print("Error changing value for variable: %s\n", variableNameString);
+									}
 								}
 							}
-						}	
+						}
 					}
 				}
 			}
@@ -1293,7 +1350,7 @@ void um_batch_exec()
 		{
 			stopped = TRUE;
 			INIT = TRUE;
-			EXEC_CALL = FALSE;
+			
 			sim_rtc_stop(0);
 		}
 		
@@ -1328,125 +1385,14 @@ int CheckSimStatus(string simCommand)
 	{
 		sim_rtc_start(0);
 		INIT = FALSE;
-		EXEC_CALL = TRUE;
+		
 		ret_val = 1;
 	}
 	return ret_val;
 	
 }
-void KillProcess(string proc)
-{
-	HANDLE hProcessSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPALL, 0);
-
-	PROCESSENTRY32 ProcessEntry = { 0 };
-	ProcessEntry.dwSize = sizeof(ProcessEntry);
-
-	BOOL Return = FALSE;
-Label:Return = Process32First(hProcessSnapShot, &ProcessEntry);
-
-	if (!Return)
-	{
-		goto Label;
-	}
-
-	do
-	{
-		int value = -1;
-		if (proc == "PUBLISHER")
-			value = _tcsicmp(ProcessEntry.szExeFile, _T("InitialPublisher.exe"));
-		if (proc == "SUBSCRIBER")
-			value = _tcsicmp(ProcessEntry.szExeFile, _T("CommandSubscriber.exe"));
-		//replace the taskmgr.exe to the process u want to remove.
-		if (value == 0)
-		{
-			HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, ProcessEntry.th32ProcessID);
-			TerminateProcess(hProcess, 0);
-			CloseHandle(hProcess);
-		}
-
-	} while (Process32Next(hProcessSnapShot, &ProcessEntry));
-
-	CloseHandle(hProcessSnapShot);
-}
-BOOL StartProcess(DWORD & exitCode,string proc )
-{
-	
-	KillProcess(proc);
-	
-
-	//CString cmdLine = "\"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\subscriber\\publisher.exe\" -DCPSConfigFile \"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\subscriber\\rtps.ini\"";
-	string maker = "";
-	CString currentDir;
-
-	if (proc == "PUBLISHER")
-	{
-
-		maker = "\"" + pubpart + "\"" + " -DCPSConfigFile rtps.ini";
-		currentDir = pubpart.substr(0, pubpart.find_last_of("\\")).c_str();
-	}
-	if (proc == "SUBSCRIBER")
-	{
-		maker = "\"" + subpart + "\"" + " -DCPSConfigFile rtps.ini";
-		currentDir = subpart.substr(0, subpart.find_last_of("\\")).c_str();
-	}
-
-	CString cmdLine = maker.c_str();
-	PROCESS_INFORMATION processInformation = { 0 };
-	STARTUPINFO startupInfo = { 0 };
-	startupInfo.cb = sizeof(startupInfo);
-	int nStrBuffer = cmdLine.GetLength() + 50;
 
 
-	// Create the process
-	
-	BOOL result = CreateProcess(NULL, cmdLine.GetBuffer(nStrBuffer),
-		NULL, NULL, FALSE,
-		NORMAL_PRIORITY_CLASS | CREATE_NO_WINDOW,
-		NULL, currentDir, &startupInfo, &processInformation);
-	cmdLine.ReleaseBuffer();
-
-
-	if (!result)
-	{
-		return FALSE;
-	}
-	else
-	{
-		if (proc == "PUBLISHER")
-		{
-			sig_print("Publisher started, Waiting for subscriber acknowledgemnt (timeout in 30 seconds) \n");
-			WaitForSingleObject(processInformation.hProcess, 30000);
-		}
-		if (proc == "SUBSCRIBER")
-		{
-			sig_print("Starting subscriber now");
-			WaitForSingleObject(processInformation.hProcess, 0);
-		}
-		
-		// Successfully created the process.  Wait for it to finish.
-
-		// Get the exit code.
-		result = GetExitCodeProcess(processInformation.hProcess, &exitCode);
-		sig_print("status code %d \n", exitCode);
-		
-		// Close the handles.
-		CloseHandle(processInformation.hProcess);
-		CloseHandle(processInformation.hThread);
-
-		if (!result)
-		{
-			// Could not get exit code.
-			sig_print("Status code %d \n", exitCode);
-			if (proc=="PUBLISHER" && exitCode == 259)
-				KillProcess(proc);
-			return FALSE;
-		}
-
-
-		// We succeeded.
-		return TRUE;
-	}
-}
 
 int UpdateVariableValue(simValue*& local, string varValue)
 {
@@ -1541,38 +1487,38 @@ void um_tmpl_daemon()
 /*-----------------------------------------------------------------------*/
 void um_tmpl_background()
 {
-	if (INIT)
-	{
-		
-		DWORD ecode;
-		BOOL succ = StartProcess(ecode, "PUBLISHER");
-		if (ecode == 0)
-		{
-			sig_print("Data transmission successful \n");
-			DWORD pcode = -1;
-			BOOL succ = StartProcess(pcode, "SUBSCRIBER");
-			if (pcode == 0 || pcode == 259)
-			{
-				sig_print("Subscriber started successfully \n");
-				EXEC_CALL = TRUE;
-				INIT = FALSE;
-			}
-			else
-			{
-				sig_print("Warning! Subscriber not started - please start subscriber manually \n");
-			}
-		}
-		else
-		{
-			if (ecode == 259)
-			{
-				sig_print("Subscriber not found. \n");
-			}
-			sig_print("Publisher failed! Ending RTC to avoid standalone play \n");
+	//if (INIT)
+	//{
+	//	
+	//	DWORD ecode;
+	//	BOOL succ = StartProcess(ecode, "PUBLISHER");
+	//	if (ecode == 0)
+	//	{
+	//		sig_print("Data transmission successful \n");
+	//		DWORD pcode = -1;
+	//		BOOL succ = StartProcess(pcode, "SUBSCRIBER");
+	//		if (pcode == 0 || pcode == 259)
+	//		{
+	//			sig_print("Subscriber started successfully \n");
+	//			EXEC_CALL = TRUE;
+	//			INIT = FALSE;
+	//		}
+	//		else
+	//		{
+	//			sig_print("Warning! Subscriber not started - please start subscriber manually \n");
+	//		}
+	//	}
+	//	else
+	//	{
+	//		if (ecode == 259)
+	//		{
+	//			sig_print("Subscriber not found. \n");
+	//		}
+	//		sig_print("Publisher failed! Ending RTC to avoid standalone play \n");
 
-			stopped = TRUE;
-			INIT = TRUE;
-			sim_rtc_stop(0);
-		}
-	}
+	//		stopped = TRUE;
+	//		INIT = TRUE;
+	//		sim_rtc_stop(0);
+	//	}
+	//}
 }

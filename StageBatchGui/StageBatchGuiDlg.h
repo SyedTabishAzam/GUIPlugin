@@ -88,6 +88,7 @@ public:
    ///
    /// @remarks This method is thread-safe.
    sqxVoid vAppendOutputLine(const sqxWChar* a_pLine);
+   sqxVoid vAppendServerLine(const sqxWChar* a_pLine);
 
 private:
    //==========================================================================
@@ -99,7 +100,7 @@ private:
    sqxBool CheckAttackers();
    sqxBool CheckCCC();
    sqxBool CheckDefenders();
-
+   sqxVoid UpdateConnections(int& initial, int final, std::string type);
    /// @brief Enables or disables all controls used to edit the runs.
    sqxVoid vEnableRunEditControls(sqxBool a_Enable);
 
@@ -139,10 +140,10 @@ private:
    afx_msg void OnBnClickedPublisherBrowse();
    afx_msg void OnBnClickedSubscriberBrowse();
    afx_msg void OnRunSelectedButtonClicked();
-   afx_msg void OnRunAllButtonClicked();
+ 
    afx_msg void OnCancelRunButtonClicked();
    afx_msg LRESULT OnAppendOutputLine(WPARAM wParam, LPARAM lParam);
-
+   afx_msg LRESULT OnAppendServerLine(WPARAM wParam, LPARAM lParam);
    //==========================================================================
    // P R I V A T E   F I E L D S
    //==========================================================================
@@ -160,11 +161,15 @@ private:
    CEdit StopTimeEdit;
    CListBox RunsListBox;
    CListBox ConnectionsCCC;
+   CListBox ConnectionsDef;
+   CListBox ConnectionsAtt;
    CEdit OutputEdit;
+   CEdit ServerEdit;
    CButton CancelRunButton;
 
    int totalCrisisConnection= 0;
-   
+   int totalDefenders = 0;
+   int totalAttackers = 0;
 
 
 	

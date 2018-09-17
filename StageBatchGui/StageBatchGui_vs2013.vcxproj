@@ -170,6 +170,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ProcessHandle.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="StageBatchGui.cpp" />
     <ClCompile Include="StageBatchGuiControl.cpp" />
     <ClCompile Include="StageBatchGuiDlg.cpp" />
@@ -180,6 +183,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ProcessHandle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StageBatchGui.h" />
     <ClInclude Include="StageBatchGuiControl.h" />

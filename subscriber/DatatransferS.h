@@ -26,10 +26,10 @@
  **/
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:461
+// be\be_codegen.cpp:461
 
-#ifndef _TAO_IDL_DATATRANSFERS_8MSDDR_H_
-#define _TAO_IDL_DATATRANSFERS_8MSDDR_H_
+#ifndef _TAO_IDL_DATATRANSFERS_WXZVGJ_H_
+#define _TAO_IDL_DATATRANSFERS_WXZVGJ_H_
 
 #include /**/ "ace/pre.h"
 
@@ -46,7 +46,7 @@
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:68
+// be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -56,7 +56,7 @@ namespace TAO
 {
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:947
+  // be\be_visitor_arg_traits.cpp:947
 
   template<>
   class SArg_Traits< ::Datatransfer::Variables>
@@ -74,14 +74,14 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_sh.cpp:38
+// be\be_visitor_module\module_sh.cpp:38
 
 namespace POA_Datatransfer
 {
   
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_sh.cpp:69
+// be\be_visitor_module\module_sh.cpp:69
 
 } // module Datatransfer
 

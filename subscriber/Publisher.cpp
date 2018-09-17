@@ -195,6 +195,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
     }
 
     //ws->detach_condition(condition);
+	remove(SERVER_DATA.c_str());
 	cout << "Server Started! Transfering server data on loop" << endl;
 	
 	while (true)
@@ -353,7 +354,8 @@ vector<tuple<string, string, string,int >> ParseVariableFile()
 		circular.push_back(make_tuple(entityname, variableNameString, variableTypeString, varCount));
 		entities = entities->NextSibling();
 	}
-	
+	//END OF ENTITIES
+	circular.push_back(make_tuple("EOE", "NULL", "NULL", 0));
 	return circular;
 }
 

@@ -3,7 +3,7 @@
 REM Not to call this setup command file more than one time
 if DEFINED STAGE_DEV_SETUP_WINDOWS (
 call start_batch_gui.cmd
-start stagesm -S -A -l GUIScenerio.scenerio
+start stagesm -S -A -l FaisalTest.scenerio
 goto _END
 )
 

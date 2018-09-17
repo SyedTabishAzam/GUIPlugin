@@ -29,7 +29,7 @@
 
 #include "StageBatchGuiDlg.h"
 #include "StageBatchGuiControl.h"
-
+#include "ProcessHandle.h"
 #include <sqxOSSystem.h>
 #include <fstream>
 #include <sig_function.h>
@@ -58,10 +58,10 @@ static const int s_RunEditControlIDs[] =
    IDC_DATABASE_BROWSE_BUTTON,
    IDC_SCENARIO_EDIT,
    IDC_SCENARIO_BROWSE_BUTTON,
-
+   IDC_RUN_SELECTED_BUTTON,
    IDC_STOP_TIME_CHECK,
    IDC_STOP_TIME_EDIT,
-
+   
    IDC_PUBLISHERPATH_EDIT,
    IDC_PUBLISHER_BROWSE,
    IDC_SUBSCRIBERPATH_EDIT,
@@ -81,14 +81,14 @@ static const int s_RunListControlIDs[] =
    IDC_MOVE_RUN_UP_BUTTON,
    IDC_MOVE_RUN_DOWN_BUTTON,
    IDC_RUN_SELECTED_BUTTON,
-   IDC_RUN_ALL_BUTTON
+   
 };
 
 static const int s_RunListControlCount =
    sizeof(s_RunListControlIDs) / sizeof(s_RunListControlIDs[0]);
 
 static const int WM_APPEND_OUTPUT_LINE = WM_USER + 1;
-
+static const int WM_APPEND_SERVER_LINE = WM_USER + 2;
 //=============================================================================
 // L O C A L   F U N C T I O N S
 //=============================================================================
@@ -136,6 +136,12 @@ sqxVoid CStageBatchGuiDlg::vAppendOutputLine(const sqxWChar* a_pLine)
       reinterpret_cast<WPARAM>(a_pLine), 0);
 }
 
+sqxVoid CStageBatchGuiDlg::vAppendServerLine(const sqxWChar* a_pLine)
+{
+	::SendMessageW(WindowHandle, WM_APPEND_SERVER_LINE,
+		reinterpret_cast<WPARAM>(a_pLine), 0);
+}
+
 //=============================================================================
 // M F C   G E N E R A T E D   C O D E
 //=============================================================================
@@ -150,7 +156,10 @@ void CStageBatchGuiDlg::DoDataExchange(CDataExchange* pDX)
    DDX_Control(pDX, IDC_STOP_TIME_EDIT, StopTimeEdit);
    DDX_Control(pDX, IDC_RUN_LIST, RunsListBox);
    DDX_Control(pDX, IDC_LIST2, ConnectionsCCC);
+   DDX_Control(pDX, IDC_LIST1, ConnectionsDef);
+   DDX_Control(pDX, IDC_LIST3, ConnectionsAtt);
    DDX_Control(pDX, IDC_OUTPUT_EDIT, OutputEdit);
+   DDX_Control(pDX, IDC_OUTPUT_EDIT2, ServerEdit);
    DDX_Control(pDX, IDC_CANCEL_RUN_BUTTON, CancelRunButton);
    DDX_Control(pDX, IDC_PUBLISHERPATH_EDIT, PublisherPathEdit);
    DDX_Control(pDX, IDC_SUBSCRIBERPATH_EDIT, SubscriberPathEdit);
@@ -172,8 +181,9 @@ BEGIN_MESSAGE_MAP(CStageBatchGuiDlg, CDialog)
    ON_BN_CLICKED(IDC_STOP_TIME_CHECK, &CStageBatchGuiDlg::OnStopTimeCheckStateChanged)
   
    ON_BN_CLICKED(IDC_RUN_SELECTED_BUTTON, &CStageBatchGuiDlg::OnRunSelectedButtonClicked)
-   ON_BN_CLICKED(IDC_RUN_ALL_BUTTON, &CStageBatchGuiDlg::OnRunAllButtonClicked)
+ 
    ON_MESSAGE(WM_APPEND_OUTPUT_LINE, OnAppendOutputLine)
+   ON_MESSAGE(WM_APPEND_SERVER_LINE, OnAppendServerLine)
    ON_BN_CLICKED(IDC_CANCEL_RUN_BUTTON, &CStageBatchGuiDlg::OnCancelRunButtonClicked)
    ON_BN_CLICKED(IDC_PUBLISHER_BROWSE, &CStageBatchGuiDlg::OnBnClickedPublisherBrowse)
    ON_BN_CLICKED(IDC_SUBSCRIBER_BROWSE, &CStageBatchGuiDlg::OnBnClickedSubscriberBrowse)
@@ -405,6 +415,7 @@ sqxVoid CStageBatchGuiDlg::vExecuteRuns(sqxBool a_All)
    vEnableRunEditControls(SQX_FALSE);
    vEnableRunListControls(SQX_FALSE);
    OutputEdit.SetWindowTextW(L"");
+   ServerEdit.SetWindowTextW(L"");
    CancelRunButton.EnableWindow(TRUE);
    
    // Begin the asynchronous execution
@@ -482,37 +493,37 @@ void CStageBatchGuiDlg::KillProcess()
 //=============================================================================
 void CStageBatchGuiDlg::OnSelectedRunChanged()
 {
-   int _NewSelectionIndex = RunsListBox.GetCurSel();
-   if (_NewSelectionIndex == SelectedRunIndex) return;
+	int _NewSelectionIndex = RunsListBox.GetCurSel();
+	if (_NewSelectionIndex == SelectedRunIndex) return;
 
-   if (SelectedRunIndex != LB_ERR)
-      vUpdateRunFromControls(*rControl.pGetRunAt(SelectedRunIndex));
+	if (SelectedRunIndex != LB_ERR)
+		vUpdateRunFromControls(*rControl.pGetRunAt(SelectedRunIndex));
 
-   SelectedRunIndex = _NewSelectionIndex;
+	SelectedRunIndex = _NewSelectionIndex;
 
-   vEnableRunEditControls(SelectedRunIndex != LB_ERR);
-   if (SelectedRunIndex != LB_ERR)
-      vUpdateControlsFromRun(*rControl.pGetRunAt(SelectedRunIndex));
+	vEnableRunEditControls(SelectedRunIndex != LB_ERR);
+	if (SelectedRunIndex != LB_ERR)
+		vUpdateControlsFromRun(*rControl.pGetRunAt(SelectedRunIndex));
 }
 
 void CStageBatchGuiDlg::OnAddRunButtonClicked()
 {
-   rControl.vAddRun();
+	rControl.vAddRun();
 
-   SimulationRun& _rNewRun = *rControl.pGetRunAt(rControl.GetRunCount() - 1);
-   if (SelectedRunIndex != LB_ERR)
-   {
-      // If there is a selection, make the new run a clone of the current 
-      // one, except for the name.
-      SimulationRun& _rSelectedRun = *rControl.pGetRunAt(SelectedRunIndex);
-      vUpdateRunFromControls(_rSelectedRun);
+	SimulationRun& _rNewRun = *rControl.pGetRunAt(rControl.GetRunCount() - 1);
+	if (SelectedRunIndex != LB_ERR)
+	{
+		// If there is a selection, make the new run a clone of the current 
+		// one, except for the name.
+		SimulationRun& _rSelectedRun = *rControl.pGetRunAt(SelectedRunIndex);
+		vUpdateRunFromControls(_rSelectedRun);
 
-      std::wstring _NewRunName = _rNewRun.Name;
-      _rNewRun = _rSelectedRun;
-      _rNewRun.Name = _NewRunName;
-   }
+		std::wstring _NewRunName = _rNewRun.Name;
+		_rNewRun = _rSelectedRun;
+		_rNewRun.Name = _NewRunName;
+	}
 
-   RunsListBox.AddString(_rNewRun.Name.c_str());
+	RunsListBox.AddString(_rNewRun.Name.c_str());
    
 }
 
@@ -604,10 +615,7 @@ void CStageBatchGuiDlg::OnRunSelectedButtonClicked()
 	DeleteEntityData();
 }
 
-void CStageBatchGuiDlg::OnRunAllButtonClicked()
-{
-   vExecuteRuns(SQX_TRUE);
-}
+
 
 void CStageBatchGuiDlg::OnCancelRunButtonClicked()
 {
@@ -667,6 +675,21 @@ LRESULT CStageBatchGuiDlg::OnAppendOutputLine(WPARAM wParam, LPARAM)
    return 0;
 }
 
+LRESULT CStageBatchGuiDlg::OnAppendServerLine(WPARAM wParam, LPARAM)
+{
+	// Append text to the end of the output window
+	int _Length = ServerEdit.GetWindowTextLength();
+	ServerEdit.SetSel(_Length, _Length);
+	ServerEdit.ReplaceSel(reinterpret_cast<const sqxWChar*>(wParam));
+
+	// Append a line feed
+	_Length = ServerEdit.GetWindowTextLength();
+	ServerEdit.SetSel(_Length, _Length);
+	ServerEdit.ReplaceSel(_T("\r\n"));
+
+	return 0;
+}
+
 
 void CStageBatchGuiDlg::OnBnClickedPublisherBrowse()
 {
@@ -700,23 +723,34 @@ void CStageBatchGuiDlg::OnEnChangeOutputEdit()
 void CStageBatchGuiDlg::OnBnClickedButton1()
 {
 	vStartServer();
-	
-	
-	
+
 }
 
 sqxVoid CStageBatchGuiDlg::vStartServer()
 {
+	ProcessHandle *pHandle = new ProcessHandle();
+	
+	CWinThread *m_pPointerToThread;
+	DWORD exitCode;
+	if (pHandle->StartProcess(exitCode,"PUBLISHER"))
+	{
+		if (pHandle->StartProcess(exitCode,"SUBSCRIBER"))
+		{
+			m_pPointerToThread = AfxBeginThread(ServerBegin, static_cast<LPVOID>(this));
+		}
+	}
 
-	CWinThread *m_pPointerToThread = AfxBeginThread(ServerBegin, static_cast<LPVOID>(this));
+
 	if (!m_pPointerToThread)
-		vAppendOutputLine(L"Server failed to start");
+		vAppendServerLine(L"Server failed to start");
 	else
 	{
-		vAppendOutputLine(L"Server Started");
+		vAppendServerLine(L"Server Started");
 	}
 
 }
+
+
 
 
 
@@ -757,43 +791,51 @@ sqxBool CStageBatchGuiDlg::CheckCCC()
 
 	if (fs.fail())
 	{
-		vAppendOutputLine(L"Waiting for connections..");
+		vAppendServerLine(L"Waiting for connections..");
 	}
 	else
 	{
 		
-		int ccc;
-		fs >> ccc;
-		
-		
-		if (totalCrisisConnection < ccc)
+		int currentCrisis = 0;
+		int currentDefenders = 0;
+		int currentAttackers = 0;
+		string line;
+		while (getline(fs, line))
 		{
 			
-			char buffer[50];
-			sprintf(buffer, "CCC %d joined the server", ccc);
-			CString str(buffer);
-			vAppendOutputLine(str);
 
-			sprintf(buffer, "CCC %d", ccc);
-			CString str2(buffer);
-			ConnectionsCCC.AddString(str2);
-			totalCrisisConnection = ccc;
-			return SQX_TRUE;
-		}
-		else if (totalCrisisConnection > ccc)
-		{
-			
-			char buffer[50];
-			sprintf(buffer, "CCC %d left the server", totalCrisisConnection);
-			CString str(buffer);
-			vAppendOutputLine(str);
+			CString str(line.c_str());
 
+			if (line.find("CCC") != std::string::npos)
+			{
+				currentCrisis++;
+				
+			}
+			if (line.find("ATTACKER") != std::string::npos)
+			{
+				currentAttackers++;
+				
+			}
+			if (line.find("DEFENDER") != std::string::npos)
+			{
+				currentDefenders++;
+				
+			}
 			
-			ConnectionsCCC.DeleteString(static_cast<UINT>(ccc));
-			totalCrisisConnection = ccc;
-			return SQX_TRUE;
 		}
+		UpdateConnections(totalCrisisConnection, currentCrisis, "CCC");
+		UpdateConnections(totalAttackers, currentAttackers, "ATTACKER");
+		UpdateConnections(totalDefenders, currentDefenders, "DEFENDER");
+		
+		
+		
+		
+		
+
+
+
 		fs.close();
+		
 	}
 	
 
@@ -803,6 +845,64 @@ sqxBool CStageBatchGuiDlg::CheckCCC()
 	
 	return SQX_FALSE;
 }
+
+sqxVoid CStageBatchGuiDlg::UpdateConnections(int & initial, int final, std::string type)
+{
+	while (initial != final)
+	{
+		if (initial < final)
+		{
+			initial++;
+			char buffer[50];
+			sprintf(buffer, "%s %d joined the server", type, initial);
+			CString str(buffer);
+			vAppendServerLine(str);
+
+			sprintf(buffer, "%s %d", type, initial);
+			CString str2(buffer);
+
+			if (type == "CCC")
+				ConnectionsCCC.AddString(str2);
+			else if (type == "DEFENDER")
+				ConnectionsDef.AddString(str2);
+			else if (type == "ATTACKER")
+				ConnectionsAtt.AddString(str2);
+			
+		}
+		else if (initial > final)
+		{
+			char buffer[50];
+			sprintf(buffer, "%s %d left the server", type, initial);
+			CString str(buffer);
+			vAppendServerLine(str);
+
+			if (type == "CCC")
+				ConnectionsCCC.DeleteString(static_cast<UINT>(final));
+			else if (type == "DEFENDER")
+				ConnectionsDef.DeleteString(static_cast<UINT>(final));
+			else if (type == "ATTACKER")
+				ConnectionsAtt.DeleteString(static_cast<UINT>(final));
+			initial--;
+		}
+	}
+	/*if (initial < final)
+	{
+
+		
+		
+		
+		
+	}
+	else if (initial > final)
+	{
+
+		
+		
+	}
+	initial = final;*/
+}
+
+
 
 sqxBool CStageBatchGuiDlg::CheckDefenders()
 {

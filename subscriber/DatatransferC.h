@@ -26,10 +26,10 @@
  **/
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:152
+// be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_DATATRANSFERC_8MSDDR_H_
-#define _TAO_IDL_DATATRANSFERC_8MSDDR_H_
+#ifndef _TAO_IDL_DATATRANSFERC_PBRMCS_H_
+#define _TAO_IDL_DATATRANSFERC_PBRMCS_H_
 
 #include /**/ "ace/pre.h"
 
@@ -65,13 +65,13 @@
 #define TAO_EXPORT_MACRO 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:38
+// be\be_visitor_module\module_ch.cpp:38
 
 namespace Datatransfer
 {
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_type.cpp:261
+  // be\be_type.cpp:261
 
   struct Variables;
 
@@ -88,13 +88,13 @@ namespace Datatransfer
     Variables_out;
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_structure\structure_ch.cpp:51
+  // be\be_visitor_structure\structure_ch.cpp:51
 
   struct  Variables
   {
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+    // be\be_type.cpp:307
 
     
     typedef Variables_var _var_type;
@@ -108,12 +108,12 @@ namespace Datatransfer
   };
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:67
+// be\be_visitor_module\module_ch.cpp:67
 
 } // module Datatransfer
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:68
+// be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -123,7 +123,7 @@ namespace TAO
 {
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:947
+  // be\be_visitor_arg_traits.cpp:947
 
   template<>
   class Arg_Traits< ::Datatransfer::Variables>
@@ -141,7 +141,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_traits.cpp:62
+// be\be_visitor_traits.cpp:62
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -154,7 +154,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_structure\cdr_op_ch.cpp:46
+// be\be_visitor_structure\cdr_op_ch.cpp:46
 
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
@@ -167,7 +167,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:1703
+// be\be_codegen.cpp:1703
 #if defined (__ACE_INLINE__)
 #include "DatatransferC.inl"
 #endif /* defined INLINE */

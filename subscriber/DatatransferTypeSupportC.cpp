@@ -26,7 +26,7 @@
  **/
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:376
+// be\be_codegen.cpp:376
 
 
 #include "DatatransferTypeSupportC.h"
@@ -38,7 +38,7 @@
 #endif /* !defined INLINE */
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_cs.cpp:51
+// be\be_visitor_interface\interface_cs.cpp:51
 
 // Traits specializations for Datatransfer::VariablesTypeSupport.
 
@@ -163,7 +163,7 @@ Datatransfer::VariablesTypeSupport::marshal (TAO_OutputCDR & /* cdr */)
 }
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_cs.cpp:51
+// be\be_visitor_interface\interface_cs.cpp:51
 
 // Traits specializations for Datatransfer::VariablesDataWriter.
 
@@ -288,7 +288,7 @@ Datatransfer::VariablesDataWriter::marshal (TAO_OutputCDR & /* cdr */)
 }
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_cs.cpp:51
+// be\be_visitor_interface\interface_cs.cpp:51
 
 // Traits specializations for Datatransfer::VariablesDataReader.
 

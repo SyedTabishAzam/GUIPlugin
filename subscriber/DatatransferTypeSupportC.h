@@ -26,10 +26,10 @@
  **/
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:152
+// be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_DATATRANSFERTYPESUPPORTC_IHN5OL_H_
-#define _TAO_IDL_DATATRANSFERTYPESUPPORTC_IHN5OL_H_
+#ifndef _TAO_IDL_DATATRANSFERTYPESUPPORTC_TL3XFO_H_
+#define _TAO_IDL_DATATRANSFERTYPESUPPORTC_TL3XFO_H_
 
 #include /**/ "ace/pre.h"
 
@@ -79,19 +79,19 @@
 #define TAO_EXPORT_MACRO 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:38
+// be\be_visitor_module\module_ch.cpp:38
 
 namespace Datatransfer
 {
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_sequence\sequence_ch.cpp:102
+  // be\be_visitor_sequence\sequence_ch.cpp:102
 
   typedef ::TAO::DCPS::ZeroCopyDataSeq< Datatransfer::Variables, DCPS_ZERO_COPY_SEQ_DEFAULT_SIZE> VariablesSeq;
   
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_interface.cpp:751
+  // be\be_interface.cpp:751
 
 #if !defined (_DATATRANSFER_VARIABLESTYPESUPPORT__VAR_OUT_CH_)
 #define _DATATRANSFER_VARIABLESTYPESUPPORT__VAR_OUT_CH_
@@ -114,7 +114,7 @@ namespace Datatransfer
 #endif /* end #if !defined */
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:43
+  // be\be_visitor_interface\interface_ch.cpp:43
 
   class  VariablesTypeSupport
     : public virtual ::OpenDDS::DCPS::TypeSupport
@@ -123,7 +123,7 @@ namespace Datatransfer
   public:
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+    // be\be_type.cpp:307
 
     typedef VariablesTypeSupport_ptr _ptr_type;
     typedef VariablesTypeSupport_var _var_type;
@@ -139,7 +139,7 @@ namespace Datatransfer
     static VariablesTypeSupport_ptr _nil (void);
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:140
+    // be\be_visitor_interface\interface_ch.cpp:140
 
     virtual ::CORBA::Boolean _is_a (const char *type_id);
     virtual const char* _interface_repository_id (void) const;
@@ -161,7 +161,7 @@ namespace Datatransfer
   };
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_interface.cpp:751
+  // be\be_interface.cpp:751
 
 #if !defined (_DATATRANSFER_VARIABLESDATAWRITER__VAR_OUT_CH_)
 #define _DATATRANSFER_VARIABLESDATAWRITER__VAR_OUT_CH_
@@ -184,7 +184,7 @@ namespace Datatransfer
 #endif /* end #if !defined */
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:43
+  // be\be_visitor_interface\interface_ch.cpp:43
 
   class  VariablesDataWriter
     : public virtual ::DDS::DataWriter
@@ -193,7 +193,7 @@ namespace Datatransfer
   public:
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+    // be\be_type.cpp:307
 
     typedef VariablesDataWriter_ptr _ptr_type;
     typedef VariablesDataWriter_var _var_type;
@@ -250,7 +250,7 @@ namespace Datatransfer
       const ::Datatransfer::Variables & instance_data) = 0;
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:140
+    // be\be_visitor_interface\interface_ch.cpp:140
 
     virtual ::CORBA::Boolean _is_a (const char *type_id);
     virtual const char* _interface_repository_id (void) const;
@@ -272,7 +272,7 @@ namespace Datatransfer
   };
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_interface.cpp:751
+  // be\be_interface.cpp:751
 
 #if !defined (_DATATRANSFER_VARIABLESDATAREADER__VAR_OUT_CH_)
 #define _DATATRANSFER_VARIABLESDATAREADER__VAR_OUT_CH_
@@ -295,7 +295,7 @@ namespace Datatransfer
 #endif /* end #if !defined */
 
   // TAO_IDL - Generated from
-  // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:43
+  // be\be_visitor_interface\interface_ch.cpp:43
 
   class  VariablesDataReader
     : public virtual ::OpenDDS::DCPS::DataReaderEx
@@ -304,7 +304,7 @@ namespace Datatransfer
   public:
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+    // be\be_type.cpp:307
 
     typedef VariablesDataReader_ptr _ptr_type;
     typedef VariablesDataReader_var _var_type;
@@ -431,7 +431,7 @@ namespace Datatransfer
       const ::Datatransfer::Variables & instance_data) = 0;
 
     // TAO_IDL - Generated from
-    // s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:140
+    // be\be_visitor_interface\interface_ch.cpp:140
 
     virtual ::CORBA::Boolean _is_a (const char *type_id);
     virtual const char* _interface_repository_id (void) const;
@@ -453,12 +453,12 @@ namespace Datatransfer
   };
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:67
+// be\be_visitor_module\module_ch.cpp:67
 
 } // module Datatransfer
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:68
+// be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -473,7 +473,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_traits.cpp:62
+// be\be_visitor_traits.cpp:62
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -540,7 +540,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:1703
+// be\be_codegen.cpp:1703
 #if defined (__ACE_INLINE__)
 #include "DatatransferTypeSupportC.inl"
 #endif /* defined INLINE */

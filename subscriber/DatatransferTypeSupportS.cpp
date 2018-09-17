@@ -27,10 +27,10 @@
 
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:652
+// be\be_codegen.cpp:652
 
-#ifndef _TAO_IDL_DATATRANSFERTYPESUPPORTS_61SDZT_CPP_
-#define _TAO_IDL_DATATRANSFERTYPESUPPORTS_61SDZT_CPP_
+#ifndef _TAO_IDL_DATATRANSFERTYPESUPPORTS_EIC9QA_CPP_
+#define _TAO_IDL_DATATRANSFERTYPESUPPORTS_EIC9QA_CPP_
 
 
 #include "DatatransferTypeSupportS.h"

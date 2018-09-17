@@ -127,7 +127,7 @@ sqxVoid StageBatchGuiControl::vAddRun()
    _pRun->Name = L"Run #";
    _pRun->Name += g_pOSSystem->AnsiToUnicode(_Number);
    _pRun->DatabaseFilePath = L"S:\\Presagis\\Suite16\\STAGE\\data\\sm_db\\default.xml";
-   _pRun->ScenarioFilePath = L"S:\\Presagis\\Suite16\\STAGE\\data\\sm_db\\default\\scenario\\GUIScenerio.scenario";
+   _pRun->ScenarioFilePath = L"S:\\Presagis\\Suite16\\STAGE\\data\\sm_db\\default\\scenario\\FaisalTest.scenario";
    _pRun->InitPublisherPath = L"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\EXECUTABLES\\InitialPublisher.exe";
    _pRun->CommandSubscriberPath = L"S:\\Presagis\\Suite16\\STAGE\\GUIPlugin\\EXECUTABLES\\CommandSubscriber.exe";
    Runs.push_back(_pRun);

@@ -96,7 +96,7 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)StageBatchLib;$(STAGE_GEN_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Boost\boost_1_68_0;$(SolutionDir)StageBatchLib;$(STAGE_GEN_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -108,7 +108,7 @@
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
-      <AdditionalLibraryDirectories>S:\Presagis\Suite16\STAGE\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Presagis\Suite16\STAGE\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>NotSet</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -133,6 +133,7 @@ taskkill /f /fi "imagename eq StageBatchGui*"</Command>
     <ClCompile Include="um_tbl.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TabishUtility.h" />
     <ClInclude Include="tinyxml2.h" />
     <ClInclude Include="um_batch.h" />
   </ItemGroup>

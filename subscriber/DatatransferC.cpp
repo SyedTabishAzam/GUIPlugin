@@ -26,7 +26,7 @@
  **/
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:376
+// be\be_codegen.cpp:376
 
 
 #include "DatatransferC.h"
@@ -37,7 +37,7 @@
 #endif /* !defined INLINE */
 
 // TAO_IDL - Generated from
-// s:\opendds\ace_wrappers\tao\tao_idl\be\be_visitor_structure\cdr_op_cs.cpp:52
+// be\be_visitor_structure\cdr_op_cs.cpp:52
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 

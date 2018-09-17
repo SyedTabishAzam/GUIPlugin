@@ -23,6 +23,7 @@
 #define IDC_MOVE_RUN_UP_BUTTON          1024
 #define IDC_MOVE_RUN_DOWN_BUTTON        1025
 #define IDC_CANCEL_RUN_BUTTON           1026
+#define IDC_OUTPUT_EDIT2                1028
 #define IDC_PUBLISHERPATH_EDIT          1043
 #define IDC_SUBSCRIBERPATH_EDIT         1044
 #define ID_CTLCOLOR                     1045
